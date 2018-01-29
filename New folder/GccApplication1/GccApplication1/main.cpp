@@ -1,12 +1,9 @@
-#ifndef IO_H
 #define F_CPU 16000000UL
-#endif
+
 // include the library code:
 #include "lcd.h"
 #include "uart.h"
 #include "io.h"
-//#include <lcd_h>
-
 
 void mainmenu();
 void  get_info();
@@ -14,16 +11,16 @@ int select_food();
 void selected_food();
 void change_food();
 
-
-
-
 int main() {
 	sei();
 	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
 	// set up the LCD's number of columns and rows:
 	// pinMode(13,OUTPUT);
 	
-	DDRB|= (1<<s_zero) | (1<<s_one) | (1<<s_two);
+	DDRB&= ~(1<<s_zero);
+	DDRB&= ~(1<<s_one);
+   DDRB&= ~(1<<s_two);
+
 
 	lcd_init();
 	mainmenu();
@@ -118,7 +115,7 @@ int select_food()
 			if (display_message1("Save the changes"))
 			{
 				send_info();
-				_delay_ms(180);
+				_delay_ms(DELAY_TIME);
 				return 1;
 			}
 
@@ -140,7 +137,7 @@ int select_food()
 		{
 			if (display_message1("Discard Changes?"))
 			{
-				_delay_ms(180);
+				_delay_ms(DELAY_TIME);
 				return 0;
 			}
 
@@ -160,7 +157,7 @@ int select_food()
 
 
 
-		_delay_ms(180);
+		_delay_ms(DELAY_TIME);
 	}
 
 }
@@ -179,7 +176,7 @@ void selected_food()
 	{
 		if (food[i].num>0)
 		{
-			ar[count]=food[i].id;
+			ar[count]=i;
 			//    lcd_puts(ar[count]);
 			count++;
 		}
@@ -194,7 +191,7 @@ void selected_food()
 			int in=input();
 			if (in == ok)
 			{
-				_delay_ms(180);
+				_delay_ms(DELAY_TIME);
 				//mainmenu();
 				return ;
 			}
@@ -248,7 +245,7 @@ void selected_food()
 			return;
 		}
 
-		_delay_ms(180);
+		_delay_ms(DELAY_TIME);
 	}
 }
 
@@ -287,7 +284,7 @@ void mainmenu()
 		}
 		else if (in==ok)
 		{
-			_delay_ms(180);
+			_delay_ms(DELAY_TIME);
 			if (state==0)
 			{
 				int c=0;
@@ -309,7 +306,7 @@ void mainmenu()
 			}
 
 		}
-		_delay_ms(180);
+		_delay_ms(DELAY_TIME);
 	}
 
 
@@ -435,7 +432,7 @@ void change_food()
 			if (display_message1("Save the changes"))
 			{
 				send_info();
-				_delay_ms(180);
+				_delay_ms(DELAY_TIME);
 				return;
 			}
 
@@ -457,7 +454,7 @@ void change_food()
 		{
 			if (display_message1("Discard Changes?"))
 			{
-				_delay_ms(180);
+				_delay_ms(DELAY_TIME);
 				return ;
 			}
 
@@ -477,7 +474,7 @@ void change_food()
 
 
 
-		_delay_ms(180);
+		_delay_ms(DELAY_TIME);
 	}
 
 }

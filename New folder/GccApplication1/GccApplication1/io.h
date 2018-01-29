@@ -4,9 +4,10 @@
 #ifndef IO_H
 #define F_CPU 16000000UL
 #endif
-#define s_zero 0
-#define s_one 1
-#define s_two 2
+#define s_zero PINB0
+#define s_one PINB1
+#define s_two PINB2
+#define DELAY_TIME 50
 
 #include<avr/io.h>
 #include<util/delay.h>
@@ -24,7 +25,7 @@ extern foods dfood[15];
 void database_init();
  void uart0_gets(char s[]);
 		int uart0_getint();
-			bool digitalRead (int s);
+			int digitalRead (int s);
 int input();
 int display_message1(char const *s);
 void cannot_cancel();

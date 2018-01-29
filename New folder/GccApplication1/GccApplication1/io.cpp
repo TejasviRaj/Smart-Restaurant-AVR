@@ -52,10 +52,9 @@ foods food[15];
 		return ans;
 	}
 	
-	bool digitalRead (int s)
+	int digitalRead (int s)
 	{
-		bool a=bit_is_set(PORTB,s);
-		return a;
+		return (PINB & (1<<s));
 	}
 
     void wait_message()
@@ -120,7 +119,7 @@ foods food[15];
 
      void cannot_cancel()
      {
-		  _delay_ms(180);
+		  _delay_ms(DELAY_TIME);
           lcd_clear();
          lcd_puts(" Cannot Cancel ");
          lcd_setCursor(6,1);
@@ -130,7 +129,7 @@ foods food[15];
              int in=input();
              if (in == ok)
                {
-					_delay_ms(180);
+					_delay_ms(DELAY_TIME);
                  //mainmenu();
                  return ;
                 }
@@ -147,7 +146,7 @@ foods food[15];
 
            lcd_setCursor(12,1);
            lcd_puts("No");
-           _delay_ms(180);
+           _delay_ms(DELAY_TIME);
 
            int state=1;
            while(1)
@@ -173,7 +172,7 @@ foods food[15];
                   else if (in==ok)
                    return state;
 
-                   _delay_ms(180);
+                   _delay_ms(DELAY_TIME);
                }
 
        }
