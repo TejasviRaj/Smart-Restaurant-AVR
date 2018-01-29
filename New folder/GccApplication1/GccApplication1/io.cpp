@@ -1,9 +1,14 @@
+#ifndef IO_H
+#define F_CPU 16000000UL
+#endif
+
 extern "C"
 #include "io.h"
 #include "uart.h"
-#define s0 0
-#define s1 1
-#define s2 2
+#include "lcd.h"
+#include<util/delay.h>
+
+
 
 
 
@@ -11,30 +16,34 @@ int up=001,down=10,right=11,left=100,del=101,ok=110,back=111;
 int num_of_food;
 int dnum_of_food;
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+void lcd_setCursor(int y,int x)
+{
+	lcd_gotoxy(x-1,y-1);
+}
+
 foods food[15];
 
-	char* uart0_gets()
+	void uart0_gets(char s[])
 	{
 		char return_char[100];
 		int index=0;
 			do
 			{
 				while (!uart0_available()) {}
-				return_char[index]=uart0_putc();
+				return_char[index]=uart0_getc();
 				index++;
 			}
 					while(return_char[index-1] != ' ');
 			return_char[index]='\0';
-			
-			return return_char;
+			strcpy(s,return_char);		
 	}
 	int uart0_getint()
 	{
-		char d=uart0_gets();
+		char d[5];
+		uart0_gets(d);
 		
 		int ans=0;
-		for (i=0;i<strlen(d);i++)
+		for (unsigned int i=0;i<strlen(d);i++)
 		{
 			ans=ans*10+d[i];
 		}
@@ -55,16 +64,16 @@ foods food[15];
    int input()
    {
        int a=0;
-       if (digitalRead(s0))
+       if (digitalRead(s_zero))
          a+=1;
-       if (digitalRead(s1))
+       if (digitalRead(s_one))
          a+=10;
-       if (digitalRead(s2))
+       if (digitalRead(s_two))
          a+=100;
        return(a);
    }
 
-   void main_menu_puts(int first_visit)
+   void main_menu_print(int first_visit)
    {
      lcd_clear();
      lcd_setCursor(0,0);
@@ -82,7 +91,7 @@ foods food[15];
       lcd_puts("Select Food");
    }
 
-   void select_food_puts(int selected_pk)
+   void select_food_print(int selected_pk)
      {
                clear_second_line();
 
@@ -109,7 +118,7 @@ foods food[15];
 
      void cannot_cancel()
      {
-          __delay_ms(180);
+		  _delay_ms(180);
           lcd_clear();
          lcd_puts(" Cannot Cancel ");
          lcd_setCursor(6,1);
@@ -119,7 +128,7 @@ foods food[15];
              int in=input();
              if (in == ok)
                {
-                 __delay_ms(180);
+					_delay_ms(180);
                  //mainmenu();
                  return ;
                 }
@@ -127,7 +136,7 @@ foods food[15];
      }
 
      //confirmation messages
-     int display_message(String s)
+     int display_message1(char const *s)
        {
            lcd_clear();
            lcd_puts(s);
@@ -136,7 +145,7 @@ foods food[15];
 
            lcd_setCursor(12,1);
            lcd_puts("No");
-           __delay_ms(180);
+           _delay_ms(180);
 
            int state=1;
            while(1)
@@ -162,7 +171,7 @@ foods food[15];
                   else if (in==ok)
                    return state;
 
-                   __delay_ms(180);
+                   _delay_ms(180);
                }
 
        }
@@ -174,28 +183,28 @@ void get_info()
 {
 	
   uart0_putc('1');
-  while (!Serial.available()) {}
-  num_of_food=uart0_getint()();
+  while (!(uart0_available()) ) {}
+  num_of_food=uart0_getint();
 //  Serial.puts (num+1);
 
   //Serial.puts(a);
 for (int i=0;i<num_of_food;i++)
 {
     //  Serial.puts("Start");
-    while (!Serial.available()) {}
-      food[i].id=uart0_getint()();
+    while (!uart0_available()) {}
+      food[i].id=uart0_getint();
 
-      while (!Serial.available()) {}
-      food[i].name=uart0_gets();
+      while (!uart0_available()) {}
+      uart0_gets(food[i].name);
 
-      while (!Serial.available()) {}
-      food[i].price=uart0_getint()();
+      while (!uart0_available()) {}
+      food[i].price=uart0_getint();
 
-      while (!Serial.available()) {}
-      food[i].num=uart0_getint()();
+      while (!uart0_available()) {}
+      food[i].num=uart0_getint();
 
-      while (!Serial.available()) {}
-      food[i].p=uart0_getint()();
+      while (!uart0_available()){}
+      food[i].p=uart0_getint();
 
         // Serial.puts("id no ");
         //      Serial.putsln(food[i].id);
@@ -220,11 +229,11 @@ for (int i=0;i<num_of_food;i++)
         {
           for (int i=0;i<num_of_food;i++)
               {
-                Serial_puts("2 ");
+                uart0_puts("2 ");
 				uart0_putint(food[i].id);
-                Serial_putc(' ');
+                uart0_putc(' ');
                 uart0_putint(food[i].num);
-                Serial.putc(' ');
+                uart0_putc(' ');
               }
 
 

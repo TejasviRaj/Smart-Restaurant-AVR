@@ -83,17 +83,17 @@
   <avrgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
-      <Value>io.cpp</Value>
-      <Value>io.h</Value>
-      <Value>lcd.h</Value>
-      <Value>uart.cpp</Value>
-      <Value>uart.h</Value>
+      <Value>libprintf_flt</Value>
+      <Value>libprintf_min</Value>
+      <Value>libscanf_flt</Value>
+      <Value>libscanf_min</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>H:\instruproject\New folder</Value>
       <Value>H:\instruproject\New folder\GccApplication1\GccApplication1</Value>
+      <Value>H:\newinstru\New folder\GccApplication1\GccApplication1</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.assembler.general.IncludePaths>
@@ -150,17 +150,17 @@
   <avrgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
-      <Value>io.cpp</Value>
-      <Value>io.h</Value>
-      <Value>lcd.h</Value>
-      <Value>uart.cpp</Value>
-      <Value>uart.h</Value>
+      <Value>libprintf_flt</Value>
+      <Value>libprintf_min</Value>
+      <Value>libscanf_flt</Value>
+      <Value>libscanf_min</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.libraries.LibrarySearchPaths>
     <ListValues>
       <Value>H:\instruproject\New folder</Value>
       <Value>H:\instruproject\New folder\GccApplication1\GccApplication1</Value>
+      <Value>H:\newinstru\New folder\GccApplication1\GccApplication1</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.assembler.general.IncludePaths>
@@ -173,7 +173,25 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="lcd.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="io.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

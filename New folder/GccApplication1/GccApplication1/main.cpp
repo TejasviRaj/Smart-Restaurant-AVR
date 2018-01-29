@@ -1,4 +1,6 @@
-
+#ifndef IO_H
+#define F_CPU 16000000UL
+#endif
 // include the library code:
 #include "lcd.h"
 #include "uart.h"
@@ -12,18 +14,15 @@ int select_food();
 void selected_food();
 void change_food();
 
-void lcd_setCursor(int y,int x)
-{
-	lcd_gotoxy(x-1,y-1);
-}
 
 
-void main() {
-	uart0_init()
+
+int main() {
+	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
 	// set up the LCD's number of columns and rows:
 	// pinMode(13,OUTPUT);
 	
-	DDRB|= (1<<s0) | (1<<s1) | (1<<s2)
+	DDRB|= (1<<s_zero) | (1<<s_one) | (1<<s_two);
 
 	lcd_init();
 	mainmenu();
@@ -98,7 +97,7 @@ int select_food()
 
 		else if (in==del)
 		{
-			if (display_message("Set the no to 0?"))
+			if (display_message1("Set the no to 0?"))
 			food[selected_pk].num=0;
 
 			lcd_clear();
@@ -115,7 +114,7 @@ int select_food()
 
 		else if (in==ok)
 		{
-			if (display_message("Save the changes"))
+			if (display_message1("Save the changes"))
 			{
 				send_info();
 				_delay_ms(180);
@@ -138,7 +137,7 @@ int select_food()
 
 		else if (in==back)
 		{
-			if (display_message("Discard Changes?"))
+			if (display_message1("Discard Changes?"))
 			{
 				_delay_ms(180);
 				return 0;
@@ -173,7 +172,7 @@ void selected_food()
 	get_info();
 	lcd_clear();
 
-	int *ar=new int[num_of_food];
+	int ar[100];
 	int count=0;
 	for (int i=0;i<num_of_food;i++)
 	{
@@ -298,13 +297,13 @@ void mainmenu()
 				if (c==1)
 				first_visit=1;
 				state=0;
-				main_menu_puts(first_visit);
+				main_menu_print(first_visit);
 			}
 			else
 			//selected_food();
 			{
 				selected_food();
-				main_menu_puts(first_visit);
+				main_menu_print(first_visit);
 				state=0;
 			}
 
@@ -412,7 +411,7 @@ void change_food()
 		{
 			if (food[selected_pk].p==0)
 			{
-				if (display_message("Set the no to 0?"))
+				if (display_message1("Set the no to 0?"))
 				food[selected_pk].num=0;
 			}
 			else
@@ -432,7 +431,7 @@ void change_food()
 
 		else if (in==ok)
 		{
-			if (display_message("Save the changes"))
+			if (display_message1("Save the changes"))
 			{
 				send_info();
 				_delay_ms(180);
@@ -455,7 +454,7 @@ void change_food()
 
 		else if (in==back)
 		{
-			if (display_message("Discard Changes?"))
+			if (display_message1("Discard Changes?"))
 			{
 				_delay_ms(180);
 				return ;

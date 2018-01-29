@@ -11,6 +11,8 @@ int up=001,down=10,right=11,left=100,del=101,ok=110,back=111;
 int num_of_food;
 int dnum_of_food;
 
+     int display_message1(String s);
+
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 foods food[15];
 
