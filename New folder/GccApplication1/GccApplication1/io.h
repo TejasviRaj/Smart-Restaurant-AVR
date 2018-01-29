@@ -11,7 +11,7 @@
 #include<avr/io.h>
 #include<util/delay.h>
 #include<string.h>
-
+#include<avr/interrupt.h>
 
 class foods;
 extern int num_of_food;

@@ -18,6 +18,7 @@ void change_food();
 
 
 int main() {
+	sei();
 	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
 	// set up the LCD's number of columns and rows:
 	// pinMode(13,OUTPUT);

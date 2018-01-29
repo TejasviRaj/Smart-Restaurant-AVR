@@ -16,10 +16,12 @@ int up=001,down=10,right=11,left=100,del=101,ok=110,back=111;
 int num_of_food;
 int dnum_of_food;
 
-void lcd_setCursor(int y,int x)
+void lcd_setCursor(int x,int y)
 {
-	lcd_gotoxy(x-1,y-1);
+	
+	lcd_gotoxy(x,(1-y)+1);
 }
+
 
 foods food[15];
 
@@ -34,7 +36,7 @@ foods food[15];
 				index++;
 			}
 					while(return_char[index-1] != ' ');
-			return_char[index]='\0';
+			return_char[index-1]='\0';
 			strcpy(s,return_char);		
 	}
 	int uart0_getint()
@@ -45,7 +47,7 @@ foods food[15];
 		int ans=0;
 		for (unsigned int i=0;i<strlen(d);i++)
 		{
-			ans=ans*10+d[i];
+			ans=ans*10+(d[i]-'0');
 		}
 		return ans;
 	}
@@ -181,7 +183,7 @@ foods food[15];
 
 void get_info()
 {
-	
+	uart0_flush();
   uart0_putc('1');
   while (!(uart0_available()) ) {}
   num_of_food=uart0_getint();
@@ -191,19 +193,10 @@ void get_info()
 for (int i=0;i<num_of_food;i++)
 {
     //  Serial.puts("Start");
-    while (!uart0_available()) {}
       food[i].id=uart0_getint();
-
-      while (!uart0_available()) {}
       uart0_gets(food[i].name);
-
-      while (!uart0_available()) {}
       food[i].price=uart0_getint();
-
-      while (!uart0_available()) {}
       food[i].num=uart0_getint();
-
-      while (!uart0_available()){}
       food[i].p=uart0_getint();
 
         // Serial.puts("id no ");
