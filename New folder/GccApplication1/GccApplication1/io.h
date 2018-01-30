@@ -8,6 +8,7 @@
 #define s_one PINB1
 #define s_two PINB2
 #define DELAY_TIME 50
+#define DELAY_TIME_ONE 50
 
 #include<avr/io.h>
 #include<util/delay.h>

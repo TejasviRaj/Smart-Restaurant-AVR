@@ -9,97 +9,82 @@ class foods
       String name;
       int price;
       int num;
-      int p;
+      int prepared;
   foods()
   {
   }
-  foods(int id, String name,int price, int num,int p) : id(id),name(name),price(price),num(num),p(p)
+  foods(int id, String name,int price, int num,int prepared) : id(id),name(name),price(price),num(num),prepared(prepared)
    {
 
 
    }
 };
 class foods food[20];
+int num_of_foods;
+int id,num;
 void get_data();
-
+void send_data();
 
 void setup() {
   // initialize both serial ports:
   Serial.begin(9600);
     esp.begin(9600);
     Serial.println("arduino");
-    get_data();
-}
+    food[0]=foods(1,"Momo",100,0,0);
+    food[1]=foods(2,"Chow",200,0,0);
+    food[2]=foods(3,"Dal",300,0,0);
+    num_of_foods=3;
+}   
 
 void loop() {
-    //   while (!Serial.available()) {}
-    // String id1=Serial.readStringUntil(' ');
-    // while (!Serial.available()) {}
-    // String food1=Serial.readStringUntil(' ');
-    // while (!Serial.available()) {}
-    // String price1=Serial.readStringUntil(' ');
-    // while (!Serial.available()) {}
-    // String num_selected=Serial.readStringUntil(' ');
-    // while (!Serial.available()) {}
-    // String prepared1=Serial.readStringUntil(' ');
-    //   Serial.print("id no ");
-    //        Serial.print(id1);
-    //        Serial.print(" food name: ");
-    //        Serial.print(food1);
-    //        Serial.print(" price: ");
-    //        Serial.print(price1);
-    //        Serial.print("total selected ");
-    //        Serial.print(num_selected);
-    //        Serial.print(" prepared: ");
-    //        Serial.print(prepared1);
+     char b=Serial.read();
+      if (b=='1')
+      get_data();
+      else if (b=='2')
+      {
+              char a=Serial.read();
+              id=Serial.parseInt();
+              a=Serial.read();
+              num=Serial.parseInt();
+              a=Serial.read();
+              send_data();
+              
+      }
 }
 
 void get_data()
 {
-  while (!Serial.available()) {}
-  int num=Serial.parseInt();
-  Serial.print (num+1);
-
-  char a =Serial.read();
-  Serial.print(a);
-for (int i=0;i<num;i++)
+  Serial.print(num_of_foods);
+  Serial.print(' ');
+for (int i=0;i<num_of_foods;i++)
 {
-    //  Serial.print("Start");
-    while (!Serial.available()) {}
-      food[i].id=Serial.parseInt();
-      a =Serial.read();
 
-      while (!Serial.available()) {}
-      food[i].name=Serial.readStringUntil(' ');
+        Serial.print(food[i].id);
+                    Serial.print(' ');
 
-      while (!Serial.available()) {}
-      food[i].price=Serial.parseInt();
-      a =Serial.read();
+          // Serial.print(" food name: ");
+           Serial.print(food[i].name);
+                    Serial.print(' ');
 
-      while (!Serial.available()) {}
-      food[i].num=Serial.parseInt();
-      a =Serial.read();
+          // Serial.print(" price: ");
+           Serial.print(food[i].price);
+                    Serial.print(' ');
 
-      while (!Serial.available()) {}
-      food[i].p=Serial.parseInt();
-      a =Serial.read();
+         //  Serial.print("total selected ");
+           Serial.print(food[i].num);
+                    Serial.print(' ');
 
-
-        Serial.print("id no ");
-             Serial.println(food[i].id);
-             Serial.print(" food name: ");
-             Serial.println(food[i].name);
-             Serial.print(" price: ");
-             Serial.println(food[i].price);
-             Serial.print("total selected ");
-             Serial.println(food[i].num);
-             Serial.print(" prepared: ");
-             Serial.println(food[i].p);
-             Serial.println();
+         //  Serial.print(" prepared: ");
+           Serial.print(food[i].prepared);
+                    Serial.print(' ');
 
   }
 
-  Serial.println("Done");
-
-
 }
+
+void send_data()
+{
+    food[id-1].num=num;
+}
+
+

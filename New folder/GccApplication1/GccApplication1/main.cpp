@@ -157,7 +157,7 @@ int select_food()
 
 
 
-		_delay_ms(DELAY_TIME);
+		_delay_ms(DELAY_TIME_ONE);
 	}
 
 }
@@ -245,7 +245,7 @@ void selected_food()
 			return;
 		}
 
-		_delay_ms(DELAY_TIME);
+		_delay_ms(DELAY_TIME_ONE);
 	}
 }
 
@@ -306,7 +306,7 @@ void mainmenu()
 			}
 
 		}
-		_delay_ms(DELAY_TIME);
+		_delay_ms(DELAY_TIME_ONE);
 	}
 
 
@@ -474,7 +474,7 @@ void change_food()
 
 
 
-		_delay_ms(DELAY_TIME);
+		_delay_ms(DELAY_TIME_ONE);
 	}
 
 }
