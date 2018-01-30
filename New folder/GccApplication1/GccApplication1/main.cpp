@@ -34,6 +34,7 @@ int select_food()
 {
 	wait_message();
 	get_info();
+	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
 	lcd_puts("Food");
 
@@ -115,7 +116,6 @@ int select_food()
 			if (display_message1("Save the changes"))
 			{
 				send_info();
-				_delay_ms(DELAY_TIME);
 				return 1;
 			}
 
@@ -137,7 +137,7 @@ int select_food()
 		{
 			if (display_message1("Discard Changes?"))
 			{
-				_delay_ms(DELAY_TIME);
+				//_delay_ms(DELAY_TIME);
 				return 0;
 			}
 
@@ -157,7 +157,7 @@ int select_food()
 
 
 
-		_delay_ms(DELAY_TIME_ONE);
+		_delay_ms(DELAY_TIME_LOOP);
 	}
 
 }
@@ -168,6 +168,8 @@ void selected_food()
 {
 	wait_message();
 	get_info();
+	_delay_ms(DELAY_TIME_GET_INFO);
+
 	lcd_clear();
 
 	int ar[100];
@@ -191,7 +193,7 @@ void selected_food()
 			int in=input();
 			if (in == ok)
 			{
-				_delay_ms(DELAY_TIME);
+				// _delay_ms(DELAY_TIME);
 				//mainmenu();
 				return ;
 			}
@@ -245,7 +247,7 @@ void selected_food()
 			return;
 		}
 
-		_delay_ms(DELAY_TIME_ONE);
+		_delay_ms(DELAY_TIME_LOOP);
 	}
 }
 
@@ -256,6 +258,7 @@ void selected_food()
 
 void mainmenu()
 {
+	_delay_ms(DELAY_TIME_STRAIGHT_START);
 	lcd_clear();
 	num_of_food=0;
 	int state=0;
@@ -284,7 +287,7 @@ void mainmenu()
 		}
 		else if (in==ok)
 		{
-			_delay_ms(DELAY_TIME);
+			//_delay_ms(DELAY_TIME);
 			if (state==0)
 			{
 				int c=0;
@@ -306,7 +309,7 @@ void mainmenu()
 			}
 
 		}
-		_delay_ms(DELAY_TIME_ONE);
+		_delay_ms(DELAY_TIME_LOOP);
 	}
 
 
@@ -324,6 +327,7 @@ void change_food()
 {
 	wait_message();
 	get_info();
+	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
 	lcd_puts("Food");
 
@@ -432,7 +436,7 @@ void change_food()
 			if (display_message1("Save the changes"))
 			{
 				send_info();
-				_delay_ms(DELAY_TIME);
+				//_delay_ms(DELAY_TIME);
 				return;
 			}
 
@@ -454,7 +458,7 @@ void change_food()
 		{
 			if (display_message1("Discard Changes?"))
 			{
-				_delay_ms(DELAY_TIME);
+				//_delay_ms(DELAY_TIME);
 				return ;
 			}
 
@@ -474,7 +478,7 @@ void change_food()
 
 
 
-		_delay_ms(DELAY_TIME_ONE);
+		_delay_ms(DELAY_TIME_LOOP);
 	}
 
 }

@@ -129,7 +129,7 @@ foods food[15];
              int in=input();
              if (in == ok)
                {
-					_delay_ms(DELAY_TIME);
+				//	_delay_ms(DELAY_TIME);
                  //mainmenu();
                  return ;
                 }
@@ -146,7 +146,7 @@ foods food[15];
 
            lcd_setCursor(12,1);
            lcd_puts("No");
-           _delay_ms(DELAY_TIME);
+           _delay_ms(DELAY_TIME_STRAIGHT_START);
 
            int state=1;
            while(1)
@@ -172,7 +172,7 @@ foods food[15];
                   else if (in==ok)
                    return state;
 
-                   _delay_ms(DELAY_TIME);
+                   _delay_ms(DELAY_TIME_STRAIGHT_START);
                }
 
        }
