@@ -120,7 +120,7 @@ foods food[15];
 
      void cannot_cancel()
      {
-		  _delay_ms(DELAY_TIME);
+		  _delay_ms(DELAY_TIME_STRAIGHT_START);
           lcd_clear();
          lcd_puts(" Cannot Cancel ");
          lcd_setCursor(6,1);
@@ -128,13 +128,19 @@ foods food[15];
          while(1)
            {
              int in=input();
+			 if (in !=0)
+			 {
+				 _delay_ms(DELAY_BOUNCE);
              if (in == ok)
                {
 				//	_delay_ms(DELAY_TIME);
                  //mainmenu();
                  return ;
                 }
+						   _delay_ms(DELAY_TIME_LOOP);
+
            }
+		 }
      }
 
      //confirmation messages

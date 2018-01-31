@@ -15,7 +15,7 @@ void main_menu_test();
 void database_init_test()
 {
 	dfood[0]=foods(1,"Momo",100,0,0);
-		dfood[1]=foods(2,"Chow",200,0,0);
+		dfood[1]=foods(2,"Chow",200,0,1);
 	dfood[2]=foods(3,"Food",300,0,0);
 
 }
@@ -380,7 +380,7 @@ void mainmenu()
 void change_food()
 {
 	wait_message();
-	get_info();
+	get_info_test();
 	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
 	lcd_puts("Food");
@@ -406,7 +406,10 @@ void change_food()
 	while(1)
 	{
 		int in=input();
-
+		if(in !=0)
+		{
+			_delay_ms(DELAY_BOUNCE);
+			in =input();
 		if (in==up)
 		{
 			if (selected_pk==0)  selected_pk=num_of_food-1;
@@ -489,7 +492,7 @@ void change_food()
 		{
 			if (display_message1("Save the changes"))
 			{
-				send_info();
+				send_info_test();
 				//_delay_ms(DELAY_TIME);
 				return;
 			}
@@ -533,6 +536,7 @@ void change_food()
 
 
 		_delay_ms(DELAY_TIME_LOOP);
+		}
 	}
 
 }

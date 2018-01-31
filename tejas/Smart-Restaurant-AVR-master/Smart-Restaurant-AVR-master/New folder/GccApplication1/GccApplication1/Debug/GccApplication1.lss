@@ -3,31 +3,31 @@ GccApplication1.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000013f4  00000000  00000000  00000094  2**1
+  0 .text         000012fc  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         000000b6  00800060  000013f4  00001488  2**0
+  1 .data         000000b6  00800060  000012fc  00001390  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          0000038f  00800116  00800116  0000153e  2**0
+  2 .bss          0000038f  00800116  00800116  00001446  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000153e  2**0
+  3 .comment      00000030  00000000  00000000  00001446  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001570  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001478  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000001a0  00000000  00000000  000015ac  2**0
+  5 .debug_aranges 000001a0  00000000  00000000  000014b4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002da1  00000000  00000000  0000174c  2**0
+  6 .debug_info   00002e4a  00000000  00000000  00001654  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a9d  00000000  00000000  000044ed  2**0
+  7 .debug_abbrev 00000a9d  00000000  00000000  0000449e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000013eb  00000000  00000000  00004f8a  2**0
+  8 .debug_line   00001415  00000000  00000000  00004f3b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000494  00000000  00000000  00006378  2**2
+  9 .debug_frame  00000494  00000000  00000000  00006350  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000007e8  00000000  00000000  0000680c  2**0
+ 10 .debug_str    000007e8  00000000  00000000  000067e4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000130c  00000000  00000000  00006ff4  2**0
+ 11 .debug_loc    0000138c  00000000  00000000  00006fcc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001a8  00000000  00000000  00008300  2**0
+ 12 .debug_ranges 000001a8  00000000  00000000  00008358  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -46,8 +46,8 @@ Disassembly of section .text:
       28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
       2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
       30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-      34:	0c 94 bb 08 	jmp	0x1176	; 0x1176 <__vector_13>
-      38:	0c 94 e4 08 	jmp	0x11c8	; 0x11c8 <__vector_14>
+      34:	0c 94 ad 08 	jmp	0x115a	; 0x115a <__vector_13>
+      38:	0c 94 d6 08 	jmp	0x11ac	; 0x11ac <__vector_14>
       3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
       40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
       44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -67,8 +67,8 @@ Disassembly of section .text:
       60:	11 e0       	ldi	r17, 0x01	; 1
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e4 ef       	ldi	r30, 0xF4	; 244
-      68:	f3 e1       	ldi	r31, 0x13	; 19
+      66:	ec ef       	ldi	r30, 0xFC	; 252
+      68:	f2 e1       	ldi	r31, 0x12	; 18
       6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
       6c:	05 90       	lpm	r0, Z+
       6e:	0d 92       	st	X+, r0
@@ -89,8 +89,8 @@ Disassembly of section .text:
       80:	a5 3a       	cpi	r26, 0xA5	; 165
       82:	b2 07       	cpc	r27, r18
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-      86:	0e 94 ad 08 	call	0x115a	; 0x115a <main>
-      8a:	0c 94 f8 09 	jmp	0x13f0	; 0x13f0 <_exit>
+      86:	0e 94 9f 08 	call	0x113e	; 0x113e <main>
+      8a:	0c 94 7c 09 	jmp	0x12f8	; 0x12f8 <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -450,7 +450,7 @@ void lcd_num(int in)
 		in=in/10;
      1f6:	cb 01       	movw	r24, r22
      1f8:	b9 01       	movw	r22, r18
-     1fa:	0e 94 94 09 	call	0x1328	; 0x1328 <__divmodhi4>
+     1fa:	0e 94 4d 09 	call	0x129a	; 0x129a <__divmodhi4>
 		temp[index]=c+'0';
      1fe:	90 e3       	ldi	r25, 0x30	; 48
      200:	98 0f       	add	r25, r24
@@ -552,10 +552,10 @@ void lcd_num(int in)
      27e:	10 e0       	ldi	r17, 0x00	; 0
      280:	01 c0       	rjmp	.+2      	; 0x284 <_Z10uart0_getsPc+0x32>
      282:	89 01       	movw	r16, r18
-     284:	0e 94 82 09 	call	0x1304	; 0x1304 <_Z15uart0_availablev>
+     284:	0e 94 3b 09 	call	0x1276	; 0x1276 <_Z15uart0_availablev>
      288:	89 2b       	or	r24, r25
      28a:	e1 f3       	breq	.-8      	; 0x284 <_Z10uart0_getsPc+0x32>
-     28c:	0e 94 1d 09 	call	0x123a	; 0x123a <_Z10uart0_getcv>
+     28c:	0e 94 0f 09 	call	0x121e	; 0x121e <_Z10uart0_getcv>
      290:	f7 01       	movw	r30, r14
      292:	81 93       	st	Z+, r24
      294:	7f 01       	movw	r14, r30
@@ -575,7 +575,7 @@ void lcd_num(int in)
      2b0:	6f 5f       	subi	r22, 0xFF	; 255
      2b2:	7f 4f       	sbci	r23, 0xFF	; 255
      2b4:	c6 01       	movw	r24, r12
-     2b6:	0e 94 bc 09 	call	0x1378	; 0x1378 <strcpy>
+     2b6:	0e 94 75 09 	call	0x12ea	; 0x12ea <strcpy>
      2ba:	cc 59       	subi	r28, 0x9C	; 156
      2bc:	df 4f       	sbci	r29, 0xFF	; 255
      2be:	0f b6       	in	r0, 0x3f	; 63
@@ -934,11 +934,11 @@ void lcd_setCursor(int x,int y)
 
 	__builtin_avr_delay_cycles(__ticks_dc);
      446:	2f ef       	ldi	r18, 0xFF	; 255
-     448:	80 e7       	ldi	r24, 0x70	; 112
-     44a:	92 e0       	ldi	r25, 0x02	; 2
+     448:	35 ea       	ldi	r19, 0xA5	; 165
+     44a:	4e e0       	ldi	r20, 0x0E	; 14
      44c:	21 50       	subi	r18, 0x01	; 1
-     44e:	80 40       	sbci	r24, 0x00	; 0
-     450:	90 40       	sbci	r25, 0x00	; 0
+     44e:	30 40       	sbci	r19, 0x00	; 0
+     450:	40 40       	sbci	r20, 0x00	; 0
      452:	e1 f7       	brne	.-8      	; 0x44c <_Z13cannot_cancelv+0x6>
      454:	00 c0       	rjmp	.+0      	; 0x456 <_Z13cannot_cancelv+0x10>
      456:	00 00       	nop
@@ -946,7 +946,7 @@ void lcd_setCursor(int x,int y)
 
      void cannot_cancel()
      {
-		  _delay_ms(DELAY_TIME);
+		  _delay_ms(DELAY_TIME_STRAIGHT_START);
           lcd_clear();
      458:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
          lcd_puts(" Cannot Cancel ");
@@ -963,7 +963,7 @@ void lcd_setCursor(int x,int y)
      466:	86 e0       	ldi	r24, 0x06	; 6
      468:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
      {
-		  _delay_ms(DELAY_TIME);
+		  _delay_ms(DELAY_TIME_STRAIGHT_START);
           lcd_clear();
          lcd_puts(" Cannot Cancel ");
          lcd_setCursor(6,1);
@@ -975,2260 +975,2115 @@ void lcd_setCursor(int x,int y)
            {
              int in=input();
      474:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+			 if (in !=0)
+     478:	00 97       	sbiw	r24, 0x00	; 0
+     47a:	e1 f3       	breq	.-8      	; 0x474 <_Z13cannot_cancelv+0x2e>
+     47c:	2f ef       	ldi	r18, 0xFF	; 255
+     47e:	36 e7       	ldi	r19, 0x76	; 118
+     480:	41 e0       	ldi	r20, 0x01	; 1
+     482:	21 50       	subi	r18, 0x01	; 1
+     484:	30 40       	sbci	r19, 0x00	; 0
+     486:	40 40       	sbci	r20, 0x00	; 0
+     488:	e1 f7       	brne	.-8      	; 0x482 <_Z13cannot_cancelv+0x3c>
+     48a:	00 c0       	rjmp	.+0      	; 0x48c <_Z13cannot_cancelv+0x46>
+     48c:	00 00       	nop
+			 {
+				 _delay_ms(DELAY_BOUNCE);
              if (in == ok)
-     478:	20 91 62 00 	lds	r18, 0x0062
-     47c:	30 91 63 00 	lds	r19, 0x0063
-     480:	82 17       	cp	r24, r18
-     482:	93 07       	cpc	r25, r19
-     484:	b9 f7       	brne	.-18     	; 0x474 <_Z13cannot_cancelv+0x2e>
-				//	_delay_ms(DELAY_TIME);
-                 //mainmenu();
-                 return ;
-                }
-           }
-     }
-     486:	08 95       	ret
+     48e:	20 91 62 00 	lds	r18, 0x0062
+     492:	30 91 63 00 	lds	r19, 0x0063
+     496:	82 17       	cp	r24, r18
+     498:	93 07       	cpc	r25, r19
+     49a:	51 f0       	breq	.+20     	; 0x4b0 <_Z13cannot_cancelv+0x6a>
+     49c:	8f ef       	ldi	r24, 0xFF	; 255
+     49e:	95 ea       	ldi	r25, 0xA5	; 165
+     4a0:	2e e0       	ldi	r18, 0x0E	; 14
+     4a2:	81 50       	subi	r24, 0x01	; 1
+     4a4:	90 40       	sbci	r25, 0x00	; 0
+     4a6:	20 40       	sbci	r18, 0x00	; 0
+     4a8:	e1 f7       	brne	.-8      	; 0x4a2 <_Z13cannot_cancelv+0x5c>
+     4aa:	00 c0       	rjmp	.+0      	; 0x4ac <_Z13cannot_cancelv+0x66>
+     4ac:	00 00       	nop
+     4ae:	e2 cf       	rjmp	.-60     	; 0x474 <_Z13cannot_cancelv+0x2e>
+     4b0:	08 95       	ret
 
-00000488 <_Z16display_message1PKc>:
+000004b2 <_Z16display_message1PKc>:
+		 }
+     }
 
      //confirmation messages
      int display_message1(char const *s)
        {
-     488:	ef 92       	push	r14
-     48a:	ff 92       	push	r15
-     48c:	0f 93       	push	r16
-     48e:	1f 93       	push	r17
-     490:	cf 93       	push	r28
-     492:	df 93       	push	r29
-     494:	ec 01       	movw	r28, r24
+     4b2:	ef 92       	push	r14
+     4b4:	ff 92       	push	r15
+     4b6:	0f 93       	push	r16
+     4b8:	1f 93       	push	r17
+     4ba:	cf 93       	push	r28
+     4bc:	df 93       	push	r29
+     4be:	ec 01       	movw	r28, r24
            lcd_clear();
-     496:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     4c0:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
            lcd_puts(s);
-     49a:	ce 01       	movw	r24, r28
-     49c:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     4c4:	ce 01       	movw	r24, r28
+     4c6:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     4a0:	61 e0       	ldi	r22, 0x01	; 1
-     4a2:	82 e0       	ldi	r24, 0x02	; 2
-     4a4:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     4ca:	61 e0       	ldi	r22, 0x01	; 1
+     4cc:	82 e0       	ldi	r24, 0x02	; 2
+     4ce:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
      int display_message1(char const *s)
        {
            lcd_clear();
            lcd_puts(s);
            lcd_setCursor(2,1);
            lcd_puts(">Yes");
-     4a8:	86 eb       	ldi	r24, 0xB6	; 182
-     4aa:	90 e0       	ldi	r25, 0x00	; 0
-     4ac:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     4d2:	86 eb       	ldi	r24, 0xB6	; 182
+     4d4:	90 e0       	ldi	r25, 0x00	; 0
+     4d6:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     4b0:	61 e0       	ldi	r22, 0x01	; 1
-     4b2:	8c e0       	ldi	r24, 0x0C	; 12
-     4b4:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     4da:	61 e0       	ldi	r22, 0x01	; 1
+     4dc:	8c e0       	ldi	r24, 0x0C	; 12
+     4de:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
            lcd_puts(s);
            lcd_setCursor(2,1);
            lcd_puts(">Yes");
 
            lcd_setCursor(12,1);
            lcd_puts("No");
-     4b8:	8b eb       	ldi	r24, 0xBB	; 187
-     4ba:	90 e0       	ldi	r25, 0x00	; 0
-     4bc:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     4c0:	2f ef       	ldi	r18, 0xFF	; 255
-     4c2:	85 ea       	ldi	r24, 0xA5	; 165
-     4c4:	9e e0       	ldi	r25, 0x0E	; 14
-     4c6:	21 50       	subi	r18, 0x01	; 1
-     4c8:	80 40       	sbci	r24, 0x00	; 0
-     4ca:	90 40       	sbci	r25, 0x00	; 0
-     4cc:	e1 f7       	brne	.-8      	; 0x4c6 <_Z16display_message1PKc+0x3e>
-     4ce:	00 c0       	rjmp	.+0      	; 0x4d0 <_Z16display_message1PKc+0x48>
-     4d0:	00 00       	nop
+     4e2:	8b eb       	ldi	r24, 0xBB	; 187
+     4e4:	90 e0       	ldi	r25, 0x00	; 0
+     4e6:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     4ea:	2f ef       	ldi	r18, 0xFF	; 255
+     4ec:	85 ea       	ldi	r24, 0xA5	; 165
+     4ee:	9e e0       	ldi	r25, 0x0E	; 14
+     4f0:	21 50       	subi	r18, 0x01	; 1
+     4f2:	80 40       	sbci	r24, 0x00	; 0
+     4f4:	90 40       	sbci	r25, 0x00	; 0
+     4f6:	e1 f7       	brne	.-8      	; 0x4f0 <_Z16display_message1PKc+0x3e>
+     4f8:	00 c0       	rjmp	.+0      	; 0x4fa <_Z16display_message1PKc+0x48>
+     4fa:	00 00       	nop
            _delay_ms(DELAY_TIME_STRAIGHT_START);
 
            int state=1;
-     4d2:	c1 e0       	ldi	r28, 0x01	; 1
-     4d4:	d0 e0       	ldi	r29, 0x00	; 0
+     4fc:	c1 e0       	ldi	r28, 0x01	; 1
+     4fe:	d0 e0       	ldi	r29, 0x00	; 0
                   {
                         lcd_setCursor(11,1);
                         lcd_puts(" ");
                         lcd_setCursor(2,1);
                          lcd_puts(">");
                          state=1;
-     4d6:	01 e0       	ldi	r16, 0x01	; 1
-     4d8:	10 e0       	ldi	r17, 0x00	; 0
+     500:	01 e0       	ldi	r16, 0x01	; 1
+     502:	10 e0       	ldi	r17, 0x00	; 0
                      {
                         lcd_setCursor(2,1);
                         lcd_puts(" ");
                         lcd_setCursor(11,1);
                          lcd_puts(">");
                          state=0;
-     4da:	e1 2c       	mov	r14, r1
-     4dc:	f1 2c       	mov	r15, r1
+     504:	e1 2c       	mov	r14, r1
+     506:	f1 2c       	mov	r15, r1
            _delay_ms(DELAY_TIME_STRAIGHT_START);
 
            int state=1;
            while(1)
               {
                     int in=input();
-     4de:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     508:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
                   //  lcd_puts (in);
 				  if (in !=0)
-     4e2:	89 2b       	or	r24, r25
-     4e4:	e1 f3       	breq	.-8      	; 0x4de <_Z16display_message1PKc+0x56>
-     4e6:	2f ef       	ldi	r18, 0xFF	; 255
-     4e8:	86 e7       	ldi	r24, 0x76	; 118
-     4ea:	91 e0       	ldi	r25, 0x01	; 1
-     4ec:	21 50       	subi	r18, 0x01	; 1
-     4ee:	80 40       	sbci	r24, 0x00	; 0
-     4f0:	90 40       	sbci	r25, 0x00	; 0
-     4f2:	e1 f7       	brne	.-8      	; 0x4ec <_Z16display_message1PKc+0x64>
-     4f4:	00 c0       	rjmp	.+0      	; 0x4f6 <_Z16display_message1PKc+0x6e>
-     4f6:	00 00       	nop
+     50c:	89 2b       	or	r24, r25
+     50e:	e1 f3       	breq	.-8      	; 0x508 <_Z16display_message1PKc+0x56>
+     510:	2f ef       	ldi	r18, 0xFF	; 255
+     512:	86 e7       	ldi	r24, 0x76	; 118
+     514:	91 e0       	ldi	r25, 0x01	; 1
+     516:	21 50       	subi	r18, 0x01	; 1
+     518:	80 40       	sbci	r24, 0x00	; 0
+     51a:	90 40       	sbci	r25, 0x00	; 0
+     51c:	e1 f7       	brne	.-8      	; 0x516 <_Z16display_message1PKc+0x64>
+     51e:	00 c0       	rjmp	.+0      	; 0x520 <_Z16display_message1PKc+0x6e>
+     520:	00 00       	nop
 				  {
 					  _delay_ms(DELAY_BOUNCE);
 					  in =input();
-     4f8:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     522:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
                    if (state==1&& (in==left ||in==right))
-     4fc:	c1 30       	cpi	r28, 0x01	; 1
-     4fe:	d1 05       	cpc	r29, r1
-     500:	09 f5       	brne	.+66     	; 0x544 <_Z16display_message1PKc+0xbc>
-     502:	20 91 66 00 	lds	r18, 0x0066
-     506:	30 91 67 00 	lds	r19, 0x0067
-     50a:	82 17       	cp	r24, r18
-     50c:	93 07       	cpc	r25, r19
-     50e:	39 f0       	breq	.+14     	; 0x51e <_Z16display_message1PKc+0x96>
-     510:	20 91 68 00 	lds	r18, 0x0068
-     514:	30 91 69 00 	lds	r19, 0x0069
-     518:	82 17       	cp	r24, r18
-     51a:	93 07       	cpc	r25, r19
-     51c:	b1 f5       	brne	.+108    	; 0x58a <_Z16display_message1PKc+0x102>
+     526:	c1 30       	cpi	r28, 0x01	; 1
+     528:	d1 05       	cpc	r29, r1
+     52a:	09 f5       	brne	.+66     	; 0x56e <_Z16display_message1PKc+0xbc>
+     52c:	20 91 66 00 	lds	r18, 0x0066
+     530:	30 91 67 00 	lds	r19, 0x0067
+     534:	82 17       	cp	r24, r18
+     536:	93 07       	cpc	r25, r19
+     538:	39 f0       	breq	.+14     	; 0x548 <_Z16display_message1PKc+0x96>
+     53a:	20 91 68 00 	lds	r18, 0x0068
+     53e:	30 91 69 00 	lds	r19, 0x0069
+     542:	82 17       	cp	r24, r18
+     544:	93 07       	cpc	r25, r19
+     546:	b1 f5       	brne	.+108    	; 0x5b4 <_Z16display_message1PKc+0x102>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     51e:	61 e0       	ldi	r22, 0x01	; 1
-     520:	82 e0       	ldi	r24, 0x02	; 2
-     522:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     548:	61 e0       	ldi	r22, 0x01	; 1
+     54a:	82 e0       	ldi	r24, 0x02	; 2
+     54c:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
 					  _delay_ms(DELAY_BOUNCE);
 					  in =input();
                    if (state==1&& (in==left ||in==right))
                      {
                         lcd_setCursor(2,1);
                         lcd_puts(" ");
-     526:	8f eb       	ldi	r24, 0xBF	; 191
-     528:	90 e0       	ldi	r25, 0x00	; 0
-     52a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     550:	8f eb       	ldi	r24, 0xBF	; 191
+     552:	90 e0       	ldi	r25, 0x00	; 0
+     554:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     52e:	61 e0       	ldi	r22, 0x01	; 1
-     530:	8b e0       	ldi	r24, 0x0B	; 11
-     532:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     558:	61 e0       	ldi	r22, 0x01	; 1
+     55a:	8b e0       	ldi	r24, 0x0B	; 11
+     55c:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
                    if (state==1&& (in==left ||in==right))
                      {
                         lcd_setCursor(2,1);
                         lcd_puts(" ");
                         lcd_setCursor(11,1);
                          lcd_puts(">");
-     536:	8a e7       	ldi	r24, 0x7A	; 122
-     538:	90 e0       	ldi	r25, 0x00	; 0
-     53a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     560:	8a e7       	ldi	r24, 0x7A	; 122
+     562:	90 e0       	ldi	r25, 0x00	; 0
+     564:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
                          state=0;
-     53e:	ce 2d       	mov	r28, r14
-     540:	df 2d       	mov	r29, r15
-     542:	2a c0       	rjmp	.+84     	; 0x598 <_Z16display_message1PKc+0x110>
+     568:	ce 2d       	mov	r28, r14
+     56a:	df 2d       	mov	r29, r15
+     56c:	2a c0       	rjmp	.+84     	; 0x5c2 <_Z16display_message1PKc+0x110>
                       }
                    else if (state==0 && (in==left ||in==right))
-     544:	20 97       	sbiw	r28, 0x00	; 0
-     546:	09 f5       	brne	.+66     	; 0x58a <_Z16display_message1PKc+0x102>
-     548:	20 91 66 00 	lds	r18, 0x0066
-     54c:	30 91 67 00 	lds	r19, 0x0067
-     550:	82 17       	cp	r24, r18
-     552:	93 07       	cpc	r25, r19
-     554:	39 f0       	breq	.+14     	; 0x564 <_Z16display_message1PKc+0xdc>
-     556:	20 91 68 00 	lds	r18, 0x0068
-     55a:	30 91 69 00 	lds	r19, 0x0069
-     55e:	82 17       	cp	r24, r18
-     560:	93 07       	cpc	r25, r19
-     562:	99 f4       	brne	.+38     	; 0x58a <_Z16display_message1PKc+0x102>
+     56e:	20 97       	sbiw	r28, 0x00	; 0
+     570:	09 f5       	brne	.+66     	; 0x5b4 <_Z16display_message1PKc+0x102>
+     572:	20 91 66 00 	lds	r18, 0x0066
+     576:	30 91 67 00 	lds	r19, 0x0067
+     57a:	82 17       	cp	r24, r18
+     57c:	93 07       	cpc	r25, r19
+     57e:	39 f0       	breq	.+14     	; 0x58e <_Z16display_message1PKc+0xdc>
+     580:	20 91 68 00 	lds	r18, 0x0068
+     584:	30 91 69 00 	lds	r19, 0x0069
+     588:	82 17       	cp	r24, r18
+     58a:	93 07       	cpc	r25, r19
+     58c:	99 f4       	brne	.+38     	; 0x5b4 <_Z16display_message1PKc+0x102>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     564:	61 e0       	ldi	r22, 0x01	; 1
-     566:	8b e0       	ldi	r24, 0x0B	; 11
-     568:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     58e:	61 e0       	ldi	r22, 0x01	; 1
+     590:	8b e0       	ldi	r24, 0x0B	; 11
+     592:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
                          state=0;
                       }
                    else if (state==0 && (in==left ||in==right))
                   {
                         lcd_setCursor(11,1);
                         lcd_puts(" ");
-     56c:	8f eb       	ldi	r24, 0xBF	; 191
-     56e:	90 e0       	ldi	r25, 0x00	; 0
-     570:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     596:	8f eb       	ldi	r24, 0xBF	; 191
+     598:	90 e0       	ldi	r25, 0x00	; 0
+     59a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {
 	
 	lcd_gotoxy(x,(1-y)+1);
-     574:	61 e0       	ldi	r22, 0x01	; 1
-     576:	82 e0       	ldi	r24, 0x02	; 2
-     578:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
+     59e:	61 e0       	ldi	r22, 0x01	; 1
+     5a0:	82 e0       	ldi	r24, 0x02	; 2
+     5a2:	0e 94 8a 00 	call	0x114	; 0x114 <_Z10lcd_gotoxyhh>
                    else if (state==0 && (in==left ||in==right))
                   {
                         lcd_setCursor(11,1);
                         lcd_puts(" ");
                         lcd_setCursor(2,1);
                          lcd_puts(">");
-     57c:	8a e7       	ldi	r24, 0x7A	; 122
-     57e:	90 e0       	ldi	r25, 0x00	; 0
-     580:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     5a6:	8a e7       	ldi	r24, 0x7A	; 122
+     5a8:	90 e0       	ldi	r25, 0x00	; 0
+     5aa:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
                          state=1;
-     584:	c0 2f       	mov	r28, r16
-     586:	d1 2f       	mov	r29, r17
-     588:	07 c0       	rjmp	.+14     	; 0x598 <_Z16display_message1PKc+0x110>
+     5ae:	c0 2f       	mov	r28, r16
+     5b0:	d1 2f       	mov	r29, r17
+     5b2:	07 c0       	rjmp	.+14     	; 0x5c2 <_Z16display_message1PKc+0x110>
                       }
                   else if (in==ok)
-     58a:	20 91 62 00 	lds	r18, 0x0062
-     58e:	30 91 63 00 	lds	r19, 0x0063
-     592:	82 17       	cp	r24, r18
-     594:	93 07       	cpc	r25, r19
-     596:	51 f0       	breq	.+20     	; 0x5ac <_Z16display_message1PKc+0x124>
-     598:	8f ef       	ldi	r24, 0xFF	; 255
-     59a:	95 ea       	ldi	r25, 0xA5	; 165
-     59c:	2e e0       	ldi	r18, 0x0E	; 14
-     59e:	81 50       	subi	r24, 0x01	; 1
-     5a0:	90 40       	sbci	r25, 0x00	; 0
-     5a2:	20 40       	sbci	r18, 0x00	; 0
-     5a4:	e1 f7       	brne	.-8      	; 0x59e <_Z16display_message1PKc+0x116>
-     5a6:	00 c0       	rjmp	.+0      	; 0x5a8 <_Z16display_message1PKc+0x120>
-     5a8:	00 00       	nop
-     5aa:	99 cf       	rjmp	.-206    	; 0x4de <_Z16display_message1PKc+0x56>
+     5b4:	20 91 62 00 	lds	r18, 0x0062
+     5b8:	30 91 63 00 	lds	r19, 0x0063
+     5bc:	82 17       	cp	r24, r18
+     5be:	93 07       	cpc	r25, r19
+     5c0:	51 f0       	breq	.+20     	; 0x5d6 <_Z16display_message1PKc+0x124>
+     5c2:	8f ef       	ldi	r24, 0xFF	; 255
+     5c4:	95 ea       	ldi	r25, 0xA5	; 165
+     5c6:	2e e0       	ldi	r18, 0x0E	; 14
+     5c8:	81 50       	subi	r24, 0x01	; 1
+     5ca:	90 40       	sbci	r25, 0x00	; 0
+     5cc:	20 40       	sbci	r18, 0x00	; 0
+     5ce:	e1 f7       	brne	.-8      	; 0x5c8 <_Z16display_message1PKc+0x116>
+     5d0:	00 c0       	rjmp	.+0      	; 0x5d2 <_Z16display_message1PKc+0x120>
+     5d2:	00 00       	nop
+     5d4:	99 cf       	rjmp	.-206    	; 0x508 <_Z16display_message1PKc+0x56>
 
                    _delay_ms(DELAY_TIME_LOOP);
 				  }
                }
 				
        }
-     5ac:	ce 01       	movw	r24, r28
-     5ae:	df 91       	pop	r29
-     5b0:	cf 91       	pop	r28
-     5b2:	1f 91       	pop	r17
-     5b4:	0f 91       	pop	r16
-     5b6:	ff 90       	pop	r15
-     5b8:	ef 90       	pop	r14
-     5ba:	08 95       	ret
+     5d6:	ce 01       	movw	r24, r28
+     5d8:	df 91       	pop	r29
+     5da:	cf 91       	pop	r28
+     5dc:	1f 91       	pop	r17
+     5de:	0f 91       	pop	r16
+     5e0:	ff 90       	pop	r15
+     5e2:	ef 90       	pop	r14
+     5e4:	08 95       	ret
 
-000005bc <_Z8get_infov>:
+000005e6 <_Z8get_infov>:
 
 
 
 
 void get_info()
 {
-     5bc:	0f 93       	push	r16
-     5be:	1f 93       	push	r17
-     5c0:	cf 93       	push	r28
-     5c2:	df 93       	push	r29
+     5e6:	0f 93       	push	r16
+     5e8:	1f 93       	push	r17
+     5ea:	cf 93       	push	r28
+     5ec:	df 93       	push	r29
 	uart0_flush();
-     5c4:	0e 94 8f 09 	call	0x131e	; 0x131e <_Z11uart0_flushv>
+     5ee:	0e 94 48 09 	call	0x1290	; 0x1290 <_Z11uart0_flushv>
   uart0_putc('1');
-     5c8:	81 e3       	ldi	r24, 0x31	; 49
-     5ca:	0e 94 38 09 	call	0x1270	; 0x1270 <_Z10uart0_putch>
+     5f2:	81 e3       	ldi	r24, 0x31	; 49
+     5f4:	0e 94 2a 09 	call	0x1254	; 0x1254 <_Z10uart0_putch>
   while (!(uart0_available()) ) {}
-     5ce:	0e 94 82 09 	call	0x1304	; 0x1304 <_Z15uart0_availablev>
-     5d2:	89 2b       	or	r24, r25
-     5d4:	e1 f3       	breq	.-8      	; 0x5ce <_Z8get_infov+0x12>
+     5f8:	0e 94 3b 09 	call	0x1276	; 0x1276 <_Z15uart0_availablev>
+     5fc:	89 2b       	or	r24, r25
+     5fe:	e1 f3       	breq	.-8      	; 0x5f8 <_Z8get_infov+0x12>
   num_of_food=uart0_getint();
-     5d6:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
-     5da:	90 93 5f 04 	sts	0x045F, r25
-     5de:	80 93 5e 04 	sts	0x045E, r24
+     600:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
+     604:	90 93 5f 04 	sts	0x045F, r25
+     608:	80 93 5e 04 	sts	0x045E, r24
 //  Serial.puts (num+1);
 
   //Serial.puts(a);
 for (int i=0;i<num_of_food;i++)
-     5e2:	18 16       	cp	r1, r24
-     5e4:	19 06       	cpc	r1, r25
-     5e6:	1c f5       	brge	.+70     	; 0x62e <_Z8get_infov+0x72>
-     5e8:	c8 e1       	ldi	r28, 0x18	; 24
-     5ea:	d1 e0       	ldi	r29, 0x01	; 1
-     5ec:	00 e0       	ldi	r16, 0x00	; 0
-     5ee:	10 e0       	ldi	r17, 0x00	; 0
+     60c:	18 16       	cp	r1, r24
+     60e:	19 06       	cpc	r1, r25
+     610:	1c f5       	brge	.+70     	; 0x658 <_Z8get_infov+0x72>
+     612:	c8 e1       	ldi	r28, 0x18	; 24
+     614:	d1 e0       	ldi	r29, 0x01	; 1
+     616:	00 e0       	ldi	r16, 0x00	; 0
+     618:	10 e0       	ldi	r17, 0x00	; 0
 {
     //  Serial.puts("Start");
       food[i].id=uart0_getint();
-     5f0:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
-     5f4:	fe 01       	movw	r30, r28
-     5f6:	32 97       	sbiw	r30, 0x02	; 2
-     5f8:	91 83       	std	Z+1, r25	; 0x01
-     5fa:	80 83       	st	Z, r24
+     61a:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
+     61e:	fe 01       	movw	r30, r28
+     620:	32 97       	sbiw	r30, 0x02	; 2
+     622:	91 83       	std	Z+1, r25	; 0x01
+     624:	80 83       	st	Z, r24
       uart0_gets(food[i].name);
-     5fc:	ce 01       	movw	r24, r28
-     5fe:	0e 94 29 01 	call	0x252	; 0x252 <_Z10uart0_getsPc>
+     626:	ce 01       	movw	r24, r28
+     628:	0e 94 29 01 	call	0x252	; 0x252 <_Z10uart0_getsPc>
       food[i].price=uart0_getint();
-     602:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
-     606:	9d 8b       	std	Y+21, r25	; 0x15
-     608:	8c 8b       	std	Y+20, r24	; 0x14
+     62c:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
+     630:	9d 8b       	std	Y+21, r25	; 0x15
+     632:	8c 8b       	std	Y+20, r24	; 0x14
       food[i].num=uart0_getint();
-     60a:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
-     60e:	9f 8b       	std	Y+23, r25	; 0x17
-     610:	8e 8b       	std	Y+22, r24	; 0x16
+     634:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
+     638:	9f 8b       	std	Y+23, r25	; 0x17
+     63a:	8e 8b       	std	Y+22, r24	; 0x16
       food[i].p=uart0_getint();
-     612:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
-     616:	99 8f       	std	Y+25, r25	; 0x19
-     618:	88 8f       	std	Y+24, r24	; 0x18
+     63c:	0e 94 6d 01 	call	0x2da	; 0x2da <_Z12uart0_getintv>
+     640:	99 8f       	std	Y+25, r25	; 0x19
+     642:	88 8f       	std	Y+24, r24	; 0x18
   while (!(uart0_available()) ) {}
   num_of_food=uart0_getint();
 //  Serial.puts (num+1);
 
   //Serial.puts(a);
 for (int i=0;i<num_of_food;i++)
-     61a:	0f 5f       	subi	r16, 0xFF	; 255
-     61c:	1f 4f       	sbci	r17, 0xFF	; 255
-     61e:	6c 96       	adiw	r28, 0x1c	; 28
-     620:	80 91 5e 04 	lds	r24, 0x045E
-     624:	90 91 5f 04 	lds	r25, 0x045F
-     628:	08 17       	cp	r16, r24
-     62a:	19 07       	cpc	r17, r25
-     62c:	0c f3       	brlt	.-62     	; 0x5f0 <_Z8get_infov+0x34>
+     644:	0f 5f       	subi	r16, 0xFF	; 255
+     646:	1f 4f       	sbci	r17, 0xFF	; 255
+     648:	6c 96       	adiw	r28, 0x1c	; 28
+     64a:	80 91 5e 04 	lds	r24, 0x045E
+     64e:	90 91 5f 04 	lds	r25, 0x045F
+     652:	08 17       	cp	r16, r24
+     654:	19 07       	cpc	r17, r25
+     656:	0c f3       	brlt	.-62     	; 0x61a <_Z8get_infov+0x34>
   }
 
   // Serial.putsln("Done");
 
 
 }
-     62e:	df 91       	pop	r29
-     630:	cf 91       	pop	r28
-     632:	1f 91       	pop	r17
-     634:	0f 91       	pop	r16
-     636:	08 95       	ret
+     658:	df 91       	pop	r29
+     65a:	cf 91       	pop	r28
+     65c:	1f 91       	pop	r17
+     65e:	0f 91       	pop	r16
+     660:	08 95       	ret
 
-00000638 <_Z9send_infov>:
+00000662 <_Z18database_init_testv>:
+     662:	cf 93       	push	r28
+     664:	df 93       	push	r29
+     666:	cd b7       	in	r28, 0x3d	; 61
+     668:	de b7       	in	r29, 0x3e	; 62
+     66a:	c4 55       	subi	r28, 0x54	; 84
+     66c:	d1 09       	sbc	r29, r1
+     66e:	0f b6       	in	r0, 0x3f	; 63
+     670:	f8 94       	cli
+     672:	de bf       	out	0x3e, r29	; 62
+     674:	0f be       	out	0x3f, r0	; 63
+     676:	cd bf       	out	0x3d, r28	; 61
+     678:	81 e0       	ldi	r24, 0x01	; 1
+     67a:	90 e0       	ldi	r25, 0x00	; 0
+     67c:	9a af       	std	Y+58, r25	; 0x3a
+     67e:	89 af       	std	Y+57, r24	; 0x39
+     680:	25 e0       	ldi	r18, 0x05	; 5
+     682:	e1 ec       	ldi	r30, 0xC1	; 193
+     684:	f0 e0       	ldi	r31, 0x00	; 0
+     686:	de 01       	movw	r26, r28
+     688:	db 96       	adiw	r26, 0x3b	; 59
+     68a:	01 90       	ld	r0, Z+
+     68c:	0d 92       	st	X+, r0
+     68e:	2a 95       	dec	r18
+     690:	e1 f7       	brne	.-8      	; 0x68a <_Z18database_init_testv+0x28>
+     692:	24 e6       	ldi	r18, 0x64	; 100
+     694:	30 e0       	ldi	r19, 0x00	; 0
+     696:	61 96       	adiw	r28, 0x11	; 17
+     698:	3f af       	std	Y+63, r19	; 0x3f
+     69a:	2e af       	std	Y+62, r18	; 0x3e
+     69c:	61 97       	sbiw	r28, 0x11	; 17
+     69e:	63 96       	adiw	r28, 0x13	; 19
+     6a0:	1f ae       	std	Y+63, r1	; 0x3f
+     6a2:	1e ae       	std	Y+62, r1	; 0x3e
+     6a4:	63 97       	sbiw	r28, 0x13	; 19
+     6a6:	65 96       	adiw	r28, 0x15	; 21
+     6a8:	1f ae       	std	Y+63, r1	; 0x3f
+     6aa:	1e ae       	std	Y+62, r1	; 0x3e
+     6ac:	65 97       	sbiw	r28, 0x15	; 21
+     6ae:	2c e1       	ldi	r18, 0x1C	; 28
+     6b0:	fe 01       	movw	r30, r28
+     6b2:	f9 96       	adiw	r30, 0x39	; 57
+     6b4:	aa eb       	ldi	r26, 0xBA	; 186
+     6b6:	b2 e0       	ldi	r27, 0x02	; 2
+     6b8:	01 90       	ld	r0, Z+
+     6ba:	0d 92       	st	X+, r0
+     6bc:	2a 95       	dec	r18
+     6be:	e1 f7       	brne	.-8      	; 0x6b8 <_Z18database_init_testv+0x56>
+     6c0:	22 e0       	ldi	r18, 0x02	; 2
+     6c2:	30 e0       	ldi	r19, 0x00	; 0
+     6c4:	3e 8f       	std	Y+30, r19	; 0x1e
+     6c6:	2d 8f       	std	Y+29, r18	; 0x1d
+     6c8:	25 e0       	ldi	r18, 0x05	; 5
+     6ca:	e6 ec       	ldi	r30, 0xC6	; 198
+     6cc:	f0 e0       	ldi	r31, 0x00	; 0
+     6ce:	de 01       	movw	r26, r28
+     6d0:	5f 96       	adiw	r26, 0x1f	; 31
+     6d2:	01 90       	ld	r0, Z+
+     6d4:	0d 92       	st	X+, r0
+     6d6:	2a 95       	dec	r18
+     6d8:	e1 f7       	brne	.-8      	; 0x6d2 <_Z18database_init_testv+0x70>
+     6da:	28 ec       	ldi	r18, 0xC8	; 200
+     6dc:	30 e0       	ldi	r19, 0x00	; 0
+     6de:	3c ab       	std	Y+52, r19	; 0x34
+     6e0:	2b ab       	std	Y+51, r18	; 0x33
+     6e2:	1e aa       	std	Y+54, r1	; 0x36
+     6e4:	1d aa       	std	Y+53, r1	; 0x35
+     6e6:	98 af       	std	Y+56, r25	; 0x38
+     6e8:	8f ab       	std	Y+55, r24	; 0x37
+     6ea:	8c e1       	ldi	r24, 0x1C	; 28
+     6ec:	fe 01       	movw	r30, r28
+     6ee:	7d 96       	adiw	r30, 0x1d	; 29
+     6f0:	a6 ed       	ldi	r26, 0xD6	; 214
+     6f2:	b2 e0       	ldi	r27, 0x02	; 2
+     6f4:	01 90       	ld	r0, Z+
+     6f6:	0d 92       	st	X+, r0
+     6f8:	8a 95       	dec	r24
+     6fa:	e1 f7       	brne	.-8      	; 0x6f4 <_Z18database_init_testv+0x92>
+     6fc:	83 e0       	ldi	r24, 0x03	; 3
+     6fe:	90 e0       	ldi	r25, 0x00	; 0
+     700:	9a 83       	std	Y+2, r25	; 0x02
+     702:	89 83       	std	Y+1, r24	; 0x01
+     704:	85 e0       	ldi	r24, 0x05	; 5
+     706:	e5 e8       	ldi	r30, 0x85	; 133
+     708:	f0 e0       	ldi	r31, 0x00	; 0
+     70a:	de 01       	movw	r26, r28
+     70c:	13 96       	adiw	r26, 0x03	; 3
+     70e:	01 90       	ld	r0, Z+
+     710:	0d 92       	st	X+, r0
+     712:	8a 95       	dec	r24
+     714:	e1 f7       	brne	.-8      	; 0x70e <_Z18database_init_testv+0xac>
+     716:	8c e2       	ldi	r24, 0x2C	; 44
+     718:	91 e0       	ldi	r25, 0x01	; 1
+     71a:	98 8f       	std	Y+24, r25	; 0x18
+     71c:	8f 8b       	std	Y+23, r24	; 0x17
+     71e:	1a 8e       	std	Y+26, r1	; 0x1a
+     720:	19 8e       	std	Y+25, r1	; 0x19
+     722:	1c 8e       	std	Y+28, r1	; 0x1c
+     724:	1b 8e       	std	Y+27, r1	; 0x1b
+     726:	8c e1       	ldi	r24, 0x1C	; 28
+     728:	fe 01       	movw	r30, r28
+     72a:	31 96       	adiw	r30, 0x01	; 1
+     72c:	a2 ef       	ldi	r26, 0xF2	; 242
+     72e:	b2 e0       	ldi	r27, 0x02	; 2
+     730:	01 90       	ld	r0, Z+
+     732:	0d 92       	st	X+, r0
+     734:	8a 95       	dec	r24
+     736:	e1 f7       	brne	.-8      	; 0x730 <_Z18database_init_testv+0xce>
+     738:	cc 5a       	subi	r28, 0xAC	; 172
+     73a:	df 4f       	sbci	r29, 0xFF	; 255
+     73c:	0f b6       	in	r0, 0x3f	; 63
+     73e:	f8 94       	cli
+     740:	de bf       	out	0x3e, r29	; 62
+     742:	0f be       	out	0x3f, r0	; 63
+     744:	cd bf       	out	0x3d, r28	; 61
+     746:	df 91       	pop	r29
+     748:	cf 91       	pop	r28
+     74a:	08 95       	ret
 
-      void send_info()
-        {
-     638:	0f 93       	push	r16
-     63a:	1f 93       	push	r17
-     63c:	cf 93       	push	r28
-     63e:	df 93       	push	r29
-          for (int i=0;i<num_of_food;i++)
-     640:	80 91 5e 04 	lds	r24, 0x045E
-     644:	90 91 5f 04 	lds	r25, 0x045F
-     648:	18 16       	cp	r1, r24
-     64a:	19 06       	cpc	r1, r25
-     64c:	04 f5       	brge	.+64     	; 0x68e <_Z9send_infov+0x56>
-     64e:	c6 e1       	ldi	r28, 0x16	; 22
-     650:	d1 e0       	ldi	r29, 0x01	; 1
-     652:	00 e0       	ldi	r16, 0x00	; 0
-     654:	10 e0       	ldi	r17, 0x00	; 0
-              {
-                uart0_puts("2 ");
-     656:	8e eb       	ldi	r24, 0xBE	; 190
-     658:	90 e0       	ldi	r25, 0x00	; 0
-     65a:	0e 94 73 09 	call	0x12e6	; 0x12e6 <_Z10uart0_putsPKc>
-				uart0_putint(food[i].id);
-     65e:	88 81       	ld	r24, Y
-     660:	99 81       	ldd	r25, Y+1	; 0x01
-     662:	0e 94 49 09 	call	0x1292	; 0x1292 <_Z12uart0_putinti>
-                uart0_putc(' ');
-     666:	80 e2       	ldi	r24, 0x20	; 32
-     668:	0e 94 38 09 	call	0x1270	; 0x1270 <_Z10uart0_putch>
-                uart0_putint(food[i].num);
-     66c:	88 8d       	ldd	r24, Y+24	; 0x18
-     66e:	99 8d       	ldd	r25, Y+25	; 0x19
-     670:	0e 94 49 09 	call	0x1292	; 0x1292 <_Z12uart0_putinti>
-                uart0_putc(' ');
-     674:	80 e2       	ldi	r24, 0x20	; 32
-     676:	0e 94 38 09 	call	0x1270	; 0x1270 <_Z10uart0_putch>
+0000074c <_Z13get_info_testv>:
+     74c:	8c e1       	ldi	r24, 0x1C	; 28
+     74e:	ea eb       	ldi	r30, 0xBA	; 186
+     750:	f2 e0       	ldi	r31, 0x02	; 2
+     752:	a6 e1       	ldi	r26, 0x16	; 22
+     754:	b1 e0       	ldi	r27, 0x01	; 1
+     756:	01 90       	ld	r0, Z+
+     758:	0d 92       	st	X+, r0
+     75a:	8a 95       	dec	r24
+     75c:	e1 f7       	brne	.-8      	; 0x756 <_Z13get_info_testv+0xa>
+     75e:	8c e1       	ldi	r24, 0x1C	; 28
+     760:	e6 ed       	ldi	r30, 0xD6	; 214
+     762:	f2 e0       	ldi	r31, 0x02	; 2
+     764:	a2 e3       	ldi	r26, 0x32	; 50
+     766:	b1 e0       	ldi	r27, 0x01	; 1
+     768:	01 90       	ld	r0, Z+
+     76a:	0d 92       	st	X+, r0
+     76c:	8a 95       	dec	r24
+     76e:	e1 f7       	brne	.-8      	; 0x768 <_Z13get_info_testv+0x1c>
+     770:	8c e1       	ldi	r24, 0x1C	; 28
+     772:	e2 ef       	ldi	r30, 0xF2	; 242
+     774:	f2 e0       	ldi	r31, 0x02	; 2
+     776:	ae e4       	ldi	r26, 0x4E	; 78
+     778:	b1 e0       	ldi	r27, 0x01	; 1
+     77a:	01 90       	ld	r0, Z+
+     77c:	0d 92       	st	X+, r0
+     77e:	8a 95       	dec	r24
+     780:	e1 f7       	brne	.-8      	; 0x77a <_Z13get_info_testv+0x2e>
+     782:	83 e0       	ldi	r24, 0x03	; 3
+     784:	90 e0       	ldi	r25, 0x00	; 0
+     786:	90 93 5f 04 	sts	0x045F, r25
+     78a:	80 93 5e 04 	sts	0x045E, r24
+     78e:	08 95       	ret
 
-}
+00000790 <_Z14send_info_testv>:
+     790:	8c e1       	ldi	r24, 0x1C	; 28
+     792:	e6 e1       	ldi	r30, 0x16	; 22
+     794:	f1 e0       	ldi	r31, 0x01	; 1
+     796:	aa eb       	ldi	r26, 0xBA	; 186
+     798:	b2 e0       	ldi	r27, 0x02	; 2
+     79a:	01 90       	ld	r0, Z+
+     79c:	0d 92       	st	X+, r0
+     79e:	8a 95       	dec	r24
+     7a0:	e1 f7       	brne	.-8      	; 0x79a <_Z14send_info_testv+0xa>
+     7a2:	8c e1       	ldi	r24, 0x1C	; 28
+     7a4:	e2 e3       	ldi	r30, 0x32	; 50
+     7a6:	f1 e0       	ldi	r31, 0x01	; 1
+     7a8:	a6 ed       	ldi	r26, 0xD6	; 214
+     7aa:	b2 e0       	ldi	r27, 0x02	; 2
+     7ac:	01 90       	ld	r0, Z+
+     7ae:	0d 92       	st	X+, r0
+     7b0:	8a 95       	dec	r24
+     7b2:	e1 f7       	brne	.-8      	; 0x7ac <_Z14send_info_testv+0x1c>
+     7b4:	8c e1       	ldi	r24, 0x1C	; 28
+     7b6:	ee e4       	ldi	r30, 0x4E	; 78
+     7b8:	f1 e0       	ldi	r31, 0x01	; 1
+     7ba:	a2 ef       	ldi	r26, 0xF2	; 242
+     7bc:	b2 e0       	ldi	r27, 0x02	; 2
+     7be:	01 90       	ld	r0, Z+
+     7c0:	0d 92       	st	X+, r0
+     7c2:	8a 95       	dec	r24
+     7c4:	e1 f7       	brne	.-8      	; 0x7be <_Z14send_info_testv+0x2e>
+     7c6:	08 95       	ret
 
-      void send_info()
-        {
-          for (int i=0;i<num_of_food;i++)
-     67a:	0f 5f       	subi	r16, 0xFF	; 255
-     67c:	1f 4f       	sbci	r17, 0xFF	; 255
-     67e:	6c 96       	adiw	r28, 0x1c	; 28
-     680:	80 91 5e 04 	lds	r24, 0x045E
-     684:	90 91 5f 04 	lds	r25, 0x045F
-     688:	08 17       	cp	r16, r24
-     68a:	19 07       	cpc	r17, r25
-     68c:	24 f3       	brlt	.-56     	; 0x656 <_Z9send_infov+0x1e>
-                uart0_putc(' ');
-              }
-
-
-
-        }
-     68e:	df 91       	pop	r29
-     690:	cf 91       	pop	r28
-     692:	1f 91       	pop	r17
-     694:	0f 91       	pop	r16
-     696:	08 95       	ret
-
-00000698 <_Z18database_init_testv>:
-     698:	cf 93       	push	r28
-     69a:	df 93       	push	r29
-     69c:	cd b7       	in	r28, 0x3d	; 61
-     69e:	de b7       	in	r29, 0x3e	; 62
-     6a0:	c4 55       	subi	r28, 0x54	; 84
-     6a2:	d1 09       	sbc	r29, r1
-     6a4:	0f b6       	in	r0, 0x3f	; 63
-     6a6:	f8 94       	cli
-     6a8:	de bf       	out	0x3e, r29	; 62
-     6aa:	0f be       	out	0x3f, r0	; 63
-     6ac:	cd bf       	out	0x3d, r28	; 61
-     6ae:	81 e0       	ldi	r24, 0x01	; 1
-     6b0:	90 e0       	ldi	r25, 0x00	; 0
-     6b2:	9a af       	std	Y+58, r25	; 0x3a
-     6b4:	89 af       	std	Y+57, r24	; 0x39
-     6b6:	85 e0       	ldi	r24, 0x05	; 5
-     6b8:	e1 ec       	ldi	r30, 0xC1	; 193
-     6ba:	f0 e0       	ldi	r31, 0x00	; 0
-     6bc:	de 01       	movw	r26, r28
-     6be:	db 96       	adiw	r26, 0x3b	; 59
-     6c0:	01 90       	ld	r0, Z+
-     6c2:	0d 92       	st	X+, r0
-     6c4:	8a 95       	dec	r24
-     6c6:	e1 f7       	brne	.-8      	; 0x6c0 <_Z18database_init_testv+0x28>
-     6c8:	84 e6       	ldi	r24, 0x64	; 100
-     6ca:	90 e0       	ldi	r25, 0x00	; 0
-     6cc:	61 96       	adiw	r28, 0x11	; 17
-     6ce:	9f af       	std	Y+63, r25	; 0x3f
-     6d0:	8e af       	std	Y+62, r24	; 0x3e
-     6d2:	61 97       	sbiw	r28, 0x11	; 17
-     6d4:	63 96       	adiw	r28, 0x13	; 19
-     6d6:	1f ae       	std	Y+63, r1	; 0x3f
-     6d8:	1e ae       	std	Y+62, r1	; 0x3e
-     6da:	63 97       	sbiw	r28, 0x13	; 19
-     6dc:	65 96       	adiw	r28, 0x15	; 21
-     6de:	1f ae       	std	Y+63, r1	; 0x3f
-     6e0:	1e ae       	std	Y+62, r1	; 0x3e
-     6e2:	65 97       	sbiw	r28, 0x15	; 21
-     6e4:	8c e1       	ldi	r24, 0x1C	; 28
-     6e6:	fe 01       	movw	r30, r28
-     6e8:	f9 96       	adiw	r30, 0x39	; 57
-     6ea:	aa eb       	ldi	r26, 0xBA	; 186
-     6ec:	b2 e0       	ldi	r27, 0x02	; 2
-     6ee:	01 90       	ld	r0, Z+
-     6f0:	0d 92       	st	X+, r0
-     6f2:	8a 95       	dec	r24
-     6f4:	e1 f7       	brne	.-8      	; 0x6ee <_Z18database_init_testv+0x56>
-     6f6:	82 e0       	ldi	r24, 0x02	; 2
-     6f8:	90 e0       	ldi	r25, 0x00	; 0
-     6fa:	9e 8f       	std	Y+30, r25	; 0x1e
-     6fc:	8d 8f       	std	Y+29, r24	; 0x1d
-     6fe:	85 e0       	ldi	r24, 0x05	; 5
-     700:	e6 ec       	ldi	r30, 0xC6	; 198
-     702:	f0 e0       	ldi	r31, 0x00	; 0
-     704:	de 01       	movw	r26, r28
-     706:	5f 96       	adiw	r26, 0x1f	; 31
-     708:	01 90       	ld	r0, Z+
-     70a:	0d 92       	st	X+, r0
-     70c:	8a 95       	dec	r24
-     70e:	e1 f7       	brne	.-8      	; 0x708 <_Z18database_init_testv+0x70>
-     710:	88 ec       	ldi	r24, 0xC8	; 200
-     712:	90 e0       	ldi	r25, 0x00	; 0
-     714:	9c ab       	std	Y+52, r25	; 0x34
-     716:	8b ab       	std	Y+51, r24	; 0x33
-     718:	1e aa       	std	Y+54, r1	; 0x36
-     71a:	1d aa       	std	Y+53, r1	; 0x35
-     71c:	18 ae       	std	Y+56, r1	; 0x38
-     71e:	1f aa       	std	Y+55, r1	; 0x37
-     720:	8c e1       	ldi	r24, 0x1C	; 28
-     722:	fe 01       	movw	r30, r28
-     724:	7d 96       	adiw	r30, 0x1d	; 29
-     726:	a6 ed       	ldi	r26, 0xD6	; 214
-     728:	b2 e0       	ldi	r27, 0x02	; 2
-     72a:	01 90       	ld	r0, Z+
-     72c:	0d 92       	st	X+, r0
-     72e:	8a 95       	dec	r24
-     730:	e1 f7       	brne	.-8      	; 0x72a <_Z18database_init_testv+0x92>
-     732:	83 e0       	ldi	r24, 0x03	; 3
-     734:	90 e0       	ldi	r25, 0x00	; 0
-     736:	9a 83       	std	Y+2, r25	; 0x02
-     738:	89 83       	std	Y+1, r24	; 0x01
-     73a:	85 e0       	ldi	r24, 0x05	; 5
-     73c:	e5 e8       	ldi	r30, 0x85	; 133
-     73e:	f0 e0       	ldi	r31, 0x00	; 0
-     740:	de 01       	movw	r26, r28
-     742:	13 96       	adiw	r26, 0x03	; 3
-     744:	01 90       	ld	r0, Z+
-     746:	0d 92       	st	X+, r0
-     748:	8a 95       	dec	r24
-     74a:	e1 f7       	brne	.-8      	; 0x744 <_Z18database_init_testv+0xac>
-     74c:	8c e2       	ldi	r24, 0x2C	; 44
-     74e:	91 e0       	ldi	r25, 0x01	; 1
-     750:	98 8f       	std	Y+24, r25	; 0x18
-     752:	8f 8b       	std	Y+23, r24	; 0x17
-     754:	1a 8e       	std	Y+26, r1	; 0x1a
-     756:	19 8e       	std	Y+25, r1	; 0x19
-     758:	1c 8e       	std	Y+28, r1	; 0x1c
-     75a:	1b 8e       	std	Y+27, r1	; 0x1b
-     75c:	8c e1       	ldi	r24, 0x1C	; 28
-     75e:	fe 01       	movw	r30, r28
-     760:	31 96       	adiw	r30, 0x01	; 1
-     762:	a2 ef       	ldi	r26, 0xF2	; 242
-     764:	b2 e0       	ldi	r27, 0x02	; 2
-     766:	01 90       	ld	r0, Z+
-     768:	0d 92       	st	X+, r0
-     76a:	8a 95       	dec	r24
-     76c:	e1 f7       	brne	.-8      	; 0x766 <_Z18database_init_testv+0xce>
-     76e:	cc 5a       	subi	r28, 0xAC	; 172
-     770:	df 4f       	sbci	r29, 0xFF	; 255
-     772:	0f b6       	in	r0, 0x3f	; 63
-     774:	f8 94       	cli
-     776:	de bf       	out	0x3e, r29	; 62
-     778:	0f be       	out	0x3f, r0	; 63
-     77a:	cd bf       	out	0x3d, r28	; 61
-     77c:	df 91       	pop	r29
-     77e:	cf 91       	pop	r28
-     780:	08 95       	ret
-
-00000782 <_Z13get_info_testv>:
-     782:	8c e1       	ldi	r24, 0x1C	; 28
-     784:	ea eb       	ldi	r30, 0xBA	; 186
-     786:	f2 e0       	ldi	r31, 0x02	; 2
-     788:	a6 e1       	ldi	r26, 0x16	; 22
-     78a:	b1 e0       	ldi	r27, 0x01	; 1
-     78c:	01 90       	ld	r0, Z+
-     78e:	0d 92       	st	X+, r0
-     790:	8a 95       	dec	r24
-     792:	e1 f7       	brne	.-8      	; 0x78c <_Z13get_info_testv+0xa>
-     794:	8c e1       	ldi	r24, 0x1C	; 28
-     796:	e6 ed       	ldi	r30, 0xD6	; 214
-     798:	f2 e0       	ldi	r31, 0x02	; 2
-     79a:	a2 e3       	ldi	r26, 0x32	; 50
-     79c:	b1 e0       	ldi	r27, 0x01	; 1
-     79e:	01 90       	ld	r0, Z+
-     7a0:	0d 92       	st	X+, r0
-     7a2:	8a 95       	dec	r24
-     7a4:	e1 f7       	brne	.-8      	; 0x79e <_Z13get_info_testv+0x1c>
-     7a6:	8c e1       	ldi	r24, 0x1C	; 28
-     7a8:	e2 ef       	ldi	r30, 0xF2	; 242
-     7aa:	f2 e0       	ldi	r31, 0x02	; 2
-     7ac:	ae e4       	ldi	r26, 0x4E	; 78
-     7ae:	b1 e0       	ldi	r27, 0x01	; 1
-     7b0:	01 90       	ld	r0, Z+
-     7b2:	0d 92       	st	X+, r0
-     7b4:	8a 95       	dec	r24
-     7b6:	e1 f7       	brne	.-8      	; 0x7b0 <_Z13get_info_testv+0x2e>
-     7b8:	83 e0       	ldi	r24, 0x03	; 3
-     7ba:	90 e0       	ldi	r25, 0x00	; 0
-     7bc:	90 93 5f 04 	sts	0x045F, r25
-     7c0:	80 93 5e 04 	sts	0x045E, r24
-     7c4:	08 95       	ret
-
-000007c6 <_Z14send_info_testv>:
-     7c6:	8c e1       	ldi	r24, 0x1C	; 28
-     7c8:	e6 e1       	ldi	r30, 0x16	; 22
-     7ca:	f1 e0       	ldi	r31, 0x01	; 1
-     7cc:	aa eb       	ldi	r26, 0xBA	; 186
-     7ce:	b2 e0       	ldi	r27, 0x02	; 2
-     7d0:	01 90       	ld	r0, Z+
-     7d2:	0d 92       	st	X+, r0
-     7d4:	8a 95       	dec	r24
-     7d6:	e1 f7       	brne	.-8      	; 0x7d0 <_Z14send_info_testv+0xa>
-     7d8:	8c e1       	ldi	r24, 0x1C	; 28
-     7da:	e2 e3       	ldi	r30, 0x32	; 50
-     7dc:	f1 e0       	ldi	r31, 0x01	; 1
-     7de:	a6 ed       	ldi	r26, 0xD6	; 214
-     7e0:	b2 e0       	ldi	r27, 0x02	; 2
-     7e2:	01 90       	ld	r0, Z+
-     7e4:	0d 92       	st	X+, r0
-     7e6:	8a 95       	dec	r24
-     7e8:	e1 f7       	brne	.-8      	; 0x7e2 <_Z14send_info_testv+0x1c>
-     7ea:	8c e1       	ldi	r24, 0x1C	; 28
-     7ec:	ee e4       	ldi	r30, 0x4E	; 78
-     7ee:	f1 e0       	ldi	r31, 0x01	; 1
-     7f0:	a2 ef       	ldi	r26, 0xF2	; 242
-     7f2:	b2 e0       	ldi	r27, 0x02	; 2
-     7f4:	01 90       	ld	r0, Z+
-     7f6:	0d 92       	st	X+, r0
-     7f8:	8a 95       	dec	r24
-     7fa:	e1 f7       	brne	.-8      	; 0x7f4 <_Z14send_info_testv+0x2e>
-     7fc:	08 95       	ret
-
-000007fe <_Z11select_foodv>:
-     7fe:	1f 93       	push	r17
-     800:	cf 93       	push	r28
-     802:	df 93       	push	r29
-     804:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
-     808:	0e 94 c1 03 	call	0x782	; 0x782 <_Z13get_info_testv>
-     80c:	2f ef       	ldi	r18, 0xFF	; 255
-     80e:	85 ea       	ldi	r24, 0xA5	; 165
-     810:	9e e0       	ldi	r25, 0x0E	; 14
-     812:	21 50       	subi	r18, 0x01	; 1
-     814:	80 40       	sbci	r24, 0x00	; 0
-     816:	90 40       	sbci	r25, 0x00	; 0
-     818:	e1 f7       	brne	.-8      	; 0x812 <_Z11select_foodv+0x14>
-     81a:	00 c0       	rjmp	.+0      	; 0x81c <_Z11select_foodv+0x1e>
-     81c:	00 00       	nop
-     81e:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
-     822:	85 e8       	ldi	r24, 0x85	; 133
-     824:	90 e0       	ldi	r25, 0x00	; 0
-     826:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     82a:	60 e0       	ldi	r22, 0x00	; 0
-     82c:	70 e0       	ldi	r23, 0x00	; 0
-     82e:	88 e0       	ldi	r24, 0x08	; 8
-     830:	90 e0       	ldi	r25, 0x00	; 0
-     832:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     836:	8b ec       	ldi	r24, 0xCB	; 203
-     838:	90 e0       	ldi	r25, 0x00	; 0
-     83a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     83e:	60 e0       	ldi	r22, 0x00	; 0
-     840:	70 e0       	ldi	r23, 0x00	; 0
-     842:	8e e0       	ldi	r24, 0x0E	; 14
-     844:	90 e0       	ldi	r25, 0x00	; 0
-     846:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     84a:	8b eb       	ldi	r24, 0xBB	; 187
-     84c:	90 e0       	ldi	r25, 0x00	; 0
-     84e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     852:	61 e0       	ldi	r22, 0x01	; 1
-     854:	70 e0       	ldi	r23, 0x00	; 0
-     856:	80 e0       	ldi	r24, 0x00	; 0
-     858:	90 e0       	ldi	r25, 0x00	; 0
-     85a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     85e:	88 e1       	ldi	r24, 0x18	; 24
-     860:	91 e0       	ldi	r25, 0x01	; 1
-     862:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     866:	61 e0       	ldi	r22, 0x01	; 1
-     868:	70 e0       	ldi	r23, 0x00	; 0
-     86a:	88 e0       	ldi	r24, 0x08	; 8
-     86c:	90 e0       	ldi	r25, 0x00	; 0
-     86e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     872:	c6 e1       	ldi	r28, 0x16	; 22
-     874:	d1 e0       	ldi	r29, 0x01	; 1
-     876:	8e 89       	ldd	r24, Y+22	; 0x16
-     878:	9f 89       	ldd	r25, Y+23	; 0x17
-     87a:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
-     87e:	61 e0       	ldi	r22, 0x01	; 1
-     880:	70 e0       	ldi	r23, 0x00	; 0
-     882:	8e e0       	ldi	r24, 0x0E	; 14
-     884:	90 e0       	ldi	r25, 0x00	; 0
-     886:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     88a:	88 8d       	ldd	r24, Y+24	; 0x18
-     88c:	99 8d       	ldd	r25, Y+25	; 0x19
-     88e:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
-     892:	c0 e0       	ldi	r28, 0x00	; 0
-     894:	d0 e0       	ldi	r29, 0x00	; 0
-     896:	1c e1       	ldi	r17, 0x1C	; 28
-     898:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
-     89c:	89 2b       	or	r24, r25
-     89e:	e1 f3       	breq	.-8      	; 0x898 <__stack+0x39>
-     8a0:	2f ef       	ldi	r18, 0xFF	; 255
-     8a2:	86 e7       	ldi	r24, 0x76	; 118
-     8a4:	91 e0       	ldi	r25, 0x01	; 1
-     8a6:	21 50       	subi	r18, 0x01	; 1
-     8a8:	80 40       	sbci	r24, 0x00	; 0
-     8aa:	90 40       	sbci	r25, 0x00	; 0
-     8ac:	e1 f7       	brne	.-8      	; 0x8a6 <__stack+0x47>
-     8ae:	00 c0       	rjmp	.+0      	; 0x8b0 <__stack+0x51>
-     8b0:	00 00       	nop
-     8b2:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
-     8b6:	20 91 6c 00 	lds	r18, 0x006C
-     8ba:	30 91 6d 00 	lds	r19, 0x006D
-     8be:	82 17       	cp	r24, r18
-     8c0:	93 07       	cpc	r25, r19
-     8c2:	69 f4       	brne	.+26     	; 0x8de <__stack+0x7f>
-     8c4:	20 97       	sbiw	r28, 0x00	; 0
-     8c6:	31 f4       	brne	.+12     	; 0x8d4 <__stack+0x75>
-     8c8:	c0 91 5e 04 	lds	r28, 0x045E
-     8cc:	d0 91 5f 04 	lds	r29, 0x045F
-     8d0:	21 97       	sbiw	r28, 0x01	; 1
-     8d2:	01 c0       	rjmp	.+2      	; 0x8d6 <__stack+0x77>
-     8d4:	21 97       	sbiw	r28, 0x01	; 1
-     8d6:	ce 01       	movw	r24, r28
-     8d8:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     8dc:	dd c0       	rjmp	.+442    	; 0xa98 <__stack+0x239>
-     8de:	20 91 6a 00 	lds	r18, 0x006A
-     8e2:	30 91 6b 00 	lds	r19, 0x006B
-     8e6:	82 17       	cp	r24, r18
-     8e8:	93 07       	cpc	r25, r19
-     8ea:	81 f4       	brne	.+32     	; 0x90c <__stack+0xad>
-     8ec:	80 91 5e 04 	lds	r24, 0x045E
-     8f0:	90 91 5f 04 	lds	r25, 0x045F
-     8f4:	01 97       	sbiw	r24, 0x01	; 1
-     8f6:	8c 17       	cp	r24, r28
-     8f8:	9d 07       	cpc	r25, r29
-     8fa:	11 f0       	breq	.+4      	; 0x900 <__stack+0xa1>
-     8fc:	21 96       	adiw	r28, 0x01	; 1
-     8fe:	02 c0       	rjmp	.+4      	; 0x904 <__stack+0xa5>
-     900:	c0 e0       	ldi	r28, 0x00	; 0
-     902:	d0 e0       	ldi	r29, 0x00	; 0
-     904:	ce 01       	movw	r24, r28
-     906:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     90a:	c6 c0       	rjmp	.+396    	; 0xa98 <__stack+0x239>
-     90c:	20 91 66 00 	lds	r18, 0x0066
-     910:	30 91 67 00 	lds	r19, 0x0067
-     914:	82 17       	cp	r24, r18
-     916:	93 07       	cpc	r25, r19
-     918:	d1 f4       	brne	.+52     	; 0x94e <__stack+0xef>
-     91a:	1c 9f       	mul	r17, r28
-     91c:	f0 01       	movw	r30, r0
-     91e:	1d 9f       	mul	r17, r29
-     920:	f0 0d       	add	r31, r0
-     922:	11 24       	eor	r1, r1
-     924:	ea 5e       	subi	r30, 0xEA	; 234
-     926:	fe 4f       	sbci	r31, 0xFE	; 254
-     928:	80 8d       	ldd	r24, Z+24	; 0x18
-     92a:	91 8d       	ldd	r25, Z+25	; 0x19
-     92c:	00 97       	sbiw	r24, 0x00	; 0
-     92e:	09 f4       	brne	.+2      	; 0x932 <__stack+0xd3>
-     930:	b3 c0       	rjmp	.+358    	; 0xa98 <__stack+0x239>
-     932:	1c 9f       	mul	r17, r28
-     934:	f0 01       	movw	r30, r0
-     936:	1d 9f       	mul	r17, r29
-     938:	f0 0d       	add	r31, r0
-     93a:	11 24       	eor	r1, r1
-     93c:	ea 5e       	subi	r30, 0xEA	; 234
-     93e:	fe 4f       	sbci	r31, 0xFE	; 254
-     940:	01 97       	sbiw	r24, 0x01	; 1
-     942:	91 8f       	std	Z+25, r25	; 0x19
-     944:	80 8f       	std	Z+24, r24	; 0x18
-     946:	ce 01       	movw	r24, r28
-     948:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     94c:	a5 c0       	rjmp	.+330    	; 0xa98 <__stack+0x239>
-     94e:	20 91 68 00 	lds	r18, 0x0068
-     952:	30 91 69 00 	lds	r19, 0x0069
-     956:	82 17       	cp	r24, r18
-     958:	93 07       	cpc	r25, r19
-     95a:	81 f4       	brne	.+32     	; 0x97c <__stack+0x11d>
-     95c:	1c 9f       	mul	r17, r28
-     95e:	f0 01       	movw	r30, r0
-     960:	1d 9f       	mul	r17, r29
-     962:	f0 0d       	add	r31, r0
-     964:	11 24       	eor	r1, r1
-     966:	ea 5e       	subi	r30, 0xEA	; 234
-     968:	fe 4f       	sbci	r31, 0xFE	; 254
-     96a:	80 8d       	ldd	r24, Z+24	; 0x18
-     96c:	91 8d       	ldd	r25, Z+25	; 0x19
-     96e:	01 96       	adiw	r24, 0x01	; 1
-     970:	91 8f       	std	Z+25, r25	; 0x19
-     972:	80 8f       	std	Z+24, r24	; 0x18
-     974:	ce 01       	movw	r24, r28
-     976:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     97a:	8e c0       	rjmp	.+284    	; 0xa98 <__stack+0x239>
-     97c:	20 91 64 00 	lds	r18, 0x0064
-     980:	30 91 65 00 	lds	r19, 0x0065
-     984:	82 17       	cp	r24, r18
-     986:	93 07       	cpc	r25, r19
-     988:	69 f5       	brne	.+90     	; 0x9e4 <__stack+0x185>
-     98a:	81 ed       	ldi	r24, 0xD1	; 209
+000007c8 <_Z11select_foodv>:
+     7c8:	1f 93       	push	r17
+     7ca:	cf 93       	push	r28
+     7cc:	df 93       	push	r29
+     7ce:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
+     7d2:	0e 94 a6 03 	call	0x74c	; 0x74c <_Z13get_info_testv>
+     7d6:	2f ef       	ldi	r18, 0xFF	; 255
+     7d8:	85 ea       	ldi	r24, 0xA5	; 165
+     7da:	9e e0       	ldi	r25, 0x0E	; 14
+     7dc:	21 50       	subi	r18, 0x01	; 1
+     7de:	80 40       	sbci	r24, 0x00	; 0
+     7e0:	90 40       	sbci	r25, 0x00	; 0
+     7e2:	e1 f7       	brne	.-8      	; 0x7dc <_Z11select_foodv+0x14>
+     7e4:	00 c0       	rjmp	.+0      	; 0x7e6 <_Z11select_foodv+0x1e>
+     7e6:	00 00       	nop
+     7e8:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     7ec:	85 e8       	ldi	r24, 0x85	; 133
+     7ee:	90 e0       	ldi	r25, 0x00	; 0
+     7f0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     7f4:	60 e0       	ldi	r22, 0x00	; 0
+     7f6:	70 e0       	ldi	r23, 0x00	; 0
+     7f8:	88 e0       	ldi	r24, 0x08	; 8
+     7fa:	90 e0       	ldi	r25, 0x00	; 0
+     7fc:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     800:	8b ec       	ldi	r24, 0xCB	; 203
+     802:	90 e0       	ldi	r25, 0x00	; 0
+     804:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     808:	60 e0       	ldi	r22, 0x00	; 0
+     80a:	70 e0       	ldi	r23, 0x00	; 0
+     80c:	8e e0       	ldi	r24, 0x0E	; 14
+     80e:	90 e0       	ldi	r25, 0x00	; 0
+     810:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     814:	8b eb       	ldi	r24, 0xBB	; 187
+     816:	90 e0       	ldi	r25, 0x00	; 0
+     818:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     81c:	61 e0       	ldi	r22, 0x01	; 1
+     81e:	70 e0       	ldi	r23, 0x00	; 0
+     820:	80 e0       	ldi	r24, 0x00	; 0
+     822:	90 e0       	ldi	r25, 0x00	; 0
+     824:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     828:	88 e1       	ldi	r24, 0x18	; 24
+     82a:	91 e0       	ldi	r25, 0x01	; 1
+     82c:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     830:	61 e0       	ldi	r22, 0x01	; 1
+     832:	70 e0       	ldi	r23, 0x00	; 0
+     834:	88 e0       	ldi	r24, 0x08	; 8
+     836:	90 e0       	ldi	r25, 0x00	; 0
+     838:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     83c:	c6 e1       	ldi	r28, 0x16	; 22
+     83e:	d1 e0       	ldi	r29, 0x01	; 1
+     840:	8e 89       	ldd	r24, Y+22	; 0x16
+     842:	9f 89       	ldd	r25, Y+23	; 0x17
+     844:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     848:	61 e0       	ldi	r22, 0x01	; 1
+     84a:	70 e0       	ldi	r23, 0x00	; 0
+     84c:	8e e0       	ldi	r24, 0x0E	; 14
+     84e:	90 e0       	ldi	r25, 0x00	; 0
+     850:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     854:	88 8d       	ldd	r24, Y+24	; 0x18
+     856:	99 8d       	ldd	r25, Y+25	; 0x19
+     858:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     85c:	c0 e0       	ldi	r28, 0x00	; 0
+     85e:	d0 e0       	ldi	r29, 0x00	; 0
+     860:	1c e1       	ldi	r17, 0x1C	; 28
+     862:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     866:	89 2b       	or	r24, r25
+     868:	e1 f3       	breq	.-8      	; 0x862 <__stack+0x3>
+     86a:	2f ef       	ldi	r18, 0xFF	; 255
+     86c:	86 e7       	ldi	r24, 0x76	; 118
+     86e:	91 e0       	ldi	r25, 0x01	; 1
+     870:	21 50       	subi	r18, 0x01	; 1
+     872:	80 40       	sbci	r24, 0x00	; 0
+     874:	90 40       	sbci	r25, 0x00	; 0
+     876:	e1 f7       	brne	.-8      	; 0x870 <__stack+0x11>
+     878:	00 c0       	rjmp	.+0      	; 0x87a <__stack+0x1b>
+     87a:	00 00       	nop
+     87c:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     880:	20 91 6c 00 	lds	r18, 0x006C
+     884:	30 91 6d 00 	lds	r19, 0x006D
+     888:	82 17       	cp	r24, r18
+     88a:	93 07       	cpc	r25, r19
+     88c:	69 f4       	brne	.+26     	; 0x8a8 <__stack+0x49>
+     88e:	20 97       	sbiw	r28, 0x00	; 0
+     890:	31 f4       	brne	.+12     	; 0x89e <__stack+0x3f>
+     892:	c0 91 5e 04 	lds	r28, 0x045E
+     896:	d0 91 5f 04 	lds	r29, 0x045F
+     89a:	21 97       	sbiw	r28, 0x01	; 1
+     89c:	01 c0       	rjmp	.+2      	; 0x8a0 <__stack+0x41>
+     89e:	21 97       	sbiw	r28, 0x01	; 1
+     8a0:	ce 01       	movw	r24, r28
+     8a2:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     8a6:	dd c0       	rjmp	.+442    	; 0xa62 <__stack+0x203>
+     8a8:	20 91 6a 00 	lds	r18, 0x006A
+     8ac:	30 91 6b 00 	lds	r19, 0x006B
+     8b0:	82 17       	cp	r24, r18
+     8b2:	93 07       	cpc	r25, r19
+     8b4:	81 f4       	brne	.+32     	; 0x8d6 <__stack+0x77>
+     8b6:	80 91 5e 04 	lds	r24, 0x045E
+     8ba:	90 91 5f 04 	lds	r25, 0x045F
+     8be:	01 97       	sbiw	r24, 0x01	; 1
+     8c0:	8c 17       	cp	r24, r28
+     8c2:	9d 07       	cpc	r25, r29
+     8c4:	11 f0       	breq	.+4      	; 0x8ca <__stack+0x6b>
+     8c6:	21 96       	adiw	r28, 0x01	; 1
+     8c8:	02 c0       	rjmp	.+4      	; 0x8ce <__stack+0x6f>
+     8ca:	c0 e0       	ldi	r28, 0x00	; 0
+     8cc:	d0 e0       	ldi	r29, 0x00	; 0
+     8ce:	ce 01       	movw	r24, r28
+     8d0:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     8d4:	c6 c0       	rjmp	.+396    	; 0xa62 <__stack+0x203>
+     8d6:	20 91 66 00 	lds	r18, 0x0066
+     8da:	30 91 67 00 	lds	r19, 0x0067
+     8de:	82 17       	cp	r24, r18
+     8e0:	93 07       	cpc	r25, r19
+     8e2:	d1 f4       	brne	.+52     	; 0x918 <__stack+0xb9>
+     8e4:	1c 9f       	mul	r17, r28
+     8e6:	f0 01       	movw	r30, r0
+     8e8:	1d 9f       	mul	r17, r29
+     8ea:	f0 0d       	add	r31, r0
+     8ec:	11 24       	eor	r1, r1
+     8ee:	ea 5e       	subi	r30, 0xEA	; 234
+     8f0:	fe 4f       	sbci	r31, 0xFE	; 254
+     8f2:	80 8d       	ldd	r24, Z+24	; 0x18
+     8f4:	91 8d       	ldd	r25, Z+25	; 0x19
+     8f6:	00 97       	sbiw	r24, 0x00	; 0
+     8f8:	09 f4       	brne	.+2      	; 0x8fc <__stack+0x9d>
+     8fa:	b3 c0       	rjmp	.+358    	; 0xa62 <__stack+0x203>
+     8fc:	1c 9f       	mul	r17, r28
+     8fe:	f0 01       	movw	r30, r0
+     900:	1d 9f       	mul	r17, r29
+     902:	f0 0d       	add	r31, r0
+     904:	11 24       	eor	r1, r1
+     906:	ea 5e       	subi	r30, 0xEA	; 234
+     908:	fe 4f       	sbci	r31, 0xFE	; 254
+     90a:	01 97       	sbiw	r24, 0x01	; 1
+     90c:	91 8f       	std	Z+25, r25	; 0x19
+     90e:	80 8f       	std	Z+24, r24	; 0x18
+     910:	ce 01       	movw	r24, r28
+     912:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     916:	a5 c0       	rjmp	.+330    	; 0xa62 <__stack+0x203>
+     918:	20 91 68 00 	lds	r18, 0x0068
+     91c:	30 91 69 00 	lds	r19, 0x0069
+     920:	82 17       	cp	r24, r18
+     922:	93 07       	cpc	r25, r19
+     924:	81 f4       	brne	.+32     	; 0x946 <__stack+0xe7>
+     926:	1c 9f       	mul	r17, r28
+     928:	f0 01       	movw	r30, r0
+     92a:	1d 9f       	mul	r17, r29
+     92c:	f0 0d       	add	r31, r0
+     92e:	11 24       	eor	r1, r1
+     930:	ea 5e       	subi	r30, 0xEA	; 234
+     932:	fe 4f       	sbci	r31, 0xFE	; 254
+     934:	80 8d       	ldd	r24, Z+24	; 0x18
+     936:	91 8d       	ldd	r25, Z+25	; 0x19
+     938:	01 96       	adiw	r24, 0x01	; 1
+     93a:	91 8f       	std	Z+25, r25	; 0x19
+     93c:	80 8f       	std	Z+24, r24	; 0x18
+     93e:	ce 01       	movw	r24, r28
+     940:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     944:	8e c0       	rjmp	.+284    	; 0xa62 <__stack+0x203>
+     946:	20 91 64 00 	lds	r18, 0x0064
+     94a:	30 91 65 00 	lds	r19, 0x0065
+     94e:	82 17       	cp	r24, r18
+     950:	93 07       	cpc	r25, r19
+     952:	69 f5       	brne	.+90     	; 0x9ae <__stack+0x14f>
+     954:	81 ed       	ldi	r24, 0xD1	; 209
+     956:	90 e0       	ldi	r25, 0x00	; 0
+     958:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     95c:	89 2b       	or	r24, r25
+     95e:	49 f0       	breq	.+18     	; 0x972 <__stack+0x113>
+     960:	1c 9f       	mul	r17, r28
+     962:	f0 01       	movw	r30, r0
+     964:	1d 9f       	mul	r17, r29
+     966:	f0 0d       	add	r31, r0
+     968:	11 24       	eor	r1, r1
+     96a:	ea 5e       	subi	r30, 0xEA	; 234
+     96c:	fe 4f       	sbci	r31, 0xFE	; 254
+     96e:	11 8e       	std	Z+25, r1	; 0x19
+     970:	10 8e       	std	Z+24, r1	; 0x18
+     972:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     976:	85 e8       	ldi	r24, 0x85	; 133
+     978:	90 e0       	ldi	r25, 0x00	; 0
+     97a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     97e:	60 e0       	ldi	r22, 0x00	; 0
+     980:	70 e0       	ldi	r23, 0x00	; 0
+     982:	88 e0       	ldi	r24, 0x08	; 8
+     984:	90 e0       	ldi	r25, 0x00	; 0
+     986:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     98a:	8b ec       	ldi	r24, 0xCB	; 203
      98c:	90 e0       	ldi	r25, 0x00	; 0
-     98e:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     992:	89 2b       	or	r24, r25
-     994:	49 f0       	breq	.+18     	; 0x9a8 <__stack+0x149>
-     996:	1c 9f       	mul	r17, r28
-     998:	f0 01       	movw	r30, r0
-     99a:	1d 9f       	mul	r17, r29
-     99c:	f0 0d       	add	r31, r0
-     99e:	11 24       	eor	r1, r1
-     9a0:	ea 5e       	subi	r30, 0xEA	; 234
-     9a2:	fe 4f       	sbci	r31, 0xFE	; 254
-     9a4:	11 8e       	std	Z+25, r1	; 0x19
-     9a6:	10 8e       	std	Z+24, r1	; 0x18
-     9a8:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
-     9ac:	85 e8       	ldi	r24, 0x85	; 133
-     9ae:	90 e0       	ldi	r25, 0x00	; 0
-     9b0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     9b4:	60 e0       	ldi	r22, 0x00	; 0
-     9b6:	70 e0       	ldi	r23, 0x00	; 0
-     9b8:	88 e0       	ldi	r24, 0x08	; 8
-     9ba:	90 e0       	ldi	r25, 0x00	; 0
-     9bc:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     9c0:	8b ec       	ldi	r24, 0xCB	; 203
-     9c2:	90 e0       	ldi	r25, 0x00	; 0
-     9c4:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     9c8:	60 e0       	ldi	r22, 0x00	; 0
-     9ca:	70 e0       	ldi	r23, 0x00	; 0
-     9cc:	8e e0       	ldi	r24, 0x0E	; 14
+     98e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     992:	60 e0       	ldi	r22, 0x00	; 0
+     994:	70 e0       	ldi	r23, 0x00	; 0
+     996:	8e e0       	ldi	r24, 0x0E	; 14
+     998:	90 e0       	ldi	r25, 0x00	; 0
+     99a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     99e:	8b eb       	ldi	r24, 0xBB	; 187
+     9a0:	90 e0       	ldi	r25, 0x00	; 0
+     9a2:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     9a6:	ce 01       	movw	r24, r28
+     9a8:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     9ac:	5a c0       	rjmp	.+180    	; 0xa62 <__stack+0x203>
+     9ae:	20 91 62 00 	lds	r18, 0x0062
+     9b2:	30 91 63 00 	lds	r19, 0x0063
+     9b6:	82 17       	cp	r24, r18
+     9b8:	93 07       	cpc	r25, r19
+     9ba:	49 f5       	brne	.+82     	; 0xa0e <__stack+0x1af>
+     9bc:	82 ee       	ldi	r24, 0xE2	; 226
+     9be:	90 e0       	ldi	r25, 0x00	; 0
+     9c0:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     9c4:	89 2b       	or	r24, r25
+     9c6:	29 f0       	breq	.+10     	; 0x9d2 <__stack+0x173>
+     9c8:	0e 94 c8 03 	call	0x790	; 0x790 <_Z14send_info_testv>
+     9cc:	81 e0       	ldi	r24, 0x01	; 1
      9ce:	90 e0       	ldi	r25, 0x00	; 0
-     9d0:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     9d4:	8b eb       	ldi	r24, 0xBB	; 187
-     9d6:	90 e0       	ldi	r25, 0x00	; 0
-     9d8:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     9dc:	ce 01       	movw	r24, r28
-     9de:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     9e2:	5a c0       	rjmp	.+180    	; 0xa98 <__stack+0x239>
-     9e4:	20 91 62 00 	lds	r18, 0x0062
-     9e8:	30 91 63 00 	lds	r19, 0x0063
-     9ec:	82 17       	cp	r24, r18
-     9ee:	93 07       	cpc	r25, r19
-     9f0:	49 f5       	brne	.+82     	; 0xa44 <__stack+0x1e5>
-     9f2:	82 ee       	ldi	r24, 0xE2	; 226
-     9f4:	90 e0       	ldi	r25, 0x00	; 0
-     9f6:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     9fa:	89 2b       	or	r24, r25
-     9fc:	29 f0       	breq	.+10     	; 0xa08 <__stack+0x1a9>
-     9fe:	0e 94 e3 03 	call	0x7c6	; 0x7c6 <_Z14send_info_testv>
-     a02:	81 e0       	ldi	r24, 0x01	; 1
-     a04:	90 e0       	ldi	r25, 0x00	; 0
-     a06:	54 c0       	rjmp	.+168    	; 0xab0 <__stack+0x251>
-     a08:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
-     a0c:	85 e8       	ldi	r24, 0x85	; 133
-     a0e:	90 e0       	ldi	r25, 0x00	; 0
-     a10:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a14:	60 e0       	ldi	r22, 0x00	; 0
-     a16:	70 e0       	ldi	r23, 0x00	; 0
-     a18:	88 e0       	ldi	r24, 0x08	; 8
-     a1a:	90 e0       	ldi	r25, 0x00	; 0
-     a1c:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     a20:	8b ec       	ldi	r24, 0xCB	; 203
-     a22:	90 e0       	ldi	r25, 0x00	; 0
-     a24:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a28:	60 e0       	ldi	r22, 0x00	; 0
-     a2a:	70 e0       	ldi	r23, 0x00	; 0
-     a2c:	8e e0       	ldi	r24, 0x0E	; 14
+     9d0:	54 c0       	rjmp	.+168    	; 0xa7a <__stack+0x21b>
+     9d2:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     9d6:	85 e8       	ldi	r24, 0x85	; 133
+     9d8:	90 e0       	ldi	r25, 0x00	; 0
+     9da:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     9de:	60 e0       	ldi	r22, 0x00	; 0
+     9e0:	70 e0       	ldi	r23, 0x00	; 0
+     9e2:	88 e0       	ldi	r24, 0x08	; 8
+     9e4:	90 e0       	ldi	r25, 0x00	; 0
+     9e6:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     9ea:	8b ec       	ldi	r24, 0xCB	; 203
+     9ec:	90 e0       	ldi	r25, 0x00	; 0
+     9ee:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     9f2:	60 e0       	ldi	r22, 0x00	; 0
+     9f4:	70 e0       	ldi	r23, 0x00	; 0
+     9f6:	8e e0       	ldi	r24, 0x0E	; 14
+     9f8:	90 e0       	ldi	r25, 0x00	; 0
+     9fa:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     9fe:	8b eb       	ldi	r24, 0xBB	; 187
+     a00:	90 e0       	ldi	r25, 0x00	; 0
+     a02:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     a06:	ce 01       	movw	r24, r28
+     a08:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     a0c:	2a c0       	rjmp	.+84     	; 0xa62 <__stack+0x203>
+     a0e:	20 91 60 00 	lds	r18, 0x0060
+     a12:	30 91 61 00 	lds	r19, 0x0061
+     a16:	82 17       	cp	r24, r18
+     a18:	93 07       	cpc	r25, r19
+     a1a:	19 f5       	brne	.+70     	; 0xa62 <__stack+0x203>
+     a1c:	83 ef       	ldi	r24, 0xF3	; 243
+     a1e:	90 e0       	ldi	r25, 0x00	; 0
+     a20:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     a24:	89 2b       	or	r24, r25
+     a26:	39 f5       	brne	.+78     	; 0xa76 <__stack+0x217>
+     a28:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     a2c:	85 e8       	ldi	r24, 0x85	; 133
      a2e:	90 e0       	ldi	r25, 0x00	; 0
-     a30:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     a34:	8b eb       	ldi	r24, 0xBB	; 187
-     a36:	90 e0       	ldi	r25, 0x00	; 0
-     a38:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a3c:	ce 01       	movw	r24, r28
-     a3e:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     a42:	2a c0       	rjmp	.+84     	; 0xa98 <__stack+0x239>
-     a44:	20 91 60 00 	lds	r18, 0x0060
-     a48:	30 91 61 00 	lds	r19, 0x0061
-     a4c:	82 17       	cp	r24, r18
-     a4e:	93 07       	cpc	r25, r19
-     a50:	19 f5       	brne	.+70     	; 0xa98 <__stack+0x239>
-     a52:	83 ef       	ldi	r24, 0xF3	; 243
-     a54:	90 e0       	ldi	r25, 0x00	; 0
-     a56:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     a5a:	89 2b       	or	r24, r25
-     a5c:	39 f5       	brne	.+78     	; 0xaac <__stack+0x24d>
-     a5e:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
-     a62:	85 e8       	ldi	r24, 0x85	; 133
-     a64:	90 e0       	ldi	r25, 0x00	; 0
-     a66:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a6a:	60 e0       	ldi	r22, 0x00	; 0
-     a6c:	70 e0       	ldi	r23, 0x00	; 0
-     a6e:	88 e0       	ldi	r24, 0x08	; 8
-     a70:	90 e0       	ldi	r25, 0x00	; 0
-     a72:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     a76:	8b ec       	ldi	r24, 0xCB	; 203
+     a30:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     a34:	60 e0       	ldi	r22, 0x00	; 0
+     a36:	70 e0       	ldi	r23, 0x00	; 0
+     a38:	88 e0       	ldi	r24, 0x08	; 8
+     a3a:	90 e0       	ldi	r25, 0x00	; 0
+     a3c:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     a40:	8b ec       	ldi	r24, 0xCB	; 203
+     a42:	90 e0       	ldi	r25, 0x00	; 0
+     a44:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     a48:	60 e0       	ldi	r22, 0x00	; 0
+     a4a:	70 e0       	ldi	r23, 0x00	; 0
+     a4c:	8e e0       	ldi	r24, 0x0E	; 14
+     a4e:	90 e0       	ldi	r25, 0x00	; 0
+     a50:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     a54:	8b eb       	ldi	r24, 0xBB	; 187
+     a56:	90 e0       	ldi	r25, 0x00	; 0
+     a58:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     a5c:	ce 01       	movw	r24, r28
+     a5e:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     a62:	2f ef       	ldi	r18, 0xFF	; 255
+     a64:	85 ea       	ldi	r24, 0xA5	; 165
+     a66:	9e e0       	ldi	r25, 0x0E	; 14
+     a68:	21 50       	subi	r18, 0x01	; 1
+     a6a:	80 40       	sbci	r24, 0x00	; 0
+     a6c:	90 40       	sbci	r25, 0x00	; 0
+     a6e:	e1 f7       	brne	.-8      	; 0xa68 <__stack+0x209>
+     a70:	00 c0       	rjmp	.+0      	; 0xa72 <__stack+0x213>
+     a72:	00 00       	nop
+     a74:	f6 ce       	rjmp	.-532    	; 0x862 <__stack+0x3>
+     a76:	80 e0       	ldi	r24, 0x00	; 0
      a78:	90 e0       	ldi	r25, 0x00	; 0
-     a7a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a7e:	60 e0       	ldi	r22, 0x00	; 0
-     a80:	70 e0       	ldi	r23, 0x00	; 0
-     a82:	8e e0       	ldi	r24, 0x0E	; 14
-     a84:	90 e0       	ldi	r25, 0x00	; 0
-     a86:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     a8a:	8b eb       	ldi	r24, 0xBB	; 187
-     a8c:	90 e0       	ldi	r25, 0x00	; 0
-     a8e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     a92:	ce 01       	movw	r24, r28
-     a94:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     a98:	2f ef       	ldi	r18, 0xFF	; 255
-     a9a:	85 ea       	ldi	r24, 0xA5	; 165
-     a9c:	9e e0       	ldi	r25, 0x0E	; 14
-     a9e:	21 50       	subi	r18, 0x01	; 1
-     aa0:	80 40       	sbci	r24, 0x00	; 0
-     aa2:	90 40       	sbci	r25, 0x00	; 0
-     aa4:	e1 f7       	brne	.-8      	; 0xa9e <__stack+0x23f>
-     aa6:	00 c0       	rjmp	.+0      	; 0xaa8 <__stack+0x249>
-     aa8:	00 00       	nop
-     aaa:	f6 ce       	rjmp	.-532    	; 0x898 <__stack+0x39>
-     aac:	80 e0       	ldi	r24, 0x00	; 0
-     aae:	90 e0       	ldi	r25, 0x00	; 0
-     ab0:	df 91       	pop	r29
-     ab2:	cf 91       	pop	r28
-     ab4:	1f 91       	pop	r17
-     ab6:	08 95       	ret
+     a7a:	df 91       	pop	r29
+     a7c:	cf 91       	pop	r28
+     a7e:	1f 91       	pop	r17
+     a80:	08 95       	ret
 
-00000ab8 <_Z13selected_foodv>:
-     ab8:	cf 92       	push	r12
-     aba:	df 92       	push	r13
-     abc:	ef 92       	push	r14
-     abe:	ff 92       	push	r15
-     ac0:	0f 93       	push	r16
-     ac2:	1f 93       	push	r17
-     ac4:	cf 93       	push	r28
-     ac6:	df 93       	push	r29
-     ac8:	cd b7       	in	r28, 0x3d	; 61
-     aca:	de b7       	in	r29, 0x3e	; 62
-     acc:	c8 5c       	subi	r28, 0xC8	; 200
-     ace:	d1 09       	sbc	r29, r1
-     ad0:	0f b6       	in	r0, 0x3f	; 63
-     ad2:	f8 94       	cli
-     ad4:	de bf       	out	0x3e, r29	; 62
-     ad6:	0f be       	out	0x3f, r0	; 63
-     ad8:	cd bf       	out	0x3d, r28	; 61
-     ada:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
-     ade:	0e 94 de 02 	call	0x5bc	; 0x5bc <_Z8get_infov>
-     ae2:	2f ef       	ldi	r18, 0xFF	; 255
-     ae4:	35 ea       	ldi	r19, 0xA5	; 165
-     ae6:	8e e0       	ldi	r24, 0x0E	; 14
-     ae8:	21 50       	subi	r18, 0x01	; 1
-     aea:	30 40       	sbci	r19, 0x00	; 0
-     aec:	80 40       	sbci	r24, 0x00	; 0
-     aee:	e1 f7       	brne	.-8      	; 0xae8 <_Z13selected_foodv+0x30>
-     af0:	00 c0       	rjmp	.+0      	; 0xaf2 <_Z13selected_foodv+0x3a>
-     af2:	00 00       	nop
-     af4:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
-     af8:	40 91 5e 04 	lds	r20, 0x045E
-     afc:	50 91 5f 04 	lds	r21, 0x045F
-     b00:	14 16       	cp	r1, r20
-     b02:	15 06       	cpc	r1, r21
-     b04:	04 f5       	brge	.+64     	; 0xb46 <_Z13selected_foodv+0x8e>
-     b06:	ee e2       	ldi	r30, 0x2E	; 46
-     b08:	f1 e0       	ldi	r31, 0x01	; 1
-     b0a:	80 e0       	ldi	r24, 0x00	; 0
-     b0c:	90 e0       	ldi	r25, 0x00	; 0
-     b0e:	00 e0       	ldi	r16, 0x00	; 0
-     b10:	10 e0       	ldi	r17, 0x00	; 0
-     b12:	20 81       	ld	r18, Z
-     b14:	31 81       	ldd	r19, Z+1	; 0x01
-     b16:	12 16       	cp	r1, r18
-     b18:	13 06       	cpc	r1, r19
-     b1a:	6c f4       	brge	.+26     	; 0xb36 <_Z13selected_foodv+0x7e>
-     b1c:	d8 01       	movw	r26, r16
-     b1e:	aa 0f       	add	r26, r26
-     b20:	bb 1f       	adc	r27, r27
-     b22:	21 e0       	ldi	r18, 0x01	; 1
-     b24:	30 e0       	ldi	r19, 0x00	; 0
-     b26:	2c 0f       	add	r18, r28
-     b28:	3d 1f       	adc	r19, r29
-     b2a:	a2 0f       	add	r26, r18
-     b2c:	b3 1f       	adc	r27, r19
-     b2e:	8d 93       	st	X+, r24
-     b30:	9c 93       	st	X, r25
-     b32:	0f 5f       	subi	r16, 0xFF	; 255
-     b34:	1f 4f       	sbci	r17, 0xFF	; 255
-     b36:	01 96       	adiw	r24, 0x01	; 1
-     b38:	7c 96       	adiw	r30, 0x1c	; 28
-     b3a:	84 17       	cp	r24, r20
-     b3c:	95 07       	cpc	r25, r21
-     b3e:	4c f3       	brlt	.-46     	; 0xb12 <_Z13selected_foodv+0x5a>
-     b40:	01 15       	cp	r16, r1
-     b42:	11 05       	cpc	r17, r1
-     b44:	c1 f4       	brne	.+48     	; 0xb76 <_Z13selected_foodv+0xbe>
-     b46:	84 e0       	ldi	r24, 0x04	; 4
-     b48:	91 e0       	ldi	r25, 0x01	; 1
-     b4a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     b4e:	61 e0       	ldi	r22, 0x01	; 1
-     b50:	70 e0       	ldi	r23, 0x00	; 0
-     b52:	86 e0       	ldi	r24, 0x06	; 6
-     b54:	90 e0       	ldi	r25, 0x00	; 0
-     b56:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     b5a:	82 eb       	ldi	r24, 0xB2	; 178
-     b5c:	90 e0       	ldi	r25, 0x00	; 0
-     b5e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     b62:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
-     b66:	20 91 62 00 	lds	r18, 0x0062
-     b6a:	30 91 63 00 	lds	r19, 0x0063
-     b6e:	82 17       	cp	r24, r18
-     b70:	93 07       	cpc	r25, r19
-     b72:	b9 f7       	brne	.-18     	; 0xb62 <_Z13selected_foodv+0xaa>
-     b74:	a0 c0       	rjmp	.+320    	; 0xcb6 <_Z13selected_foodv+0x1fe>
-     b76:	85 e8       	ldi	r24, 0x85	; 133
-     b78:	90 e0       	ldi	r25, 0x00	; 0
-     b7a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     b7e:	60 e0       	ldi	r22, 0x00	; 0
-     b80:	70 e0       	ldi	r23, 0x00	; 0
-     b82:	88 e0       	ldi	r24, 0x08	; 8
-     b84:	90 e0       	ldi	r25, 0x00	; 0
-     b86:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     b8a:	8b ec       	ldi	r24, 0xCB	; 203
-     b8c:	90 e0       	ldi	r25, 0x00	; 0
-     b8e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     b92:	60 e0       	ldi	r22, 0x00	; 0
-     b94:	70 e0       	ldi	r23, 0x00	; 0
-     b96:	8e e0       	ldi	r24, 0x0E	; 14
-     b98:	90 e0       	ldi	r25, 0x00	; 0
-     b9a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     b9e:	8b eb       	ldi	r24, 0xBB	; 187
-     ba0:	90 e0       	ldi	r25, 0x00	; 0
-     ba2:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     ba6:	61 e0       	ldi	r22, 0x01	; 1
-     ba8:	70 e0       	ldi	r23, 0x00	; 0
-     baa:	80 e0       	ldi	r24, 0x00	; 0
-     bac:	90 e0       	ldi	r25, 0x00	; 0
-     bae:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     bb2:	89 81       	ldd	r24, Y+1	; 0x01
-     bb4:	9a 81       	ldd	r25, Y+2	; 0x02
-     bb6:	2c e1       	ldi	r18, 0x1C	; 28
-     bb8:	28 9f       	mul	r18, r24
-     bba:	70 01       	movw	r14, r0
-     bbc:	29 9f       	mul	r18, r25
-     bbe:	f0 0c       	add	r15, r0
-     bc0:	11 24       	eor	r1, r1
-     bc2:	c7 01       	movw	r24, r14
-     bc4:	88 5e       	subi	r24, 0xE8	; 232
-     bc6:	9e 4f       	sbci	r25, 0xFE	; 254
-     bc8:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
-     bcc:	61 e0       	ldi	r22, 0x01	; 1
-     bce:	70 e0       	ldi	r23, 0x00	; 0
-     bd0:	88 e0       	ldi	r24, 0x08	; 8
-     bd2:	90 e0       	ldi	r25, 0x00	; 0
-     bd4:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     bd8:	c7 01       	movw	r24, r14
-     bda:	8a 5e       	subi	r24, 0xEA	; 234
-     bdc:	9e 4f       	sbci	r25, 0xFE	; 254
-     bde:	7c 01       	movw	r14, r24
-     be0:	fc 01       	movw	r30, r24
-     be2:	86 89       	ldd	r24, Z+22	; 0x16
-     be4:	97 89       	ldd	r25, Z+23	; 0x17
-     be6:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
-     bea:	61 e0       	ldi	r22, 0x01	; 1
-     bec:	70 e0       	ldi	r23, 0x00	; 0
-     bee:	8e e0       	ldi	r24, 0x0E	; 14
-     bf0:	90 e0       	ldi	r25, 0x00	; 0
-     bf2:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
-     bf6:	f7 01       	movw	r30, r14
-     bf8:	80 8d       	ldd	r24, Z+24	; 0x18
-     bfa:	91 8d       	ldd	r25, Z+25	; 0x19
-     bfc:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
-     c00:	e1 2c       	mov	r14, r1
-     c02:	f1 2c       	mov	r15, r1
-     c04:	01 50       	subi	r16, 0x01	; 1
-     c06:	11 09       	sbc	r17, r1
-     c08:	c1 2c       	mov	r12, r1
-     c0a:	d1 2c       	mov	r13, r1
-     c0c:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
-     c10:	20 91 6c 00 	lds	r18, 0x006C
-     c14:	30 91 6d 00 	lds	r19, 0x006D
-     c18:	82 17       	cp	r24, r18
-     c1a:	93 07       	cpc	r25, r19
-     c1c:	b1 f4       	brne	.+44     	; 0xc4a <_Z13selected_foodv+0x192>
-     c1e:	e1 14       	cp	r14, r1
-     c20:	f1 04       	cpc	r15, r1
-     c22:	11 f4       	brne	.+4      	; 0xc28 <_Z13selected_foodv+0x170>
-     c24:	78 01       	movw	r14, r16
-     c26:	03 c0       	rjmp	.+6      	; 0xc2e <_Z13selected_foodv+0x176>
-     c28:	f1 e0       	ldi	r31, 0x01	; 1
-     c2a:	ef 1a       	sub	r14, r31
-     c2c:	f1 08       	sbc	r15, r1
-     c2e:	f7 01       	movw	r30, r14
-     c30:	ee 0f       	add	r30, r30
-     c32:	ff 1f       	adc	r31, r31
-     c34:	21 e0       	ldi	r18, 0x01	; 1
-     c36:	30 e0       	ldi	r19, 0x00	; 0
-     c38:	2c 0f       	add	r18, r28
-     c3a:	3d 1f       	adc	r19, r29
-     c3c:	e2 0f       	add	r30, r18
-     c3e:	f3 1f       	adc	r31, r19
-     c40:	80 81       	ld	r24, Z
-     c42:	91 81       	ldd	r25, Z+1	; 0x01
-     c44:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     c48:	2c c0       	rjmp	.+88     	; 0xca2 <_Z13selected_foodv+0x1ea>
-     c4a:	20 91 6a 00 	lds	r18, 0x006A
-     c4e:	30 91 6b 00 	lds	r19, 0x006B
-     c52:	82 17       	cp	r24, r18
-     c54:	93 07       	cpc	r25, r19
-     c56:	b9 f4       	brne	.+46     	; 0xc86 <_Z13selected_foodv+0x1ce>
-     c58:	0e 15       	cp	r16, r14
-     c5a:	1f 05       	cpc	r17, r15
-     c5c:	21 f0       	breq	.+8      	; 0xc66 <_Z13selected_foodv+0x1ae>
-     c5e:	3f ef       	ldi	r19, 0xFF	; 255
-     c60:	e3 1a       	sub	r14, r19
-     c62:	f3 0a       	sbc	r15, r19
-     c64:	02 c0       	rjmp	.+4      	; 0xc6a <_Z13selected_foodv+0x1b2>
-     c66:	ec 2c       	mov	r14, r12
-     c68:	fd 2c       	mov	r15, r13
-     c6a:	f7 01       	movw	r30, r14
-     c6c:	ee 0f       	add	r30, r30
-     c6e:	ff 1f       	adc	r31, r31
-     c70:	81 e0       	ldi	r24, 0x01	; 1
-     c72:	90 e0       	ldi	r25, 0x00	; 0
-     c74:	8c 0f       	add	r24, r28
-     c76:	9d 1f       	adc	r25, r29
-     c78:	e8 0f       	add	r30, r24
-     c7a:	f9 1f       	adc	r31, r25
-     c7c:	80 81       	ld	r24, Z
-     c7e:	91 81       	ldd	r25, Z+1	; 0x01
-     c80:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     c84:	0e c0       	rjmp	.+28     	; 0xca2 <_Z13selected_foodv+0x1ea>
-     c86:	20 91 62 00 	lds	r18, 0x0062
-     c8a:	30 91 63 00 	lds	r19, 0x0063
-     c8e:	82 17       	cp	r24, r18
-     c90:	93 07       	cpc	r25, r19
-     c92:	89 f0       	breq	.+34     	; 0xcb6 <_Z13selected_foodv+0x1fe>
-     c94:	20 91 60 00 	lds	r18, 0x0060
-     c98:	30 91 61 00 	lds	r19, 0x0061
-     c9c:	82 17       	cp	r24, r18
-     c9e:	93 07       	cpc	r25, r19
-     ca0:	51 f0       	breq	.+20     	; 0xcb6 <_Z13selected_foodv+0x1fe>
-     ca2:	9f ef       	ldi	r25, 0xFF	; 255
-     ca4:	e5 ea       	ldi	r30, 0xA5	; 165
-     ca6:	fe e0       	ldi	r31, 0x0E	; 14
-     ca8:	91 50       	subi	r25, 0x01	; 1
-     caa:	e0 40       	sbci	r30, 0x00	; 0
-     cac:	f0 40       	sbci	r31, 0x00	; 0
-     cae:	e1 f7       	brne	.-8      	; 0xca8 <_Z13selected_foodv+0x1f0>
-     cb0:	00 c0       	rjmp	.+0      	; 0xcb2 <_Z13selected_foodv+0x1fa>
-     cb2:	00 00       	nop
-     cb4:	ab cf       	rjmp	.-170    	; 0xc0c <_Z13selected_foodv+0x154>
-     cb6:	c8 53       	subi	r28, 0x38	; 56
-     cb8:	df 4f       	sbci	r29, 0xFF	; 255
-     cba:	0f b6       	in	r0, 0x3f	; 63
-     cbc:	f8 94       	cli
-     cbe:	de bf       	out	0x3e, r29	; 62
-     cc0:	0f be       	out	0x3f, r0	; 63
-     cc2:	cd bf       	out	0x3d, r28	; 61
-     cc4:	df 91       	pop	r29
-     cc6:	cf 91       	pop	r28
-     cc8:	1f 91       	pop	r17
-     cca:	0f 91       	pop	r16
-     ccc:	ff 90       	pop	r15
-     cce:	ef 90       	pop	r14
-     cd0:	df 90       	pop	r13
-     cd2:	cf 90       	pop	r12
-     cd4:	08 95       	ret
+00000a82 <_Z13selected_foodv>:
+     a82:	cf 92       	push	r12
+     a84:	df 92       	push	r13
+     a86:	ef 92       	push	r14
+     a88:	ff 92       	push	r15
+     a8a:	0f 93       	push	r16
+     a8c:	1f 93       	push	r17
+     a8e:	cf 93       	push	r28
+     a90:	df 93       	push	r29
+     a92:	cd b7       	in	r28, 0x3d	; 61
+     a94:	de b7       	in	r29, 0x3e	; 62
+     a96:	c8 5c       	subi	r28, 0xC8	; 200
+     a98:	d1 09       	sbc	r29, r1
+     a9a:	0f b6       	in	r0, 0x3f	; 63
+     a9c:	f8 94       	cli
+     a9e:	de bf       	out	0x3e, r29	; 62
+     aa0:	0f be       	out	0x3f, r0	; 63
+     aa2:	cd bf       	out	0x3d, r28	; 61
+     aa4:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
+     aa8:	0e 94 f3 02 	call	0x5e6	; 0x5e6 <_Z8get_infov>
+     aac:	2f ef       	ldi	r18, 0xFF	; 255
+     aae:	35 ea       	ldi	r19, 0xA5	; 165
+     ab0:	8e e0       	ldi	r24, 0x0E	; 14
+     ab2:	21 50       	subi	r18, 0x01	; 1
+     ab4:	30 40       	sbci	r19, 0x00	; 0
+     ab6:	80 40       	sbci	r24, 0x00	; 0
+     ab8:	e1 f7       	brne	.-8      	; 0xab2 <_Z13selected_foodv+0x30>
+     aba:	00 c0       	rjmp	.+0      	; 0xabc <_Z13selected_foodv+0x3a>
+     abc:	00 00       	nop
+     abe:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     ac2:	40 91 5e 04 	lds	r20, 0x045E
+     ac6:	50 91 5f 04 	lds	r21, 0x045F
+     aca:	14 16       	cp	r1, r20
+     acc:	15 06       	cpc	r1, r21
+     ace:	04 f5       	brge	.+64     	; 0xb10 <_Z13selected_foodv+0x8e>
+     ad0:	ee e2       	ldi	r30, 0x2E	; 46
+     ad2:	f1 e0       	ldi	r31, 0x01	; 1
+     ad4:	80 e0       	ldi	r24, 0x00	; 0
+     ad6:	90 e0       	ldi	r25, 0x00	; 0
+     ad8:	00 e0       	ldi	r16, 0x00	; 0
+     ada:	10 e0       	ldi	r17, 0x00	; 0
+     adc:	20 81       	ld	r18, Z
+     ade:	31 81       	ldd	r19, Z+1	; 0x01
+     ae0:	12 16       	cp	r1, r18
+     ae2:	13 06       	cpc	r1, r19
+     ae4:	6c f4       	brge	.+26     	; 0xb00 <_Z13selected_foodv+0x7e>
+     ae6:	d8 01       	movw	r26, r16
+     ae8:	aa 0f       	add	r26, r26
+     aea:	bb 1f       	adc	r27, r27
+     aec:	21 e0       	ldi	r18, 0x01	; 1
+     aee:	30 e0       	ldi	r19, 0x00	; 0
+     af0:	2c 0f       	add	r18, r28
+     af2:	3d 1f       	adc	r19, r29
+     af4:	a2 0f       	add	r26, r18
+     af6:	b3 1f       	adc	r27, r19
+     af8:	8d 93       	st	X+, r24
+     afa:	9c 93       	st	X, r25
+     afc:	0f 5f       	subi	r16, 0xFF	; 255
+     afe:	1f 4f       	sbci	r17, 0xFF	; 255
+     b00:	01 96       	adiw	r24, 0x01	; 1
+     b02:	7c 96       	adiw	r30, 0x1c	; 28
+     b04:	84 17       	cp	r24, r20
+     b06:	95 07       	cpc	r25, r21
+     b08:	4c f3       	brlt	.-46     	; 0xadc <_Z13selected_foodv+0x5a>
+     b0a:	01 15       	cp	r16, r1
+     b0c:	11 05       	cpc	r17, r1
+     b0e:	c1 f4       	brne	.+48     	; 0xb40 <_Z13selected_foodv+0xbe>
+     b10:	84 e0       	ldi	r24, 0x04	; 4
+     b12:	91 e0       	ldi	r25, 0x01	; 1
+     b14:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b18:	61 e0       	ldi	r22, 0x01	; 1
+     b1a:	70 e0       	ldi	r23, 0x00	; 0
+     b1c:	86 e0       	ldi	r24, 0x06	; 6
+     b1e:	90 e0       	ldi	r25, 0x00	; 0
+     b20:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     b24:	82 eb       	ldi	r24, 0xB2	; 178
+     b26:	90 e0       	ldi	r25, 0x00	; 0
+     b28:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b2c:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     b30:	20 91 62 00 	lds	r18, 0x0062
+     b34:	30 91 63 00 	lds	r19, 0x0063
+     b38:	82 17       	cp	r24, r18
+     b3a:	93 07       	cpc	r25, r19
+     b3c:	b9 f7       	brne	.-18     	; 0xb2c <_Z13selected_foodv+0xaa>
+     b3e:	a0 c0       	rjmp	.+320    	; 0xc80 <_Z13selected_foodv+0x1fe>
+     b40:	85 e8       	ldi	r24, 0x85	; 133
+     b42:	90 e0       	ldi	r25, 0x00	; 0
+     b44:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b48:	60 e0       	ldi	r22, 0x00	; 0
+     b4a:	70 e0       	ldi	r23, 0x00	; 0
+     b4c:	88 e0       	ldi	r24, 0x08	; 8
+     b4e:	90 e0       	ldi	r25, 0x00	; 0
+     b50:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     b54:	8b ec       	ldi	r24, 0xCB	; 203
+     b56:	90 e0       	ldi	r25, 0x00	; 0
+     b58:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b5c:	60 e0       	ldi	r22, 0x00	; 0
+     b5e:	70 e0       	ldi	r23, 0x00	; 0
+     b60:	8e e0       	ldi	r24, 0x0E	; 14
+     b62:	90 e0       	ldi	r25, 0x00	; 0
+     b64:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     b68:	8b eb       	ldi	r24, 0xBB	; 187
+     b6a:	90 e0       	ldi	r25, 0x00	; 0
+     b6c:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b70:	61 e0       	ldi	r22, 0x01	; 1
+     b72:	70 e0       	ldi	r23, 0x00	; 0
+     b74:	80 e0       	ldi	r24, 0x00	; 0
+     b76:	90 e0       	ldi	r25, 0x00	; 0
+     b78:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     b7c:	89 81       	ldd	r24, Y+1	; 0x01
+     b7e:	9a 81       	ldd	r25, Y+2	; 0x02
+     b80:	2c e1       	ldi	r18, 0x1C	; 28
+     b82:	28 9f       	mul	r18, r24
+     b84:	70 01       	movw	r14, r0
+     b86:	29 9f       	mul	r18, r25
+     b88:	f0 0c       	add	r15, r0
+     b8a:	11 24       	eor	r1, r1
+     b8c:	c7 01       	movw	r24, r14
+     b8e:	88 5e       	subi	r24, 0xE8	; 232
+     b90:	9e 4f       	sbci	r25, 0xFE	; 254
+     b92:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     b96:	61 e0       	ldi	r22, 0x01	; 1
+     b98:	70 e0       	ldi	r23, 0x00	; 0
+     b9a:	88 e0       	ldi	r24, 0x08	; 8
+     b9c:	90 e0       	ldi	r25, 0x00	; 0
+     b9e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     ba2:	c7 01       	movw	r24, r14
+     ba4:	8a 5e       	subi	r24, 0xEA	; 234
+     ba6:	9e 4f       	sbci	r25, 0xFE	; 254
+     ba8:	7c 01       	movw	r14, r24
+     baa:	fc 01       	movw	r30, r24
+     bac:	86 89       	ldd	r24, Z+22	; 0x16
+     bae:	97 89       	ldd	r25, Z+23	; 0x17
+     bb0:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     bb4:	61 e0       	ldi	r22, 0x01	; 1
+     bb6:	70 e0       	ldi	r23, 0x00	; 0
+     bb8:	8e e0       	ldi	r24, 0x0E	; 14
+     bba:	90 e0       	ldi	r25, 0x00	; 0
+     bbc:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     bc0:	f7 01       	movw	r30, r14
+     bc2:	80 8d       	ldd	r24, Z+24	; 0x18
+     bc4:	91 8d       	ldd	r25, Z+25	; 0x19
+     bc6:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     bca:	e1 2c       	mov	r14, r1
+     bcc:	f1 2c       	mov	r15, r1
+     bce:	01 50       	subi	r16, 0x01	; 1
+     bd0:	11 09       	sbc	r17, r1
+     bd2:	c1 2c       	mov	r12, r1
+     bd4:	d1 2c       	mov	r13, r1
+     bd6:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     bda:	20 91 6c 00 	lds	r18, 0x006C
+     bde:	30 91 6d 00 	lds	r19, 0x006D
+     be2:	82 17       	cp	r24, r18
+     be4:	93 07       	cpc	r25, r19
+     be6:	b1 f4       	brne	.+44     	; 0xc14 <_Z13selected_foodv+0x192>
+     be8:	e1 14       	cp	r14, r1
+     bea:	f1 04       	cpc	r15, r1
+     bec:	11 f4       	brne	.+4      	; 0xbf2 <_Z13selected_foodv+0x170>
+     bee:	78 01       	movw	r14, r16
+     bf0:	03 c0       	rjmp	.+6      	; 0xbf8 <_Z13selected_foodv+0x176>
+     bf2:	f1 e0       	ldi	r31, 0x01	; 1
+     bf4:	ef 1a       	sub	r14, r31
+     bf6:	f1 08       	sbc	r15, r1
+     bf8:	f7 01       	movw	r30, r14
+     bfa:	ee 0f       	add	r30, r30
+     bfc:	ff 1f       	adc	r31, r31
+     bfe:	21 e0       	ldi	r18, 0x01	; 1
+     c00:	30 e0       	ldi	r19, 0x00	; 0
+     c02:	2c 0f       	add	r18, r28
+     c04:	3d 1f       	adc	r19, r29
+     c06:	e2 0f       	add	r30, r18
+     c08:	f3 1f       	adc	r31, r19
+     c0a:	80 81       	ld	r24, Z
+     c0c:	91 81       	ldd	r25, Z+1	; 0x01
+     c0e:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     c12:	2c c0       	rjmp	.+88     	; 0xc6c <_Z13selected_foodv+0x1ea>
+     c14:	20 91 6a 00 	lds	r18, 0x006A
+     c18:	30 91 6b 00 	lds	r19, 0x006B
+     c1c:	82 17       	cp	r24, r18
+     c1e:	93 07       	cpc	r25, r19
+     c20:	b9 f4       	brne	.+46     	; 0xc50 <_Z13selected_foodv+0x1ce>
+     c22:	0e 15       	cp	r16, r14
+     c24:	1f 05       	cpc	r17, r15
+     c26:	21 f0       	breq	.+8      	; 0xc30 <_Z13selected_foodv+0x1ae>
+     c28:	3f ef       	ldi	r19, 0xFF	; 255
+     c2a:	e3 1a       	sub	r14, r19
+     c2c:	f3 0a       	sbc	r15, r19
+     c2e:	02 c0       	rjmp	.+4      	; 0xc34 <_Z13selected_foodv+0x1b2>
+     c30:	ec 2c       	mov	r14, r12
+     c32:	fd 2c       	mov	r15, r13
+     c34:	f7 01       	movw	r30, r14
+     c36:	ee 0f       	add	r30, r30
+     c38:	ff 1f       	adc	r31, r31
+     c3a:	81 e0       	ldi	r24, 0x01	; 1
+     c3c:	90 e0       	ldi	r25, 0x00	; 0
+     c3e:	8c 0f       	add	r24, r28
+     c40:	9d 1f       	adc	r25, r29
+     c42:	e8 0f       	add	r30, r24
+     c44:	f9 1f       	adc	r31, r25
+     c46:	80 81       	ld	r24, Z
+     c48:	91 81       	ldd	r25, Z+1	; 0x01
+     c4a:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     c4e:	0e c0       	rjmp	.+28     	; 0xc6c <_Z13selected_foodv+0x1ea>
+     c50:	20 91 62 00 	lds	r18, 0x0062
+     c54:	30 91 63 00 	lds	r19, 0x0063
+     c58:	82 17       	cp	r24, r18
+     c5a:	93 07       	cpc	r25, r19
+     c5c:	89 f0       	breq	.+34     	; 0xc80 <_Z13selected_foodv+0x1fe>
+     c5e:	20 91 60 00 	lds	r18, 0x0060
+     c62:	30 91 61 00 	lds	r19, 0x0061
+     c66:	82 17       	cp	r24, r18
+     c68:	93 07       	cpc	r25, r19
+     c6a:	51 f0       	breq	.+20     	; 0xc80 <_Z13selected_foodv+0x1fe>
+     c6c:	9f ef       	ldi	r25, 0xFF	; 255
+     c6e:	e5 ea       	ldi	r30, 0xA5	; 165
+     c70:	fe e0       	ldi	r31, 0x0E	; 14
+     c72:	91 50       	subi	r25, 0x01	; 1
+     c74:	e0 40       	sbci	r30, 0x00	; 0
+     c76:	f0 40       	sbci	r31, 0x00	; 0
+     c78:	e1 f7       	brne	.-8      	; 0xc72 <_Z13selected_foodv+0x1f0>
+     c7a:	00 c0       	rjmp	.+0      	; 0xc7c <_Z13selected_foodv+0x1fa>
+     c7c:	00 00       	nop
+     c7e:	ab cf       	rjmp	.-170    	; 0xbd6 <_Z13selected_foodv+0x154>
+     c80:	c8 53       	subi	r28, 0x38	; 56
+     c82:	df 4f       	sbci	r29, 0xFF	; 255
+     c84:	0f b6       	in	r0, 0x3f	; 63
+     c86:	f8 94       	cli
+     c88:	de bf       	out	0x3e, r29	; 62
+     c8a:	0f be       	out	0x3f, r0	; 63
+     c8c:	cd bf       	out	0x3d, r28	; 61
+     c8e:	df 91       	pop	r29
+     c90:	cf 91       	pop	r28
+     c92:	1f 91       	pop	r17
+     c94:	0f 91       	pop	r16
+     c96:	ff 90       	pop	r15
+     c98:	ef 90       	pop	r14
+     c9a:	df 90       	pop	r13
+     c9c:	cf 90       	pop	r12
+     c9e:	08 95       	ret
 
-00000cd6 <_Z11change_foodv>:
+00000ca0 <_Z11change_foodv>:
 
 
 
 
 void change_food()
 {
-     cd6:	1f 93       	push	r17
-     cd8:	cf 93       	push	r28
-     cda:	df 93       	push	r29
+     ca0:	1f 93       	push	r17
+     ca2:	cf 93       	push	r28
+     ca4:	df 93       	push	r29
 	wait_message();
-     cdc:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
-	get_info();
-     ce0:	0e 94 de 02 	call	0x5bc	; 0x5bc <_Z8get_infov>
-     ce4:	2f ef       	ldi	r18, 0xFF	; 255
-     ce6:	85 ea       	ldi	r24, 0xA5	; 165
-     ce8:	9e e0       	ldi	r25, 0x0E	; 14
-     cea:	21 50       	subi	r18, 0x01	; 1
-     cec:	80 40       	sbci	r24, 0x00	; 0
-     cee:	90 40       	sbci	r25, 0x00	; 0
-     cf0:	e1 f7       	brne	.-8      	; 0xcea <_Z11change_foodv+0x14>
-     cf2:	00 c0       	rjmp	.+0      	; 0xcf4 <_Z11change_foodv+0x1e>
-     cf4:	00 00       	nop
+     ca6:	0e 94 a5 01 	call	0x34a	; 0x34a <_Z12wait_messagev>
+	get_info_test();
+     caa:	0e 94 a6 03 	call	0x74c	; 0x74c <_Z13get_info_testv>
+     cae:	2f ef       	ldi	r18, 0xFF	; 255
+     cb0:	85 ea       	ldi	r24, 0xA5	; 165
+     cb2:	9e e0       	ldi	r25, 0x0E	; 14
+     cb4:	21 50       	subi	r18, 0x01	; 1
+     cb6:	80 40       	sbci	r24, 0x00	; 0
+     cb8:	90 40       	sbci	r25, 0x00	; 0
+     cba:	e1 f7       	brne	.-8      	; 0xcb4 <_Z11change_foodv+0x14>
+     cbc:	00 c0       	rjmp	.+0      	; 0xcbe <_Z11change_foodv+0x1e>
+     cbe:	00 00       	nop
 	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
-     cf6:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     cc0:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 	lcd_puts("Food");
-     cfa:	85 e8       	ldi	r24, 0x85	; 133
-     cfc:	90 e0       	ldi	r25, 0x00	; 0
-     cfe:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     cc4:	85 e8       	ldi	r24, 0x85	; 133
+     cc6:	90 e0       	ldi	r25, 0x00	; 0
+     cc8:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 	lcd_setCursor(8,0);
-     d02:	60 e0       	ldi	r22, 0x00	; 0
-     d04:	70 e0       	ldi	r23, 0x00	; 0
-     d06:	88 e0       	ldi	r24, 0x08	; 8
-     d08:	90 e0       	ldi	r25, 0x00	; 0
-     d0a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     ccc:	60 e0       	ldi	r22, 0x00	; 0
+     cce:	70 e0       	ldi	r23, 0x00	; 0
+     cd0:	88 e0       	ldi	r24, 0x08	; 8
+     cd2:	90 e0       	ldi	r25, 0x00	; 0
+     cd4:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 	lcd_puts("Price");
-     d0e:	8b ec       	ldi	r24, 0xCB	; 203
-     d10:	90 e0       	ldi	r25, 0x00	; 0
-     d12:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     cd8:	8b ec       	ldi	r24, 0xCB	; 203
+     cda:	90 e0       	ldi	r25, 0x00	; 0
+     cdc:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 	lcd_setCursor(14,0);
-     d16:	60 e0       	ldi	r22, 0x00	; 0
-     d18:	70 e0       	ldi	r23, 0x00	; 0
-     d1a:	8e e0       	ldi	r24, 0x0E	; 14
-     d1c:	90 e0       	ldi	r25, 0x00	; 0
-     d1e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     ce0:	60 e0       	ldi	r22, 0x00	; 0
+     ce2:	70 e0       	ldi	r23, 0x00	; 0
+     ce4:	8e e0       	ldi	r24, 0x0E	; 14
+     ce6:	90 e0       	ldi	r25, 0x00	; 0
+     ce8:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 	lcd_puts("No");
-     d22:	8b eb       	ldi	r24, 0xBB	; 187
-     d24:	90 e0       	ldi	r25, 0x00	; 0
-     d26:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     cec:	8b eb       	ldi	r24, 0xBB	; 187
+     cee:	90 e0       	ldi	r25, 0x00	; 0
+     cf0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 	int selected_pk=0;
 	lcd_setCursor(0,1);
-     d2a:	61 e0       	ldi	r22, 0x01	; 1
-     d2c:	70 e0       	ldi	r23, 0x00	; 0
-     d2e:	80 e0       	ldi	r24, 0x00	; 0
-     d30:	90 e0       	ldi	r25, 0x00	; 0
-     d32:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     cf4:	61 e0       	ldi	r22, 0x01	; 1
+     cf6:	70 e0       	ldi	r23, 0x00	; 0
+     cf8:	80 e0       	ldi	r24, 0x00	; 0
+     cfa:	90 e0       	ldi	r25, 0x00	; 0
+     cfc:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 
 	lcd_puts(food[selected_pk].name);
-     d36:	88 e1       	ldi	r24, 0x18	; 24
-     d38:	91 e0       	ldi	r25, 0x01	; 1
-     d3a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     d00:	88 e1       	ldi	r24, 0x18	; 24
+     d02:	91 e0       	ldi	r25, 0x01	; 1
+     d04:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 	lcd_setCursor(8,1);
-     d3e:	61 e0       	ldi	r22, 0x01	; 1
-     d40:	70 e0       	ldi	r23, 0x00	; 0
-     d42:	88 e0       	ldi	r24, 0x08	; 8
-     d44:	90 e0       	ldi	r25, 0x00	; 0
-     d46:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     d08:	61 e0       	ldi	r22, 0x01	; 1
+     d0a:	70 e0       	ldi	r23, 0x00	; 0
+     d0c:	88 e0       	ldi	r24, 0x08	; 8
+     d0e:	90 e0       	ldi	r25, 0x00	; 0
+     d10:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 	lcd_num(food[selected_pk].price);
-     d4a:	c6 e1       	ldi	r28, 0x16	; 22
-     d4c:	d1 e0       	ldi	r29, 0x01	; 1
-     d4e:	8e 89       	ldd	r24, Y+22	; 0x16
-     d50:	9f 89       	ldd	r25, Y+23	; 0x17
-     d52:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     d14:	c6 e1       	ldi	r28, 0x16	; 22
+     d16:	d1 e0       	ldi	r29, 0x01	; 1
+     d18:	8e 89       	ldd	r24, Y+22	; 0x16
+     d1a:	9f 89       	ldd	r25, Y+23	; 0x17
+     d1c:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
 
 	lcd_setCursor(14,1);
-     d56:	61 e0       	ldi	r22, 0x01	; 1
-     d58:	70 e0       	ldi	r23, 0x00	; 0
-     d5a:	8e e0       	ldi	r24, 0x0E	; 14
-     d5c:	90 e0       	ldi	r25, 0x00	; 0
-     d5e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     d20:	61 e0       	ldi	r22, 0x01	; 1
+     d22:	70 e0       	ldi	r23, 0x00	; 0
+     d24:	8e e0       	ldi	r24, 0x0E	; 14
+     d26:	90 e0       	ldi	r25, 0x00	; 0
+     d28:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 	lcd_num(food[selected_pk].num);
-     d62:	88 8d       	ldd	r24, Y+24	; 0x18
-     d64:	99 8d       	ldd	r25, Y+25	; 0x19
-     d66:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
+     d2c:	88 8d       	ldd	r24, Y+24	; 0x18
+     d2e:	99 8d       	ldd	r25, Y+25	; 0x19
+     d30:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <_Z7lcd_numi>
 	lcd_puts("Price");
 
 	lcd_setCursor(14,0);
 	lcd_puts("No");
 
 	int selected_pk=0;
-     d6a:	c0 e0       	ldi	r28, 0x00	; 0
-     d6c:	d0 e0       	ldi	r29, 0x00	; 0
+     d34:	c0 e0       	ldi	r28, 0x00	; 0
+     d36:	d0 e0       	ldi	r29, 0x00	; 0
 
 		}
 
 		else if (in==del)
 		{
 			if (food[selected_pk].p==0)
-     d6e:	1c e1       	ldi	r17, 0x1C	; 28
+     d38:	1c e1       	ldi	r17, 0x1C	; 28
 	lcd_num(food[selected_pk].num);
 
 
 	while(1)
 	{
 		int in=input();
-     d70:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
-
+     d3a:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+		if(in !=0)
+     d3e:	89 2b       	or	r24, r25
+     d40:	e1 f3       	breq	.-8      	; 0xd3a <_Z11change_foodv+0x9a>
+     d42:	2f ef       	ldi	r18, 0xFF	; 255
+     d44:	86 e7       	ldi	r24, 0x76	; 118
+     d46:	91 e0       	ldi	r25, 0x01	; 1
+     d48:	21 50       	subi	r18, 0x01	; 1
+     d4a:	80 40       	sbci	r24, 0x00	; 0
+     d4c:	90 40       	sbci	r25, 0x00	; 0
+     d4e:	e1 f7       	brne	.-8      	; 0xd48 <_Z11change_foodv+0xa8>
+     d50:	00 c0       	rjmp	.+0      	; 0xd52 <_Z11change_foodv+0xb2>
+     d52:	00 00       	nop
+		{
+			_delay_ms(DELAY_BOUNCE);
+			in =input();
+     d54:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
 		if (in==up)
-     d74:	20 91 6c 00 	lds	r18, 0x006C
-     d78:	30 91 6d 00 	lds	r19, 0x006D
-     d7c:	82 17       	cp	r24, r18
-     d7e:	93 07       	cpc	r25, r19
-     d80:	69 f4       	brne	.+26     	; 0xd9c <_Z11change_foodv+0xc6>
+     d58:	20 91 6c 00 	lds	r18, 0x006C
+     d5c:	30 91 6d 00 	lds	r19, 0x006D
+     d60:	82 17       	cp	r24, r18
+     d62:	93 07       	cpc	r25, r19
+     d64:	69 f4       	brne	.+26     	; 0xd80 <_Z11change_foodv+0xe0>
 		{
 			if (selected_pk==0)  selected_pk=num_of_food-1;
-     d82:	20 97       	sbiw	r28, 0x00	; 0
-     d84:	31 f4       	brne	.+12     	; 0xd92 <_Z11change_foodv+0xbc>
-     d86:	c0 91 5e 04 	lds	r28, 0x045E
-     d8a:	d0 91 5f 04 	lds	r29, 0x045F
-     d8e:	21 97       	sbiw	r28, 0x01	; 1
-     d90:	01 c0       	rjmp	.+2      	; 0xd94 <_Z11change_foodv+0xbe>
+     d66:	20 97       	sbiw	r28, 0x00	; 0
+     d68:	31 f4       	brne	.+12     	; 0xd76 <_Z11change_foodv+0xd6>
+     d6a:	c0 91 5e 04 	lds	r28, 0x045E
+     d6e:	d0 91 5f 04 	lds	r29, 0x045F
+     d72:	21 97       	sbiw	r28, 0x01	; 1
+     d74:	01 c0       	rjmp	.+2      	; 0xd78 <_Z11change_foodv+0xd8>
 			else selected_pk--;
-     d92:	21 97       	sbiw	r28, 0x01	; 1
+     d76:	21 97       	sbiw	r28, 0x01	; 1
 			select_food_print(selected_pk);
-     d94:	ce 01       	movw	r24, r28
-     d96:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     d9a:	15 c1       	rjmp	.+554    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     d78:	ce 01       	movw	r24, r28
+     d7a:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     d7e:	15 c1       	rjmp	.+554    	; 0xfaa <_Z11change_foodv+0x30a>
 
 		}
 
 		else if (in==down)
-     d9c:	20 91 6a 00 	lds	r18, 0x006A
-     da0:	30 91 6b 00 	lds	r19, 0x006B
-     da4:	82 17       	cp	r24, r18
-     da6:	93 07       	cpc	r25, r19
-     da8:	81 f4       	brne	.+32     	; 0xdca <_Z11change_foodv+0xf4>
+     d80:	20 91 6a 00 	lds	r18, 0x006A
+     d84:	30 91 6b 00 	lds	r19, 0x006B
+     d88:	82 17       	cp	r24, r18
+     d8a:	93 07       	cpc	r25, r19
+     d8c:	81 f4       	brne	.+32     	; 0xdae <_Z11change_foodv+0x10e>
 		{
 			if (selected_pk==num_of_food-1) selected_pk=0;
-     daa:	80 91 5e 04 	lds	r24, 0x045E
-     dae:	90 91 5f 04 	lds	r25, 0x045F
-     db2:	01 97       	sbiw	r24, 0x01	; 1
-     db4:	8c 17       	cp	r24, r28
-     db6:	9d 07       	cpc	r25, r29
-     db8:	11 f0       	breq	.+4      	; 0xdbe <_Z11change_foodv+0xe8>
+     d8e:	80 91 5e 04 	lds	r24, 0x045E
+     d92:	90 91 5f 04 	lds	r25, 0x045F
+     d96:	01 97       	sbiw	r24, 0x01	; 1
+     d98:	8c 17       	cp	r24, r28
+     d9a:	9d 07       	cpc	r25, r29
+     d9c:	11 f0       	breq	.+4      	; 0xda2 <_Z11change_foodv+0x102>
 			else selected_pk++;
-     dba:	21 96       	adiw	r28, 0x01	; 1
-     dbc:	02 c0       	rjmp	.+4      	; 0xdc2 <_Z11change_foodv+0xec>
+     d9e:	21 96       	adiw	r28, 0x01	; 1
+     da0:	02 c0       	rjmp	.+4      	; 0xda6 <_Z11change_foodv+0x106>
 
 		}
 
 		else if (in==down)
 		{
 			if (selected_pk==num_of_food-1) selected_pk=0;
-     dbe:	c0 e0       	ldi	r28, 0x00	; 0
-     dc0:	d0 e0       	ldi	r29, 0x00	; 0
+     da2:	c0 e0       	ldi	r28, 0x00	; 0
+     da4:	d0 e0       	ldi	r29, 0x00	; 0
 			else selected_pk++;
 			select_food_print(selected_pk);
-     dc2:	ce 01       	movw	r24, r28
-     dc4:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     dc8:	fe c0       	rjmp	.+508    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     da6:	ce 01       	movw	r24, r28
+     da8:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     dac:	fe c0       	rjmp	.+508    	; 0xfaa <_Z11change_foodv+0x30a>
 
 		}
 
 		else if (in==left)
-     dca:	20 91 66 00 	lds	r18, 0x0066
-     dce:	30 91 67 00 	lds	r19, 0x0067
-     dd2:	82 17       	cp	r24, r18
-     dd4:	93 07       	cpc	r25, r19
-     dd6:	09 f0       	breq	.+2      	; 0xdda <_Z11change_foodv+0x104>
-     dd8:	45 c0       	rjmp	.+138    	; 0xe64 <_Z11change_foodv+0x18e>
+     dae:	20 91 66 00 	lds	r18, 0x0066
+     db2:	30 91 67 00 	lds	r19, 0x0067
+     db6:	82 17       	cp	r24, r18
+     db8:	93 07       	cpc	r25, r19
+     dba:	09 f0       	breq	.+2      	; 0xdbe <_Z11change_foodv+0x11e>
+     dbc:	45 c0       	rjmp	.+138    	; 0xe48 <_Z11change_foodv+0x1a8>
 		{
 			if (food[selected_pk].p==0)
-     dda:	1c 9f       	mul	r17, r28
-     ddc:	f0 01       	movw	r30, r0
-     dde:	1d 9f       	mul	r17, r29
-     de0:	f0 0d       	add	r31, r0
-     de2:	11 24       	eor	r1, r1
-     de4:	ea 5e       	subi	r30, 0xEA	; 234
-     de6:	fe 4f       	sbci	r31, 0xFE	; 254
-     de8:	82 8d       	ldd	r24, Z+26	; 0x1a
-     dea:	93 8d       	ldd	r25, Z+27	; 0x1b
-     dec:	89 2b       	or	r24, r25
-     dee:	d1 f4       	brne	.+52     	; 0xe24 <_Z11change_foodv+0x14e>
+     dbe:	1c 9f       	mul	r17, r28
+     dc0:	f0 01       	movw	r30, r0
+     dc2:	1d 9f       	mul	r17, r29
+     dc4:	f0 0d       	add	r31, r0
+     dc6:	11 24       	eor	r1, r1
+     dc8:	ea 5e       	subi	r30, 0xEA	; 234
+     dca:	fe 4f       	sbci	r31, 0xFE	; 254
+     dcc:	82 8d       	ldd	r24, Z+26	; 0x1a
+     dce:	93 8d       	ldd	r25, Z+27	; 0x1b
+     dd0:	89 2b       	or	r24, r25
+     dd2:	d1 f4       	brne	.+52     	; 0xe08 <_Z11change_foodv+0x168>
 			{
 				if(food[selected_pk].num != 0)
-     df0:	1c 9f       	mul	r17, r28
-     df2:	f0 01       	movw	r30, r0
-     df4:	1d 9f       	mul	r17, r29
-     df6:	f0 0d       	add	r31, r0
-     df8:	11 24       	eor	r1, r1
-     dfa:	ea 5e       	subi	r30, 0xEA	; 234
-     dfc:	fe 4f       	sbci	r31, 0xFE	; 254
-     dfe:	80 8d       	ldd	r24, Z+24	; 0x18
-     e00:	91 8d       	ldd	r25, Z+25	; 0x19
-     e02:	00 97       	sbiw	r24, 0x00	; 0
-     e04:	09 f4       	brne	.+2      	; 0xe08 <_Z11change_foodv+0x132>
-     e06:	df c0       	rjmp	.+446    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     dd4:	1c 9f       	mul	r17, r28
+     dd6:	f0 01       	movw	r30, r0
+     dd8:	1d 9f       	mul	r17, r29
+     dda:	f0 0d       	add	r31, r0
+     ddc:	11 24       	eor	r1, r1
+     dde:	ea 5e       	subi	r30, 0xEA	; 234
+     de0:	fe 4f       	sbci	r31, 0xFE	; 254
+     de2:	80 8d       	ldd	r24, Z+24	; 0x18
+     de4:	91 8d       	ldd	r25, Z+25	; 0x19
+     de6:	00 97       	sbiw	r24, 0x00	; 0
+     de8:	09 f4       	brne	.+2      	; 0xdec <_Z11change_foodv+0x14c>
+     dea:	df c0       	rjmp	.+446    	; 0xfaa <_Z11change_foodv+0x30a>
 				{
 					food[selected_pk].num--;
-     e08:	1c 9f       	mul	r17, r28
-     e0a:	f0 01       	movw	r30, r0
-     e0c:	1d 9f       	mul	r17, r29
-     e0e:	f0 0d       	add	r31, r0
-     e10:	11 24       	eor	r1, r1
-     e12:	ea 5e       	subi	r30, 0xEA	; 234
-     e14:	fe 4f       	sbci	r31, 0xFE	; 254
-     e16:	01 97       	sbiw	r24, 0x01	; 1
-     e18:	91 8f       	std	Z+25, r25	; 0x19
-     e1a:	80 8f       	std	Z+24, r24	; 0x18
+     dec:	1c 9f       	mul	r17, r28
+     dee:	f0 01       	movw	r30, r0
+     df0:	1d 9f       	mul	r17, r29
+     df2:	f0 0d       	add	r31, r0
+     df4:	11 24       	eor	r1, r1
+     df6:	ea 5e       	subi	r30, 0xEA	; 234
+     df8:	fe 4f       	sbci	r31, 0xFE	; 254
+     dfa:	01 97       	sbiw	r24, 0x01	; 1
+     dfc:	91 8f       	std	Z+25, r25	; 0x19
+     dfe:	80 8f       	std	Z+24, r24	; 0x18
 					select_food_print(selected_pk);
-     e1c:	ce 01       	movw	r24, r28
-     e1e:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     e22:	d1 c0       	rjmp	.+418    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     e00:	ce 01       	movw	r24, r28
+     e02:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     e06:	d1 c0       	rjmp	.+418    	; 0xfaa <_Z11change_foodv+0x30a>
 				}
 
 			}
 			else
 			{
 				cannot_cancel();
-     e24:	0e 94 23 02 	call	0x446	; 0x446 <_Z13cannot_cancelv>
+     e08:	0e 94 23 02 	call	0x446	; 0x446 <_Z13cannot_cancelv>
 				lcd_clear();
-     e28:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     e0c:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 				lcd_puts("Food");
-     e2c:	85 e8       	ldi	r24, 0x85	; 133
-     e2e:	90 e0       	ldi	r25, 0x00	; 0
-     e30:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     e10:	85 e8       	ldi	r24, 0x85	; 133
+     e12:	90 e0       	ldi	r25, 0x00	; 0
+     e14:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 				lcd_setCursor(8,0);
-     e34:	60 e0       	ldi	r22, 0x00	; 0
-     e36:	70 e0       	ldi	r23, 0x00	; 0
-     e38:	88 e0       	ldi	r24, 0x08	; 8
-     e3a:	90 e0       	ldi	r25, 0x00	; 0
-     e3c:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     e18:	60 e0       	ldi	r22, 0x00	; 0
+     e1a:	70 e0       	ldi	r23, 0x00	; 0
+     e1c:	88 e0       	ldi	r24, 0x08	; 8
+     e1e:	90 e0       	ldi	r25, 0x00	; 0
+     e20:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts("Price");
-     e40:	8b ec       	ldi	r24, 0xCB	; 203
-     e42:	90 e0       	ldi	r25, 0x00	; 0
-     e44:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     e24:	8b ec       	ldi	r24, 0xCB	; 203
+     e26:	90 e0       	ldi	r25, 0x00	; 0
+     e28:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 				lcd_setCursor(14,0);
-     e48:	60 e0       	ldi	r22, 0x00	; 0
-     e4a:	70 e0       	ldi	r23, 0x00	; 0
-     e4c:	8e e0       	ldi	r24, 0x0E	; 14
-     e4e:	90 e0       	ldi	r25, 0x00	; 0
-     e50:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     e2c:	60 e0       	ldi	r22, 0x00	; 0
+     e2e:	70 e0       	ldi	r23, 0x00	; 0
+     e30:	8e e0       	ldi	r24, 0x0E	; 14
+     e32:	90 e0       	ldi	r25, 0x00	; 0
+     e34:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts("No");
-     e54:	8b eb       	ldi	r24, 0xBB	; 187
-     e56:	90 e0       	ldi	r25, 0x00	; 0
-     e58:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     e38:	8b eb       	ldi	r24, 0xBB	; 187
+     e3a:	90 e0       	ldi	r25, 0x00	; 0
+     e3c:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 				select_food_print(selected_pk);
-     e5c:	ce 01       	movw	r24, r28
-     e5e:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     e62:	b1 c0       	rjmp	.+354    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     e40:	ce 01       	movw	r24, r28
+     e42:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     e46:	b1 c0       	rjmp	.+354    	; 0xfaa <_Z11change_foodv+0x30a>
 
 
 
 
 
 		else if (in==right)
-     e64:	20 91 68 00 	lds	r18, 0x0068
-     e68:	30 91 69 00 	lds	r19, 0x0069
-     e6c:	82 17       	cp	r24, r18
-     e6e:	93 07       	cpc	r25, r19
-     e70:	81 f4       	brne	.+32     	; 0xe92 <_Z11change_foodv+0x1bc>
+     e48:	20 91 68 00 	lds	r18, 0x0068
+     e4c:	30 91 69 00 	lds	r19, 0x0069
+     e50:	82 17       	cp	r24, r18
+     e52:	93 07       	cpc	r25, r19
+     e54:	81 f4       	brne	.+32     	; 0xe76 <_Z11change_foodv+0x1d6>
 		{
 			food[selected_pk].num++;
-     e72:	1c 9f       	mul	r17, r28
-     e74:	f0 01       	movw	r30, r0
-     e76:	1d 9f       	mul	r17, r29
-     e78:	f0 0d       	add	r31, r0
-     e7a:	11 24       	eor	r1, r1
-     e7c:	ea 5e       	subi	r30, 0xEA	; 234
-     e7e:	fe 4f       	sbci	r31, 0xFE	; 254
-     e80:	80 8d       	ldd	r24, Z+24	; 0x18
-     e82:	91 8d       	ldd	r25, Z+25	; 0x19
-     e84:	01 96       	adiw	r24, 0x01	; 1
-     e86:	91 8f       	std	Z+25, r25	; 0x19
-     e88:	80 8f       	std	Z+24, r24	; 0x18
+     e56:	1c 9f       	mul	r17, r28
+     e58:	f0 01       	movw	r30, r0
+     e5a:	1d 9f       	mul	r17, r29
+     e5c:	f0 0d       	add	r31, r0
+     e5e:	11 24       	eor	r1, r1
+     e60:	ea 5e       	subi	r30, 0xEA	; 234
+     e62:	fe 4f       	sbci	r31, 0xFE	; 254
+     e64:	80 8d       	ldd	r24, Z+24	; 0x18
+     e66:	91 8d       	ldd	r25, Z+25	; 0x19
+     e68:	01 96       	adiw	r24, 0x01	; 1
+     e6a:	91 8f       	std	Z+25, r25	; 0x19
+     e6c:	80 8f       	std	Z+24, r24	; 0x18
 			select_food_print(selected_pk);
-     e8a:	ce 01       	movw	r24, r28
-     e8c:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     e90:	9a c0       	rjmp	.+308    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     e6e:	ce 01       	movw	r24, r28
+     e70:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     e74:	9a c0       	rjmp	.+308    	; 0xfaa <_Z11change_foodv+0x30a>
 
 		}
 
 		else if (in==del)
-     e92:	20 91 64 00 	lds	r18, 0x0064
-     e96:	30 91 65 00 	lds	r19, 0x0065
-     e9a:	82 17       	cp	r24, r18
-     e9c:	93 07       	cpc	r25, r19
-     e9e:	d9 f5       	brne	.+118    	; 0xf16 <_Z11change_foodv+0x240>
+     e76:	20 91 64 00 	lds	r18, 0x0064
+     e7a:	30 91 65 00 	lds	r19, 0x0065
+     e7e:	82 17       	cp	r24, r18
+     e80:	93 07       	cpc	r25, r19
+     e82:	d9 f5       	brne	.+118    	; 0xefa <_Z11change_foodv+0x25a>
 		{
 			if (food[selected_pk].p==0)
-     ea0:	1c 9f       	mul	r17, r28
-     ea2:	f0 01       	movw	r30, r0
-     ea4:	1d 9f       	mul	r17, r29
-     ea6:	f0 0d       	add	r31, r0
-     ea8:	11 24       	eor	r1, r1
-     eaa:	ea 5e       	subi	r30, 0xEA	; 234
-     eac:	fe 4f       	sbci	r31, 0xFE	; 254
-     eae:	82 8d       	ldd	r24, Z+26	; 0x1a
-     eb0:	93 8d       	ldd	r25, Z+27	; 0x1b
-     eb2:	89 2b       	or	r24, r25
-     eb4:	81 f4       	brne	.+32     	; 0xed6 <_Z11change_foodv+0x200>
+     e84:	1c 9f       	mul	r17, r28
+     e86:	f0 01       	movw	r30, r0
+     e88:	1d 9f       	mul	r17, r29
+     e8a:	f0 0d       	add	r31, r0
+     e8c:	11 24       	eor	r1, r1
+     e8e:	ea 5e       	subi	r30, 0xEA	; 234
+     e90:	fe 4f       	sbci	r31, 0xFE	; 254
+     e92:	82 8d       	ldd	r24, Z+26	; 0x1a
+     e94:	93 8d       	ldd	r25, Z+27	; 0x1b
+     e96:	89 2b       	or	r24, r25
+     e98:	81 f4       	brne	.+32     	; 0xeba <_Z11change_foodv+0x21a>
 			{
 				if (display_message1("Set the no to 0?"))
-     eb6:	81 ed       	ldi	r24, 0xD1	; 209
-     eb8:	90 e0       	ldi	r25, 0x00	; 0
-     eba:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     ebe:	89 2b       	or	r24, r25
-     ec0:	61 f0       	breq	.+24     	; 0xeda <_Z11change_foodv+0x204>
+     e9a:	81 ed       	ldi	r24, 0xD1	; 209
+     e9c:	90 e0       	ldi	r25, 0x00	; 0
+     e9e:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     ea2:	89 2b       	or	r24, r25
+     ea4:	61 f0       	breq	.+24     	; 0xebe <_Z11change_foodv+0x21e>
 				food[selected_pk].num=0;
-     ec2:	1c 9f       	mul	r17, r28
-     ec4:	f0 01       	movw	r30, r0
-     ec6:	1d 9f       	mul	r17, r29
-     ec8:	f0 0d       	add	r31, r0
-     eca:	11 24       	eor	r1, r1
-     ecc:	ea 5e       	subi	r30, 0xEA	; 234
-     ece:	fe 4f       	sbci	r31, 0xFE	; 254
-     ed0:	11 8e       	std	Z+25, r1	; 0x19
-     ed2:	10 8e       	std	Z+24, r1	; 0x18
-     ed4:	02 c0       	rjmp	.+4      	; 0xeda <_Z11change_foodv+0x204>
+     ea6:	1c 9f       	mul	r17, r28
+     ea8:	f0 01       	movw	r30, r0
+     eaa:	1d 9f       	mul	r17, r29
+     eac:	f0 0d       	add	r31, r0
+     eae:	11 24       	eor	r1, r1
+     eb0:	ea 5e       	subi	r30, 0xEA	; 234
+     eb2:	fe 4f       	sbci	r31, 0xFE	; 254
+     eb4:	11 8e       	std	Z+25, r1	; 0x19
+     eb6:	10 8e       	std	Z+24, r1	; 0x18
+     eb8:	02 c0       	rjmp	.+4      	; 0xebe <_Z11change_foodv+0x21e>
 			}
 			else
 			cannot_cancel();
-     ed6:	0e 94 23 02 	call	0x446	; 0x446 <_Z13cannot_cancelv>
+     eba:	0e 94 23 02 	call	0x446	; 0x446 <_Z13cannot_cancelv>
 
 			lcd_clear();
-     eda:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     ebe:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 			lcd_puts("Food");
-     ede:	85 e8       	ldi	r24, 0x85	; 133
-     ee0:	90 e0       	ldi	r25, 0x00	; 0
-     ee2:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     ec2:	85 e8       	ldi	r24, 0x85	; 133
+     ec4:	90 e0       	ldi	r25, 0x00	; 0
+     ec6:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(8,0);
-     ee6:	60 e0       	ldi	r22, 0x00	; 0
-     ee8:	70 e0       	ldi	r23, 0x00	; 0
-     eea:	88 e0       	ldi	r24, 0x08	; 8
-     eec:	90 e0       	ldi	r25, 0x00	; 0
-     eee:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     eca:	60 e0       	ldi	r22, 0x00	; 0
+     ecc:	70 e0       	ldi	r23, 0x00	; 0
+     ece:	88 e0       	ldi	r24, 0x08	; 8
+     ed0:	90 e0       	ldi	r25, 0x00	; 0
+     ed2:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("Price");
-     ef2:	8b ec       	ldi	r24, 0xCB	; 203
-     ef4:	90 e0       	ldi	r25, 0x00	; 0
-     ef6:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     ed6:	8b ec       	ldi	r24, 0xCB	; 203
+     ed8:	90 e0       	ldi	r25, 0x00	; 0
+     eda:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(14,0);
-     efa:	60 e0       	ldi	r22, 0x00	; 0
-     efc:	70 e0       	ldi	r23, 0x00	; 0
-     efe:	8e e0       	ldi	r24, 0x0E	; 14
-     f00:	90 e0       	ldi	r25, 0x00	; 0
-     f02:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     ede:	60 e0       	ldi	r22, 0x00	; 0
+     ee0:	70 e0       	ldi	r23, 0x00	; 0
+     ee2:	8e e0       	ldi	r24, 0x0E	; 14
+     ee4:	90 e0       	ldi	r25, 0x00	; 0
+     ee6:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("No");
-     f06:	8b eb       	ldi	r24, 0xBB	; 187
-     f08:	90 e0       	ldi	r25, 0x00	; 0
-     f0a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     eea:	8b eb       	ldi	r24, 0xBB	; 187
+     eec:	90 e0       	ldi	r25, 0x00	; 0
+     eee:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			select_food_print(selected_pk);
-     f0e:	ce 01       	movw	r24, r28
-     f10:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     f14:	58 c0       	rjmp	.+176    	; 0xfc6 <_Z11change_foodv+0x2f0>
+     ef2:	ce 01       	movw	r24, r28
+     ef4:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     ef8:	58 c0       	rjmp	.+176    	; 0xfaa <_Z11change_foodv+0x30a>
 		}
 
 		else if (in==ok)
-     f16:	20 91 62 00 	lds	r18, 0x0062
-     f1a:	30 91 63 00 	lds	r19, 0x0063
-     f1e:	82 17       	cp	r24, r18
-     f20:	93 07       	cpc	r25, r19
-     f22:	39 f5       	brne	.+78     	; 0xf72 <_Z11change_foodv+0x29c>
+     efa:	20 91 62 00 	lds	r18, 0x0062
+     efe:	30 91 63 00 	lds	r19, 0x0063
+     f02:	82 17       	cp	r24, r18
+     f04:	93 07       	cpc	r25, r19
+     f06:	39 f5       	brne	.+78     	; 0xf56 <_Z11change_foodv+0x2b6>
 		{
 			if (display_message1("Save the changes"))
-     f24:	82 ee       	ldi	r24, 0xE2	; 226
-     f26:	90 e0       	ldi	r25, 0x00	; 0
-     f28:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     f2c:	89 2b       	or	r24, r25
-     f2e:	19 f0       	breq	.+6      	; 0xf36 <_Z11change_foodv+0x260>
+     f08:	82 ee       	ldi	r24, 0xE2	; 226
+     f0a:	90 e0       	ldi	r25, 0x00	; 0
+     f0c:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     f10:	89 2b       	or	r24, r25
+     f12:	19 f0       	breq	.+6      	; 0xf1a <_Z11change_foodv+0x27a>
 			{
-				send_info();
-     f30:	0e 94 1c 03 	call	0x638	; 0x638 <_Z9send_infov>
+				send_info_test();
+     f14:	0e 94 c8 03 	call	0x790	; 0x790 <_Z14send_info_testv>
 				//_delay_ms(DELAY_TIME);
 				return;
-     f34:	52 c0       	rjmp	.+164    	; 0xfda <_Z11change_foodv+0x304>
+     f18:	52 c0       	rjmp	.+164    	; 0xfbe <_Z11change_foodv+0x31e>
 			}
 
 			lcd_clear();
-     f36:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     f1a:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 			lcd_puts("Food");
-     f3a:	85 e8       	ldi	r24, 0x85	; 133
-     f3c:	90 e0       	ldi	r25, 0x00	; 0
-     f3e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f1e:	85 e8       	ldi	r24, 0x85	; 133
+     f20:	90 e0       	ldi	r25, 0x00	; 0
+     f22:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(8,0);
-     f42:	60 e0       	ldi	r22, 0x00	; 0
-     f44:	70 e0       	ldi	r23, 0x00	; 0
-     f46:	88 e0       	ldi	r24, 0x08	; 8
-     f48:	90 e0       	ldi	r25, 0x00	; 0
-     f4a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     f26:	60 e0       	ldi	r22, 0x00	; 0
+     f28:	70 e0       	ldi	r23, 0x00	; 0
+     f2a:	88 e0       	ldi	r24, 0x08	; 8
+     f2c:	90 e0       	ldi	r25, 0x00	; 0
+     f2e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("Price");
-     f4e:	8b ec       	ldi	r24, 0xCB	; 203
-     f50:	90 e0       	ldi	r25, 0x00	; 0
-     f52:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f32:	8b ec       	ldi	r24, 0xCB	; 203
+     f34:	90 e0       	ldi	r25, 0x00	; 0
+     f36:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(14,0);
-     f56:	60 e0       	ldi	r22, 0x00	; 0
-     f58:	70 e0       	ldi	r23, 0x00	; 0
-     f5a:	8e e0       	ldi	r24, 0x0E	; 14
-     f5c:	90 e0       	ldi	r25, 0x00	; 0
-     f5e:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     f3a:	60 e0       	ldi	r22, 0x00	; 0
+     f3c:	70 e0       	ldi	r23, 0x00	; 0
+     f3e:	8e e0       	ldi	r24, 0x0E	; 14
+     f40:	90 e0       	ldi	r25, 0x00	; 0
+     f42:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("No");
-     f62:	8b eb       	ldi	r24, 0xBB	; 187
-     f64:	90 e0       	ldi	r25, 0x00	; 0
-     f66:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f46:	8b eb       	ldi	r24, 0xBB	; 187
+     f48:	90 e0       	ldi	r25, 0x00	; 0
+     f4a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			select_food_print(selected_pk);
-     f6a:	ce 01       	movw	r24, r28
-     f6c:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
-     f70:	2a c0       	rjmp	.+84     	; 0xfc6 <_Z11change_foodv+0x2f0>
+     f4e:	ce 01       	movw	r24, r28
+     f50:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     f54:	2a c0       	rjmp	.+84     	; 0xfaa <_Z11change_foodv+0x30a>
 
 		}
 
 
 		else if (in==back)
-     f72:	20 91 60 00 	lds	r18, 0x0060
-     f76:	30 91 61 00 	lds	r19, 0x0061
-     f7a:	82 17       	cp	r24, r18
-     f7c:	93 07       	cpc	r25, r19
-     f7e:	19 f5       	brne	.+70     	; 0xfc6 <_Z11change_foodv+0x2f0>
+     f56:	20 91 60 00 	lds	r18, 0x0060
+     f5a:	30 91 61 00 	lds	r19, 0x0061
+     f5e:	82 17       	cp	r24, r18
+     f60:	93 07       	cpc	r25, r19
+     f62:	19 f5       	brne	.+70     	; 0xfaa <_Z11change_foodv+0x30a>
 		{
 			if (display_message1("Discard Changes?"))
-     f80:	83 ef       	ldi	r24, 0xF3	; 243
-     f82:	90 e0       	ldi	r25, 0x00	; 0
-     f84:	0e 94 44 02 	call	0x488	; 0x488 <_Z16display_message1PKc>
-     f88:	89 2b       	or	r24, r25
-     f8a:	39 f5       	brne	.+78     	; 0xfda <_Z11change_foodv+0x304>
+     f64:	83 ef       	ldi	r24, 0xF3	; 243
+     f66:	90 e0       	ldi	r25, 0x00	; 0
+     f68:	0e 94 59 02 	call	0x4b2	; 0x4b2 <_Z16display_message1PKc>
+     f6c:	89 2b       	or	r24, r25
+     f6e:	39 f5       	brne	.+78     	; 0xfbe <_Z11change_foodv+0x31e>
 			{
 				//_delay_ms(DELAY_TIME);
 				return ;
 			}
 
 			lcd_clear();
-     f8c:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     f70:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 			lcd_puts("Food");
-     f90:	85 e8       	ldi	r24, 0x85	; 133
-     f92:	90 e0       	ldi	r25, 0x00	; 0
-     f94:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f74:	85 e8       	ldi	r24, 0x85	; 133
+     f76:	90 e0       	ldi	r25, 0x00	; 0
+     f78:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(8,0);
-     f98:	60 e0       	ldi	r22, 0x00	; 0
-     f9a:	70 e0       	ldi	r23, 0x00	; 0
-     f9c:	88 e0       	ldi	r24, 0x08	; 8
-     f9e:	90 e0       	ldi	r25, 0x00	; 0
-     fa0:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     f7c:	60 e0       	ldi	r22, 0x00	; 0
+     f7e:	70 e0       	ldi	r23, 0x00	; 0
+     f80:	88 e0       	ldi	r24, 0x08	; 8
+     f82:	90 e0       	ldi	r25, 0x00	; 0
+     f84:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("Price");
-     fa4:	8b ec       	ldi	r24, 0xCB	; 203
-     fa6:	90 e0       	ldi	r25, 0x00	; 0
-     fa8:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f88:	8b ec       	ldi	r24, 0xCB	; 203
+     f8a:	90 e0       	ldi	r25, 0x00	; 0
+     f8c:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			lcd_setCursor(14,0);
-     fac:	60 e0       	ldi	r22, 0x00	; 0
-     fae:	70 e0       	ldi	r23, 0x00	; 0
-     fb0:	8e e0       	ldi	r24, 0x0E	; 14
-     fb2:	90 e0       	ldi	r25, 0x00	; 0
-     fb4:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+     f90:	60 e0       	ldi	r22, 0x00	; 0
+     f92:	70 e0       	ldi	r23, 0x00	; 0
+     f94:	8e e0       	ldi	r24, 0x0E	; 14
+     f96:	90 e0       	ldi	r25, 0x00	; 0
+     f98:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 			lcd_puts("No");
-     fb8:	8b eb       	ldi	r24, 0xBB	; 187
-     fba:	90 e0       	ldi	r25, 0x00	; 0
-     fbc:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+     f9c:	8b eb       	ldi	r24, 0xBB	; 187
+     f9e:	90 e0       	ldi	r25, 0x00	; 0
+     fa0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 
 			select_food_print(selected_pk);
-     fc0:	ce 01       	movw	r24, r28
-     fc2:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     fa4:	ce 01       	movw	r24, r28
+     fa6:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_Z17select_food_printi>
+     faa:	2f ef       	ldi	r18, 0xFF	; 255
+     fac:	85 ea       	ldi	r24, 0xA5	; 165
+     fae:	9e e0       	ldi	r25, 0x0E	; 14
+     fb0:	21 50       	subi	r18, 0x01	; 1
+     fb2:	80 40       	sbci	r24, 0x00	; 0
+     fb4:	90 40       	sbci	r25, 0x00	; 0
+     fb6:	e1 f7       	brne	.-8      	; 0xfb0 <_Z11change_foodv+0x310>
+     fb8:	00 c0       	rjmp	.+0      	; 0xfba <_Z11change_foodv+0x31a>
+     fba:	00 00       	nop
+     fbc:	be ce       	rjmp	.-644    	; 0xd3a <_Z11change_foodv+0x9a>
+
+		_delay_ms(DELAY_TIME_LOOP);
+		}
+	}
+
+}
+     fbe:	df 91       	pop	r29
+     fc0:	cf 91       	pop	r28
+     fc2:	1f 91       	pop	r17
+     fc4:	08 95       	ret
+
+00000fc6 <_Z8mainmenuv>:
      fc6:	2f ef       	ldi	r18, 0xFF	; 255
      fc8:	85 ea       	ldi	r24, 0xA5	; 165
      fca:	9e e0       	ldi	r25, 0x0E	; 14
      fcc:	21 50       	subi	r18, 0x01	; 1
      fce:	80 40       	sbci	r24, 0x00	; 0
      fd0:	90 40       	sbci	r25, 0x00	; 0
-     fd2:	e1 f7       	brne	.-8      	; 0xfcc <_Z11change_foodv+0x2f6>
-     fd4:	00 c0       	rjmp	.+0      	; 0xfd6 <_Z11change_foodv+0x300>
+     fd2:	e1 f7       	brne	.-8      	; 0xfcc <_Z8mainmenuv+0x6>
+     fd4:	00 c0       	rjmp	.+0      	; 0xfd6 <_Z8mainmenuv+0x10>
      fd6:	00 00       	nop
-     fd8:	cb ce       	rjmp	.-618    	; 0xd70 <_Z11change_foodv+0x9a>
-
-
-		_delay_ms(DELAY_TIME_LOOP);
-	}
-
-}
-     fda:	df 91       	pop	r29
-     fdc:	cf 91       	pop	r28
-     fde:	1f 91       	pop	r17
-     fe0:	08 95       	ret
-
-00000fe2 <_Z8mainmenuv>:
-     fe2:	2f ef       	ldi	r18, 0xFF	; 255
-     fe4:	85 ea       	ldi	r24, 0xA5	; 165
-     fe6:	9e e0       	ldi	r25, 0x0E	; 14
-     fe8:	21 50       	subi	r18, 0x01	; 1
-     fea:	80 40       	sbci	r24, 0x00	; 0
-     fec:	90 40       	sbci	r25, 0x00	; 0
-     fee:	e1 f7       	brne	.-8      	; 0xfe8 <_Z8mainmenuv+0x6>
-     ff0:	00 c0       	rjmp	.+0      	; 0xff2 <_Z8mainmenuv+0x10>
-     ff2:	00 00       	nop
 
 
 void mainmenu()
 {
 	_delay_ms(DELAY_TIME_STRAIGHT_START);
 	lcd_clear();
-     ff4:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
+     fd8:	0e 94 7a 00 	call	0xf4	; 0xf4 <_Z9lcd_clearv>
 	num_of_food=0;
-     ff8:	10 92 5f 04 	sts	0x045F, r1
-     ffc:	10 92 5e 04 	sts	0x045E, r1
+     fdc:	10 92 5f 04 	sts	0x045F, r1
+     fe0:	10 92 5e 04 	sts	0x045E, r1
 	int state=0;
 	int first_visit=0;
 	main_menu_print(first_visit);
-    1000:	80 e0       	ldi	r24, 0x00	; 0
-    1002:	90 e0       	ldi	r25, 0x00	; 0
-    1004:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
+     fe4:	80 e0       	ldi	r24, 0x00	; 0
+     fe6:	90 e0       	ldi	r25, 0x00	; 0
+     fe8:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
 {
 	_delay_ms(DELAY_TIME_STRAIGHT_START);
 	lcd_clear();
 	num_of_food=0;
 	int state=0;
 	int first_visit=0;
-    1008:	e1 2c       	mov	r14, r1
-    100a:	f1 2c       	mov	r15, r1
+     fec:	e1 2c       	mov	r14, r1
+     fee:	f1 2c       	mov	r15, r1
 void mainmenu()
 {
 	_delay_ms(DELAY_TIME_STRAIGHT_START);
 	lcd_clear();
 	num_of_food=0;
 	int state=0;
-    100c:	c0 e0       	ldi	r28, 0x00	; 0
-    100e:	d0 e0       	ldi	r29, 0x00	; 0
+     ff0:	c0 e0       	ldi	r28, 0x00	; 0
+     ff2:	d0 e0       	ldi	r29, 0x00	; 0
 					c=select_food();
 					else
 					change_food();
 					if (c==1)
 					first_visit=1;
 					state=0;
-    1010:	00 e0       	ldi	r16, 0x00	; 0
-    1012:	10 e0       	ldi	r17, 0x00	; 0
+     ff4:	00 e0       	ldi	r16, 0x00	; 0
+     ff6:	10 e0       	ldi	r17, 0x00	; 0
 					int c=0;
 					if (first_visit==0)
 					c=select_food();
 					else
 					change_food();
 					if (c==1)
-    1014:	cc 24       	eor	r12, r12
-    1016:	c3 94       	inc	r12
-    1018:	d1 2c       	mov	r13, r1
+     ff8:	cc 24       	eor	r12, r12
+     ffa:	c3 94       	inc	r12
+     ffc:	d1 2c       	mov	r13, r1
 	int first_visit=0;
 	main_menu_print(first_visit);
 
 	while(1)
 	{
 		int in=input();
-    101a:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+     ffe:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
 		//  lcd_puts (in);
 		if (in!=000)
-    101e:	89 2b       	or	r24, r25
-    1020:	e1 f3       	breq	.-8      	; 0x101a <_Z8mainmenuv+0x38>
-    1022:	2f ef       	ldi	r18, 0xFF	; 255
-    1024:	86 e7       	ldi	r24, 0x76	; 118
-    1026:	91 e0       	ldi	r25, 0x01	; 1
-    1028:	21 50       	subi	r18, 0x01	; 1
-    102a:	80 40       	sbci	r24, 0x00	; 0
-    102c:	90 40       	sbci	r25, 0x00	; 0
-    102e:	e1 f7       	brne	.-8      	; 0x1028 <_Z8mainmenuv+0x46>
-    1030:	00 c0       	rjmp	.+0      	; 0x1032 <_Z8mainmenuv+0x50>
-    1032:	00 00       	nop
+    1002:	89 2b       	or	r24, r25
+    1004:	e1 f3       	breq	.-8      	; 0xffe <_Z8mainmenuv+0x38>
+    1006:	2f ef       	ldi	r18, 0xFF	; 255
+    1008:	86 e7       	ldi	r24, 0x76	; 118
+    100a:	91 e0       	ldi	r25, 0x01	; 1
+    100c:	21 50       	subi	r18, 0x01	; 1
+    100e:	80 40       	sbci	r24, 0x00	; 0
+    1010:	90 40       	sbci	r25, 0x00	; 0
+    1012:	e1 f7       	brne	.-8      	; 0x100c <_Z8mainmenuv+0x46>
+    1014:	00 c0       	rjmp	.+0      	; 0x1016 <_Z8mainmenuv+0x50>
+    1016:	00 00       	nop
 		{
 			_delay_ms(DELAY_BOUNCE);
 			in=input();
-    1034:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
+    1018:	0e 94 ac 01 	call	0x358	; 0x358 <_Z5inputv>
 			if (state==0&& (in==up ||in==down))
-    1038:	20 97       	sbiw	r28, 0x00	; 0
-    103a:	31 f5       	brne	.+76     	; 0x1088 <_Z8mainmenuv+0xa6>
-    103c:	20 91 6c 00 	lds	r18, 0x006C
-    1040:	30 91 6d 00 	lds	r19, 0x006D
-    1044:	82 17       	cp	r24, r18
-    1046:	93 07       	cpc	r25, r19
-    1048:	41 f0       	breq	.+16     	; 0x105a <_Z8mainmenuv+0x78>
-    104a:	20 91 6a 00 	lds	r18, 0x006A
-    104e:	30 91 6b 00 	lds	r19, 0x006B
-    1052:	82 17       	cp	r24, r18
-    1054:	93 07       	cpc	r25, r19
-    1056:	09 f0       	breq	.+2      	; 0x105a <_Z8mainmenuv+0x78>
-    1058:	70 c0       	rjmp	.+224    	; 0x113a <_Z8mainmenuv+0x158>
+    101c:	20 97       	sbiw	r28, 0x00	; 0
+    101e:	31 f5       	brne	.+76     	; 0x106c <_Z8mainmenuv+0xa6>
+    1020:	20 91 6c 00 	lds	r18, 0x006C
+    1024:	30 91 6d 00 	lds	r19, 0x006D
+    1028:	82 17       	cp	r24, r18
+    102a:	93 07       	cpc	r25, r19
+    102c:	41 f0       	breq	.+16     	; 0x103e <_Z8mainmenuv+0x78>
+    102e:	20 91 6a 00 	lds	r18, 0x006A
+    1032:	30 91 6b 00 	lds	r19, 0x006B
+    1036:	82 17       	cp	r24, r18
+    1038:	93 07       	cpc	r25, r19
+    103a:	09 f0       	breq	.+2      	; 0x103e <_Z8mainmenuv+0x78>
+    103c:	70 c0       	rjmp	.+224    	; 0x111e <_Z8mainmenuv+0x158>
 			{
 				lcd_setCursor(0,0);
-    105a:	60 2f       	mov	r22, r16
-    105c:	71 2f       	mov	r23, r17
-    105e:	80 2f       	mov	r24, r16
-    1060:	91 2f       	mov	r25, r17
-    1062:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+    103e:	60 2f       	mov	r22, r16
+    1040:	71 2f       	mov	r23, r17
+    1042:	80 2f       	mov	r24, r16
+    1044:	91 2f       	mov	r25, r17
+    1046:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts(" ");
-    1066:	8f eb       	ldi	r24, 0xBF	; 191
-    1068:	90 e0       	ldi	r25, 0x00	; 0
-    106a:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+    104a:	8f eb       	ldi	r24, 0xBF	; 191
+    104c:	90 e0       	ldi	r25, 0x00	; 0
+    104e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 				lcd_setCursor(0,1);
-    106e:	6c 2d       	mov	r22, r12
-    1070:	7d 2d       	mov	r23, r13
-    1072:	80 2f       	mov	r24, r16
-    1074:	91 2f       	mov	r25, r17
-    1076:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+    1052:	6c 2d       	mov	r22, r12
+    1054:	7d 2d       	mov	r23, r13
+    1056:	80 2f       	mov	r24, r16
+    1058:	91 2f       	mov	r25, r17
+    105a:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts(">");
-    107a:	8a e7       	ldi	r24, 0x7A	; 122
-    107c:	90 e0       	ldi	r25, 0x00	; 0
-    107e:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+    105e:	8a e7       	ldi	r24, 0x7A	; 122
+    1060:	90 e0       	ldi	r25, 0x00	; 0
+    1062:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 				state=1;
-    1082:	cc 2d       	mov	r28, r12
-    1084:	dd 2d       	mov	r29, r13
-    1086:	4f c0       	rjmp	.+158    	; 0x1126 <_Z8mainmenuv+0x144>
+    1066:	cc 2d       	mov	r28, r12
+    1068:	dd 2d       	mov	r29, r13
+    106a:	4f c0       	rjmp	.+158    	; 0x110a <_Z8mainmenuv+0x144>
 			}
 			else if (state==1 && (in==up ||in==down))
-    1088:	c1 30       	cpi	r28, 0x01	; 1
-    108a:	d1 05       	cpc	r29, r1
-    108c:	09 f0       	breq	.+2      	; 0x1090 <_Z8mainmenuv+0xae>
-    108e:	5d c0       	rjmp	.+186    	; 0x114a <_Z8mainmenuv+0x168>
-    1090:	20 91 6c 00 	lds	r18, 0x006C
-    1094:	30 91 6d 00 	lds	r19, 0x006D
-    1098:	82 17       	cp	r24, r18
-    109a:	93 07       	cpc	r25, r19
-    109c:	39 f0       	breq	.+14     	; 0x10ac <_Z8mainmenuv+0xca>
-    109e:	20 91 6a 00 	lds	r18, 0x006A
-    10a2:	30 91 6b 00 	lds	r19, 0x006B
-    10a6:	82 17       	cp	r24, r18
-    10a8:	93 07       	cpc	r25, r19
-    10aa:	b9 f4       	brne	.+46     	; 0x10da <_Z8mainmenuv+0xf8>
+    106c:	c1 30       	cpi	r28, 0x01	; 1
+    106e:	d1 05       	cpc	r29, r1
+    1070:	09 f0       	breq	.+2      	; 0x1074 <_Z8mainmenuv+0xae>
+    1072:	5d c0       	rjmp	.+186    	; 0x112e <_Z8mainmenuv+0x168>
+    1074:	20 91 6c 00 	lds	r18, 0x006C
+    1078:	30 91 6d 00 	lds	r19, 0x006D
+    107c:	82 17       	cp	r24, r18
+    107e:	93 07       	cpc	r25, r19
+    1080:	39 f0       	breq	.+14     	; 0x1090 <_Z8mainmenuv+0xca>
+    1082:	20 91 6a 00 	lds	r18, 0x006A
+    1086:	30 91 6b 00 	lds	r19, 0x006B
+    108a:	82 17       	cp	r24, r18
+    108c:	93 07       	cpc	r25, r19
+    108e:	b9 f4       	brne	.+46     	; 0x10be <_Z8mainmenuv+0xf8>
 			{
 				lcd_setCursor(0,1);
-    10ac:	6c 2d       	mov	r22, r12
-    10ae:	7d 2d       	mov	r23, r13
-    10b0:	80 2f       	mov	r24, r16
-    10b2:	91 2f       	mov	r25, r17
-    10b4:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+    1090:	6c 2d       	mov	r22, r12
+    1092:	7d 2d       	mov	r23, r13
+    1094:	80 2f       	mov	r24, r16
+    1096:	91 2f       	mov	r25, r17
+    1098:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts(" ");
-    10b8:	8f eb       	ldi	r24, 0xBF	; 191
-    10ba:	90 e0       	ldi	r25, 0x00	; 0
-    10bc:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+    109c:	8f eb       	ldi	r24, 0xBF	; 191
+    109e:	90 e0       	ldi	r25, 0x00	; 0
+    10a0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 				lcd_setCursor(0,0);
-    10c0:	60 2f       	mov	r22, r16
-    10c2:	71 2f       	mov	r23, r17
-    10c4:	80 2f       	mov	r24, r16
-    10c6:	91 2f       	mov	r25, r17
-    10c8:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
+    10a4:	60 2f       	mov	r22, r16
+    10a6:	71 2f       	mov	r23, r17
+    10a8:	80 2f       	mov	r24, r16
+    10aa:	91 2f       	mov	r25, r17
+    10ac:	0e 94 23 01 	call	0x246	; 0x246 <_Z13lcd_setCursorii>
 				lcd_puts(">");
-    10cc:	8a e7       	ldi	r24, 0x7A	; 122
-    10ce:	90 e0       	ldi	r25, 0x00	; 0
-    10d0:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
+    10b0:	8a e7       	ldi	r24, 0x7A	; 122
+    10b2:	90 e0       	ldi	r25, 0x00	; 0
+    10b4:	0e 94 cd 00 	call	0x19a	; 0x19a <_Z8lcd_putsPKc>
 				state=0;
-    10d4:	c0 2f       	mov	r28, r16
-    10d6:	d1 2f       	mov	r29, r17
-    10d8:	26 c0       	rjmp	.+76     	; 0x1126 <_Z8mainmenuv+0x144>
+    10b8:	c0 2f       	mov	r28, r16
+    10ba:	d1 2f       	mov	r29, r17
+    10bc:	26 c0       	rjmp	.+76     	; 0x110a <_Z8mainmenuv+0x144>
 			}
 			else if (in==ok)
-    10da:	20 91 62 00 	lds	r18, 0x0062
-    10de:	30 91 63 00 	lds	r19, 0x0063
-    10e2:	82 17       	cp	r24, r18
-    10e4:	93 07       	cpc	r25, r19
-    10e6:	f9 f4       	brne	.+62     	; 0x1126 <_Z8mainmenuv+0x144>
+    10be:	20 91 62 00 	lds	r18, 0x0062
+    10c2:	30 91 63 00 	lds	r19, 0x0063
+    10c6:	82 17       	cp	r24, r18
+    10c8:	93 07       	cpc	r25, r19
+    10ca:	f9 f4       	brne	.+62     	; 0x110a <_Z8mainmenuv+0x144>
 			{
 				//_delay_ms(DELAY_TIME);
 				if (state==0)
-    10e8:	cd 2b       	or	r28, r29
-    10ea:	b1 f4       	brne	.+44     	; 0x1118 <_Z8mainmenuv+0x136>
+    10cc:	cd 2b       	or	r28, r29
+    10ce:	b1 f4       	brne	.+44     	; 0x10fc <_Z8mainmenuv+0x136>
 				{
 					int c=0;
 					if (first_visit==0)
-    10ec:	e1 14       	cp	r14, r1
-    10ee:	f1 04       	cpc	r15, r1
-    10f0:	59 f4       	brne	.+22     	; 0x1108 <_Z8mainmenuv+0x126>
+    10d0:	e1 14       	cp	r14, r1
+    10d2:	f1 04       	cpc	r15, r1
+    10d4:	59 f4       	brne	.+22     	; 0x10ec <_Z8mainmenuv+0x126>
 					c=select_food();
-    10f2:	0e 94 ff 03 	call	0x7fe	; 0x7fe <_Z11select_foodv>
+    10d6:	0e 94 e4 03 	call	0x7c8	; 0x7c8 <_Z11select_foodv>
 					else
 					change_food();
 					if (c==1)
-    10f6:	3c 2d       	mov	r19, r12
-    10f8:	2d 2d       	mov	r18, r13
-    10fa:	01 97       	sbiw	r24, 0x01	; 1
-    10fc:	11 f0       	breq	.+4      	; 0x1102 <_Z8mainmenuv+0x120>
-    10fe:	30 2f       	mov	r19, r16
-    1100:	21 2f       	mov	r18, r17
+    10da:	3c 2d       	mov	r19, r12
+    10dc:	2d 2d       	mov	r18, r13
+    10de:	01 97       	sbiw	r24, 0x01	; 1
+    10e0:	11 f0       	breq	.+4      	; 0x10e6 <_Z8mainmenuv+0x120>
+    10e2:	30 2f       	mov	r19, r16
+    10e4:	21 2f       	mov	r18, r17
 					first_visit=1;
-    1102:	e3 2e       	mov	r14, r19
-    1104:	f2 2e       	mov	r15, r18
-    1106:	02 c0       	rjmp	.+4      	; 0x110c <_Z8mainmenuv+0x12a>
+    10e6:	e3 2e       	mov	r14, r19
+    10e8:	f2 2e       	mov	r15, r18
+    10ea:	02 c0       	rjmp	.+4      	; 0x10f0 <_Z8mainmenuv+0x12a>
 				{
 					int c=0;
 					if (first_visit==0)
 					c=select_food();
 					else
 					change_food();
-    1108:	0e 94 6b 06 	call	0xcd6	; 0xcd6 <_Z11change_foodv>
+    10ec:	0e 94 50 06 	call	0xca0	; 0xca0 <_Z11change_foodv>
 					if (c==1)
 					first_visit=1;
 					state=0;
 					main_menu_print(first_visit);
-    110c:	c7 01       	movw	r24, r14
-    110e:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
+    10f0:	c7 01       	movw	r24, r14
+    10f2:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
 					c=select_food();
 					else
 					change_food();
 					if (c==1)
 					first_visit=1;
 					state=0;
-    1112:	c0 2f       	mov	r28, r16
-    1114:	d1 2f       	mov	r29, r17
-    1116:	07 c0       	rjmp	.+14     	; 0x1126 <_Z8mainmenuv+0x144>
+    10f6:	c0 2f       	mov	r28, r16
+    10f8:	d1 2f       	mov	r29, r17
+    10fa:	07 c0       	rjmp	.+14     	; 0x110a <_Z8mainmenuv+0x144>
 					main_menu_print(first_visit);
 				}
 				else
 				//selected_food();
 				{
 					selected_food();
-    1118:	0e 94 5c 05 	call	0xab8	; 0xab8 <_Z13selected_foodv>
+    10fc:	0e 94 41 05 	call	0xa82	; 0xa82 <_Z13selected_foodv>
 					main_menu_print(first_visit);
-    111c:	c7 01       	movw	r24, r14
-    111e:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
+    1100:	c7 01       	movw	r24, r14
+    1102:	0e 94 b8 01 	call	0x370	; 0x370 <_Z15main_menu_printi>
 					state=0;
-    1122:	c0 2f       	mov	r28, r16
-    1124:	d1 2f       	mov	r29, r17
-    1126:	9f ef       	ldi	r25, 0xFF	; 255
-    1128:	25 ea       	ldi	r18, 0xA5	; 165
-    112a:	8e e0       	ldi	r24, 0x0E	; 14
-    112c:	91 50       	subi	r25, 0x01	; 1
-    112e:	20 40       	sbci	r18, 0x00	; 0
-    1130:	80 40       	sbci	r24, 0x00	; 0
-    1132:	e1 f7       	brne	.-8      	; 0x112c <_Z8mainmenuv+0x14a>
-    1134:	00 c0       	rjmp	.+0      	; 0x1136 <_Z8mainmenuv+0x154>
-    1136:	00 00       	nop
-    1138:	70 cf       	rjmp	.-288    	; 0x101a <_Z8mainmenuv+0x38>
+    1106:	c0 2f       	mov	r28, r16
+    1108:	d1 2f       	mov	r29, r17
+    110a:	9f ef       	ldi	r25, 0xFF	; 255
+    110c:	25 ea       	ldi	r18, 0xA5	; 165
+    110e:	8e e0       	ldi	r24, 0x0E	; 14
+    1110:	91 50       	subi	r25, 0x01	; 1
+    1112:	20 40       	sbci	r18, 0x00	; 0
+    1114:	80 40       	sbci	r24, 0x00	; 0
+    1116:	e1 f7       	brne	.-8      	; 0x1110 <_Z8mainmenuv+0x14a>
+    1118:	00 c0       	rjmp	.+0      	; 0x111a <_Z8mainmenuv+0x154>
+    111a:	00 00       	nop
+    111c:	70 cf       	rjmp	.-288    	; 0xffe <_Z8mainmenuv+0x38>
 				lcd_puts(" ");
 				lcd_setCursor(0,0);
 				lcd_puts(">");
 				state=0;
 			}
 			else if (in==ok)
-    113a:	20 91 62 00 	lds	r18, 0x0062
-    113e:	30 91 63 00 	lds	r19, 0x0063
-    1142:	82 17       	cp	r24, r18
-    1144:	93 07       	cpc	r25, r19
-    1146:	79 f7       	brne	.-34     	; 0x1126 <_Z8mainmenuv+0x144>
-    1148:	d1 cf       	rjmp	.-94     	; 0x10ec <_Z8mainmenuv+0x10a>
-    114a:	20 91 62 00 	lds	r18, 0x0062
-    114e:	30 91 63 00 	lds	r19, 0x0063
-    1152:	82 17       	cp	r24, r18
-    1154:	93 07       	cpc	r25, r19
-    1156:	39 f7       	brne	.-50     	; 0x1126 <_Z8mainmenuv+0x144>
-    1158:	df cf       	rjmp	.-66     	; 0x1118 <_Z8mainmenuv+0x136>
+    111e:	20 91 62 00 	lds	r18, 0x0062
+    1122:	30 91 63 00 	lds	r19, 0x0063
+    1126:	82 17       	cp	r24, r18
+    1128:	93 07       	cpc	r25, r19
+    112a:	79 f7       	brne	.-34     	; 0x110a <_Z8mainmenuv+0x144>
+    112c:	d1 cf       	rjmp	.-94     	; 0x10d0 <_Z8mainmenuv+0x10a>
+    112e:	20 91 62 00 	lds	r18, 0x0062
+    1132:	30 91 63 00 	lds	r19, 0x0063
+    1136:	82 17       	cp	r24, r18
+    1138:	93 07       	cpc	r25, r19
+    113a:	39 f7       	brne	.-50     	; 0x110a <_Z8mainmenuv+0x144>
+    113c:	df cf       	rjmp	.-66     	; 0x10fc <_Z8mainmenuv+0x136>
 
-0000115a <main>:
+0000113e <main>:
 	dfood[2]=food[2];
 		
 
 }
 int main() {
 	database_init_test();
-    115a:	0e 94 4c 03 	call	0x698	; 0x698 <_Z18database_init_testv>
+    113e:	0e 94 31 03 	call	0x662	; 0x662 <_Z18database_init_testv>
 	sei();
-    115e:	78 94       	sei
+    1142:	78 94       	sei
 	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
-    1160:	87 e6       	ldi	r24, 0x67	; 103
-    1162:	90 e0       	ldi	r25, 0x00	; 0
-    1164:	0e 94 09 09 	call	0x1212	; 0x1212 <_Z10uart0_initj>
+    1144:	87 e6       	ldi	r24, 0x67	; 103
+    1146:	90 e0       	ldi	r25, 0x00	; 0
+    1148:	0e 94 fb 08 	call	0x11f6	; 0x11f6 <_Z10uart0_initj>
 	// set up the LCD's number of columns and rows:
 	// pinMode(13,OUTPUT);
 	
 	DDRD&= ~(1<<s_zero);
-    1168:	88 98       	cbi	0x11, 0	; 17
+    114c:	88 98       	cbi	0x11, 0	; 17
 	DDRD&= ~(1<<s_one);
-    116a:	89 98       	cbi	0x11, 1	; 17
+    114e:	89 98       	cbi	0x11, 1	; 17
    DDRD&= ~(1<<s_two);
-    116c:	8a 98       	cbi	0x11, 2	; 17
+    1150:	8a 98       	cbi	0x11, 2	; 17
 
 
 	lcd_init();
-    116e:	0e 94 91 00 	call	0x122	; 0x122 <_Z8lcd_initv>
+    1152:	0e 94 91 00 	call	0x122	; 0x122 <_Z8lcd_initv>
 	mainmenu();
-    1172:	0e 94 f1 07 	call	0xfe2	; 0xfe2 <_Z8mainmenuv>
+    1156:	0e 94 e3 07 	call	0xfc6	; 0xfc6 <_Z8mainmenuv>
 
-00001176 <__vector_13>:
+0000115a <__vector_13>:
 	register char c;
 
 	while ((c = pgm_read_byte(progmem_s++)))
 		uart0_putc(c);
 
 }/* uart_puts_p */
-    1176:	1f 92       	push	r1
-    1178:	0f 92       	push	r0
-    117a:	0f b6       	in	r0, 0x3f	; 63
-    117c:	0f 92       	push	r0
-    117e:	11 24       	eor	r1, r1
-    1180:	2f 93       	push	r18
-    1182:	8f 93       	push	r24
-    1184:	9f 93       	push	r25
-    1186:	ef 93       	push	r30
-    1188:	ff 93       	push	r31
-    118a:	8b b1       	in	r24, 0x0b	; 11
-    118c:	2c b1       	in	r18, 0x0c	; 12
-    118e:	88 71       	andi	r24, 0x18	; 24
-    1190:	e0 91 62 04 	lds	r30, 0x0462
-    1194:	ef 5f       	subi	r30, 0xFF	; 255
-    1196:	ef 71       	andi	r30, 0x1F	; 31
-    1198:	90 91 61 04 	lds	r25, 0x0461
-    119c:	e9 17       	cp	r30, r25
-    119e:	39 f0       	breq	.+14     	; 0x11ae <__vector_13+0x38>
-    11a0:	e0 93 62 04 	sts	0x0462, r30
-    11a4:	f0 e0       	ldi	r31, 0x00	; 0
-    11a6:	eb 59       	subi	r30, 0x9B	; 155
-    11a8:	fb 4f       	sbci	r31, 0xFB	; 251
-    11aa:	20 83       	st	Z, r18
-    11ac:	01 c0       	rjmp	.+2      	; 0x11b0 <__vector_13+0x3a>
-    11ae:	82 e0       	ldi	r24, 0x02	; 2
-    11b0:	80 93 60 04 	sts	0x0460, r24
-    11b4:	ff 91       	pop	r31
-    11b6:	ef 91       	pop	r30
-    11b8:	9f 91       	pop	r25
-    11ba:	8f 91       	pop	r24
-    11bc:	2f 91       	pop	r18
-    11be:	0f 90       	pop	r0
-    11c0:	0f be       	out	0x3f, r0	; 63
-    11c2:	0f 90       	pop	r0
-    11c4:	1f 90       	pop	r1
-    11c6:	18 95       	reti
+    115a:	1f 92       	push	r1
+    115c:	0f 92       	push	r0
+    115e:	0f b6       	in	r0, 0x3f	; 63
+    1160:	0f 92       	push	r0
+    1162:	11 24       	eor	r1, r1
+    1164:	2f 93       	push	r18
+    1166:	8f 93       	push	r24
+    1168:	9f 93       	push	r25
+    116a:	ef 93       	push	r30
+    116c:	ff 93       	push	r31
+    116e:	8b b1       	in	r24, 0x0b	; 11
+    1170:	2c b1       	in	r18, 0x0c	; 12
+    1172:	88 71       	andi	r24, 0x18	; 24
+    1174:	e0 91 62 04 	lds	r30, 0x0462
+    1178:	ef 5f       	subi	r30, 0xFF	; 255
+    117a:	ef 71       	andi	r30, 0x1F	; 31
+    117c:	90 91 61 04 	lds	r25, 0x0461
+    1180:	e9 17       	cp	r30, r25
+    1182:	39 f0       	breq	.+14     	; 0x1192 <__vector_13+0x38>
+    1184:	e0 93 62 04 	sts	0x0462, r30
+    1188:	f0 e0       	ldi	r31, 0x00	; 0
+    118a:	eb 59       	subi	r30, 0x9B	; 155
+    118c:	fb 4f       	sbci	r31, 0xFB	; 251
+    118e:	20 83       	st	Z, r18
+    1190:	01 c0       	rjmp	.+2      	; 0x1194 <__vector_13+0x3a>
+    1192:	82 e0       	ldi	r24, 0x02	; 2
+    1194:	80 93 60 04 	sts	0x0460, r24
+    1198:	ff 91       	pop	r31
+    119a:	ef 91       	pop	r30
+    119c:	9f 91       	pop	r25
+    119e:	8f 91       	pop	r24
+    11a0:	2f 91       	pop	r18
+    11a2:	0f 90       	pop	r0
+    11a4:	0f be       	out	0x3f, r0	; 63
+    11a6:	0f 90       	pop	r0
+    11a8:	1f 90       	pop	r1
+    11aa:	18 95       	reti
 
-000011c8 <__vector_14>:
-    11c8:	1f 92       	push	r1
-    11ca:	0f 92       	push	r0
-    11cc:	0f b6       	in	r0, 0x3f	; 63
-    11ce:	0f 92       	push	r0
-    11d0:	11 24       	eor	r1, r1
-    11d2:	8f 93       	push	r24
-    11d4:	9f 93       	push	r25
-    11d6:	ef 93       	push	r30
-    11d8:	ff 93       	push	r31
-    11da:	90 91 64 04 	lds	r25, 0x0464
-    11de:	80 91 63 04 	lds	r24, 0x0463
-    11e2:	98 17       	cp	r25, r24
-    11e4:	61 f0       	breq	.+24     	; 0x11fe <__vector_14+0x36>
-    11e6:	e0 91 63 04 	lds	r30, 0x0463
-    11ea:	ef 5f       	subi	r30, 0xFF	; 255
-    11ec:	ef 71       	andi	r30, 0x1F	; 31
-    11ee:	e0 93 63 04 	sts	0x0463, r30
-    11f2:	f0 e0       	ldi	r31, 0x00	; 0
-    11f4:	eb 57       	subi	r30, 0x7B	; 123
-    11f6:	fb 4f       	sbci	r31, 0xFB	; 251
-    11f8:	80 81       	ld	r24, Z
-    11fa:	8c b9       	out	0x0c, r24	; 12
-    11fc:	01 c0       	rjmp	.+2      	; 0x1200 <__vector_14+0x38>
-    11fe:	55 98       	cbi	0x0a, 5	; 10
-    1200:	ff 91       	pop	r31
-    1202:	ef 91       	pop	r30
-    1204:	9f 91       	pop	r25
-    1206:	8f 91       	pop	r24
-    1208:	0f 90       	pop	r0
-    120a:	0f be       	out	0x3f, r0	; 63
-    120c:	0f 90       	pop	r0
-    120e:	1f 90       	pop	r1
-    1210:	18 95       	reti
+000011ac <__vector_14>:
+    11ac:	1f 92       	push	r1
+    11ae:	0f 92       	push	r0
+    11b0:	0f b6       	in	r0, 0x3f	; 63
+    11b2:	0f 92       	push	r0
+    11b4:	11 24       	eor	r1, r1
+    11b6:	8f 93       	push	r24
+    11b8:	9f 93       	push	r25
+    11ba:	ef 93       	push	r30
+    11bc:	ff 93       	push	r31
+    11be:	90 91 64 04 	lds	r25, 0x0464
+    11c2:	80 91 63 04 	lds	r24, 0x0463
+    11c6:	98 17       	cp	r25, r24
+    11c8:	61 f0       	breq	.+24     	; 0x11e2 <__vector_14+0x36>
+    11ca:	e0 91 63 04 	lds	r30, 0x0463
+    11ce:	ef 5f       	subi	r30, 0xFF	; 255
+    11d0:	ef 71       	andi	r30, 0x1F	; 31
+    11d2:	e0 93 63 04 	sts	0x0463, r30
+    11d6:	f0 e0       	ldi	r31, 0x00	; 0
+    11d8:	eb 57       	subi	r30, 0x7B	; 123
+    11da:	fb 4f       	sbci	r31, 0xFB	; 251
+    11dc:	80 81       	ld	r24, Z
+    11de:	8c b9       	out	0x0c, r24	; 12
+    11e0:	01 c0       	rjmp	.+2      	; 0x11e4 <__vector_14+0x38>
+    11e2:	55 98       	cbi	0x0a, 5	; 10
+    11e4:	ff 91       	pop	r31
+    11e6:	ef 91       	pop	r30
+    11e8:	9f 91       	pop	r25
+    11ea:	8f 91       	pop	r24
+    11ec:	0f 90       	pop	r0
+    11ee:	0f be       	out	0x3f, r0	; 63
+    11f0:	0f 90       	pop	r0
+    11f2:	1f 90       	pop	r1
+    11f4:	18 95       	reti
 
-00001212 <_Z10uart0_initj>:
-    1212:	10 92 64 04 	sts	0x0464, r1
-    1216:	10 92 63 04 	sts	0x0463, r1
-    121a:	10 92 62 04 	sts	0x0462, r1
-    121e:	10 92 61 04 	sts	0x0461, r1
-    1222:	99 23       	and	r25, r25
-    1224:	1c f4       	brge	.+6      	; 0x122c <_Z10uart0_initj+0x1a>
-    1226:	22 e0       	ldi	r18, 0x02	; 2
-    1228:	2b b9       	out	0x0b, r18	; 11
-    122a:	9f 77       	andi	r25, 0x7F	; 127
-    122c:	90 bd       	out	0x20, r25	; 32
-    122e:	89 b9       	out	0x09, r24	; 9
-    1230:	88 e9       	ldi	r24, 0x98	; 152
-    1232:	8a b9       	out	0x0a, r24	; 10
-    1234:	86 e8       	ldi	r24, 0x86	; 134
-    1236:	80 bd       	out	0x20, r24	; 32
-    1238:	08 95       	ret
+000011f6 <_Z10uart0_initj>:
+    11f6:	10 92 64 04 	sts	0x0464, r1
+    11fa:	10 92 63 04 	sts	0x0463, r1
+    11fe:	10 92 62 04 	sts	0x0462, r1
+    1202:	10 92 61 04 	sts	0x0461, r1
+    1206:	99 23       	and	r25, r25
+    1208:	1c f4       	brge	.+6      	; 0x1210 <_Z10uart0_initj+0x1a>
+    120a:	22 e0       	ldi	r18, 0x02	; 2
+    120c:	2b b9       	out	0x0b, r18	; 11
+    120e:	9f 77       	andi	r25, 0x7F	; 127
+    1210:	90 bd       	out	0x20, r25	; 32
+    1212:	89 b9       	out	0x09, r24	; 9
+    1214:	88 e9       	ldi	r24, 0x98	; 152
+    1216:	8a b9       	out	0x0a, r24	; 10
+    1218:	86 e8       	ldi	r24, 0x86	; 134
+    121a:	80 bd       	out	0x20, r24	; 32
+    121c:	08 95       	ret
 
-0000123a <_Z10uart0_getcv>:
-    123a:	90 91 62 04 	lds	r25, 0x0462
-    123e:	80 91 61 04 	lds	r24, 0x0461
-    1242:	98 17       	cp	r25, r24
-    1244:	91 f0       	breq	.+36     	; 0x126a <_Z10uart0_getcv+0x30>
-    1246:	e0 91 61 04 	lds	r30, 0x0461
-    124a:	ef 5f       	subi	r30, 0xFF	; 255
-    124c:	ef 71       	andi	r30, 0x1F	; 31
-    124e:	e0 93 61 04 	sts	0x0461, r30
-    1252:	f0 e0       	ldi	r31, 0x00	; 0
-    1254:	eb 59       	subi	r30, 0x9B	; 155
-    1256:	fb 4f       	sbci	r31, 0xFB	; 251
-    1258:	20 81       	ld	r18, Z
-    125a:	80 91 60 04 	lds	r24, 0x0460
-    125e:	90 e0       	ldi	r25, 0x00	; 0
-    1260:	98 2f       	mov	r25, r24
-    1262:	88 27       	eor	r24, r24
-    1264:	82 0f       	add	r24, r18
-    1266:	91 1d       	adc	r25, r1
-    1268:	08 95       	ret
-    126a:	80 e0       	ldi	r24, 0x00	; 0
-    126c:	91 e0       	ldi	r25, 0x01	; 1
-    126e:	08 95       	ret
+0000121e <_Z10uart0_getcv>:
+    121e:	90 91 62 04 	lds	r25, 0x0462
+    1222:	80 91 61 04 	lds	r24, 0x0461
+    1226:	98 17       	cp	r25, r24
+    1228:	91 f0       	breq	.+36     	; 0x124e <_Z10uart0_getcv+0x30>
+    122a:	e0 91 61 04 	lds	r30, 0x0461
+    122e:	ef 5f       	subi	r30, 0xFF	; 255
+    1230:	ef 71       	andi	r30, 0x1F	; 31
+    1232:	e0 93 61 04 	sts	0x0461, r30
+    1236:	f0 e0       	ldi	r31, 0x00	; 0
+    1238:	eb 59       	subi	r30, 0x9B	; 155
+    123a:	fb 4f       	sbci	r31, 0xFB	; 251
+    123c:	20 81       	ld	r18, Z
+    123e:	80 91 60 04 	lds	r24, 0x0460
+    1242:	90 e0       	ldi	r25, 0x00	; 0
+    1244:	98 2f       	mov	r25, r24
+    1246:	88 27       	eor	r24, r24
+    1248:	82 0f       	add	r24, r18
+    124a:	91 1d       	adc	r25, r1
+    124c:	08 95       	ret
+    124e:	80 e0       	ldi	r24, 0x00	; 0
+    1250:	91 e0       	ldi	r25, 0x01	; 1
+    1252:	08 95       	ret
 
-00001270 <_Z10uart0_putch>:
-    1270:	20 91 64 04 	lds	r18, 0x0464
-    1274:	2f 5f       	subi	r18, 0xFF	; 255
-    1276:	2f 71       	andi	r18, 0x1F	; 31
-    1278:	90 91 63 04 	lds	r25, 0x0463
-    127c:	29 17       	cp	r18, r25
-    127e:	e1 f3       	breq	.-8      	; 0x1278 <_Z10uart0_putch+0x8>
-    1280:	e2 2f       	mov	r30, r18
-    1282:	f0 e0       	ldi	r31, 0x00	; 0
-    1284:	eb 57       	subi	r30, 0x7B	; 123
-    1286:	fb 4f       	sbci	r31, 0xFB	; 251
-    1288:	80 83       	st	Z, r24
-    128a:	20 93 64 04 	sts	0x0464, r18
-    128e:	55 9a       	sbi	0x0a, 5	; 10
-    1290:	08 95       	ret
+00001254 <_Z10uart0_putch>:
+    1254:	20 91 64 04 	lds	r18, 0x0464
+    1258:	2f 5f       	subi	r18, 0xFF	; 255
+    125a:	2f 71       	andi	r18, 0x1F	; 31
+    125c:	90 91 63 04 	lds	r25, 0x0463
+    1260:	29 17       	cp	r18, r25
+    1262:	e1 f3       	breq	.-8      	; 0x125c <_Z10uart0_putch+0x8>
+    1264:	e2 2f       	mov	r30, r18
+    1266:	f0 e0       	ldi	r31, 0x00	; 0
+    1268:	eb 57       	subi	r30, 0x7B	; 123
+    126a:	fb 4f       	sbci	r31, 0xFB	; 251
+    126c:	80 83       	st	Z, r24
+    126e:	20 93 64 04 	sts	0x0464, r18
+    1272:	55 9a       	sbi	0x0a, 5	; 10
+    1274:	08 95       	ret
 
-00001292 <_Z12uart0_putinti>:
-    1292:	0f 93       	push	r16
-    1294:	1f 93       	push	r17
-    1296:	cf 93       	push	r28
-    1298:	df 93       	push	r29
-    129a:	cd b7       	in	r28, 0x3d	; 61
-    129c:	de b7       	in	r29, 0x3e	; 62
-    129e:	2f 97       	sbiw	r28, 0x0f	; 15
-    12a0:	0f b6       	in	r0, 0x3f	; 63
-    12a2:	f8 94       	cli
-    12a4:	de bf       	out	0x3e, r29	; 62
-    12a6:	0f be       	out	0x3f, r0	; 63
-    12a8:	cd bf       	out	0x3d, r28	; 61
-    12aa:	4a e0       	ldi	r20, 0x0A	; 10
-    12ac:	be 01       	movw	r22, r28
-    12ae:	6f 5f       	subi	r22, 0xFF	; 255
-    12b0:	7f 4f       	sbci	r23, 0xFF	; 255
-    12b2:	0e 94 c3 09 	call	0x1386	; 0x1386 <__itoa_ncheck>
-    12b6:	89 81       	ldd	r24, Y+1	; 0x01
-    12b8:	88 23       	and	r24, r24
-    12ba:	51 f0       	breq	.+20     	; 0x12d0 <_Z12uart0_putinti+0x3e>
-    12bc:	8e 01       	movw	r16, r28
-    12be:	0e 5f       	subi	r16, 0xFE	; 254
-    12c0:	1f 4f       	sbci	r17, 0xFF	; 255
-    12c2:	0e 94 38 09 	call	0x1270	; 0x1270 <_Z10uart0_putch>
-    12c6:	f8 01       	movw	r30, r16
-    12c8:	81 91       	ld	r24, Z+
-    12ca:	8f 01       	movw	r16, r30
-    12cc:	81 11       	cpse	r24, r1
-    12ce:	f9 cf       	rjmp	.-14     	; 0x12c2 <_Z12uart0_putinti+0x30>
-    12d0:	2f 96       	adiw	r28, 0x0f	; 15
-    12d2:	0f b6       	in	r0, 0x3f	; 63
-    12d4:	f8 94       	cli
-    12d6:	de bf       	out	0x3e, r29	; 62
-    12d8:	0f be       	out	0x3f, r0	; 63
-    12da:	cd bf       	out	0x3d, r28	; 61
-    12dc:	df 91       	pop	r29
-    12de:	cf 91       	pop	r28
-    12e0:	1f 91       	pop	r17
-    12e2:	0f 91       	pop	r16
-    12e4:	08 95       	ret
-
-000012e6 <_Z10uart0_putsPKc>:
-    12e6:	cf 93       	push	r28
-    12e8:	df 93       	push	r29
-    12ea:	ec 01       	movw	r28, r24
-    12ec:	88 81       	ld	r24, Y
-    12ee:	88 23       	and	r24, r24
-    12f0:	31 f0       	breq	.+12     	; 0x12fe <_Z10uart0_putsPKc+0x18>
-    12f2:	21 96       	adiw	r28, 0x01	; 1
-    12f4:	0e 94 38 09 	call	0x1270	; 0x1270 <_Z10uart0_putch>
-    12f8:	89 91       	ld	r24, Y+
-    12fa:	81 11       	cpse	r24, r1
-    12fc:	fb cf       	rjmp	.-10     	; 0x12f4 <_Z10uart0_putsPKc+0xe>
-    12fe:	df 91       	pop	r29
-    1300:	cf 91       	pop	r28
-    1302:	08 95       	ret
-
-00001304 <_Z15uart0_availablev>:
+00001276 <_Z15uart0_availablev>:
  Input:    None
  Returns:  Integer number of bytes in the receive buffer
  **************************************************************************/
 int uart0_available(void)
 {
 	return (UART_RX_BUFFER_MASK + UART0_RxHead - UART0_RxTail) % UART_RX_BUFFER_MASK;
-    1304:	80 91 62 04 	lds	r24, 0x0462
-    1308:	20 91 61 04 	lds	r18, 0x0461
-    130c:	90 e0       	ldi	r25, 0x00	; 0
-    130e:	4f 96       	adiw	r24, 0x1f	; 31
-    1310:	82 1b       	sub	r24, r18
-    1312:	91 09       	sbc	r25, r1
-    1314:	6f e1       	ldi	r22, 0x1F	; 31
-    1316:	70 e0       	ldi	r23, 0x00	; 0
-    1318:	0e 94 94 09 	call	0x1328	; 0x1328 <__divmodhi4>
+    1276:	80 91 62 04 	lds	r24, 0x0462
+    127a:	20 91 61 04 	lds	r18, 0x0461
+    127e:	90 e0       	ldi	r25, 0x00	; 0
+    1280:	4f 96       	adiw	r24, 0x1f	; 31
+    1282:	82 1b       	sub	r24, r18
+    1284:	91 09       	sbc	r25, r1
+    1286:	6f e1       	ldi	r22, 0x1F	; 31
+    1288:	70 e0       	ldi	r23, 0x00	; 0
+    128a:	0e 94 4d 09 	call	0x129a	; 0x129a <__divmodhi4>
 }/* uart_available */
-    131c:	08 95       	ret
+    128e:	08 95       	ret
 
-0000131e <_Z11uart0_flushv>:
+00001290 <_Z11uart0_flushv>:
  Input:    None
  Returns:  None
  **************************************************************************/
 void uart0_flush(void)
 {
 	UART0_RxHead = UART0_RxTail;
-    131e:	80 91 61 04 	lds	r24, 0x0461
-    1322:	80 93 62 04 	sts	0x0462, r24
-    1326:	08 95       	ret
+    1290:	80 91 61 04 	lds	r24, 0x0461
+    1294:	80 93 62 04 	sts	0x0462, r24
+    1298:	08 95       	ret
 
-00001328 <__divmodhi4>:
-    1328:	97 fb       	bst	r25, 7
-    132a:	07 2e       	mov	r0, r23
-    132c:	16 f4       	brtc	.+4      	; 0x1332 <__divmodhi4+0xa>
-    132e:	00 94       	com	r0
-    1330:	07 d0       	rcall	.+14     	; 0x1340 <__divmodhi4_neg1>
-    1332:	77 fd       	sbrc	r23, 7
-    1334:	09 d0       	rcall	.+18     	; 0x1348 <__divmodhi4_neg2>
-    1336:	0e 94 a8 09 	call	0x1350	; 0x1350 <__udivmodhi4>
-    133a:	07 fc       	sbrc	r0, 7
-    133c:	05 d0       	rcall	.+10     	; 0x1348 <__divmodhi4_neg2>
-    133e:	3e f4       	brtc	.+14     	; 0x134e <__divmodhi4_exit>
+0000129a <__divmodhi4>:
+    129a:	97 fb       	bst	r25, 7
+    129c:	07 2e       	mov	r0, r23
+    129e:	16 f4       	brtc	.+4      	; 0x12a4 <__divmodhi4+0xa>
+    12a0:	00 94       	com	r0
+    12a2:	07 d0       	rcall	.+14     	; 0x12b2 <__divmodhi4_neg1>
+    12a4:	77 fd       	sbrc	r23, 7
+    12a6:	09 d0       	rcall	.+18     	; 0x12ba <__divmodhi4_neg2>
+    12a8:	0e 94 61 09 	call	0x12c2	; 0x12c2 <__udivmodhi4>
+    12ac:	07 fc       	sbrc	r0, 7
+    12ae:	05 d0       	rcall	.+10     	; 0x12ba <__divmodhi4_neg2>
+    12b0:	3e f4       	brtc	.+14     	; 0x12c0 <__divmodhi4_exit>
 
-00001340 <__divmodhi4_neg1>:
-    1340:	90 95       	com	r25
-    1342:	81 95       	neg	r24
-    1344:	9f 4f       	sbci	r25, 0xFF	; 255
-    1346:	08 95       	ret
+000012b2 <__divmodhi4_neg1>:
+    12b2:	90 95       	com	r25
+    12b4:	81 95       	neg	r24
+    12b6:	9f 4f       	sbci	r25, 0xFF	; 255
+    12b8:	08 95       	ret
 
-00001348 <__divmodhi4_neg2>:
-    1348:	70 95       	com	r23
-    134a:	61 95       	neg	r22
-    134c:	7f 4f       	sbci	r23, 0xFF	; 255
+000012ba <__divmodhi4_neg2>:
+    12ba:	70 95       	com	r23
+    12bc:	61 95       	neg	r22
+    12be:	7f 4f       	sbci	r23, 0xFF	; 255
 
-0000134e <__divmodhi4_exit>:
-    134e:	08 95       	ret
+000012c0 <__divmodhi4_exit>:
+    12c0:	08 95       	ret
 
-00001350 <__udivmodhi4>:
-    1350:	aa 1b       	sub	r26, r26
-    1352:	bb 1b       	sub	r27, r27
-    1354:	51 e1       	ldi	r21, 0x11	; 17
-    1356:	07 c0       	rjmp	.+14     	; 0x1366 <__udivmodhi4_ep>
+000012c2 <__udivmodhi4>:
+    12c2:	aa 1b       	sub	r26, r26
+    12c4:	bb 1b       	sub	r27, r27
+    12c6:	51 e1       	ldi	r21, 0x11	; 17
+    12c8:	07 c0       	rjmp	.+14     	; 0x12d8 <__udivmodhi4_ep>
 
-00001358 <__udivmodhi4_loop>:
-    1358:	aa 1f       	adc	r26, r26
-    135a:	bb 1f       	adc	r27, r27
-    135c:	a6 17       	cp	r26, r22
-    135e:	b7 07       	cpc	r27, r23
-    1360:	10 f0       	brcs	.+4      	; 0x1366 <__udivmodhi4_ep>
-    1362:	a6 1b       	sub	r26, r22
-    1364:	b7 0b       	sbc	r27, r23
+000012ca <__udivmodhi4_loop>:
+    12ca:	aa 1f       	adc	r26, r26
+    12cc:	bb 1f       	adc	r27, r27
+    12ce:	a6 17       	cp	r26, r22
+    12d0:	b7 07       	cpc	r27, r23
+    12d2:	10 f0       	brcs	.+4      	; 0x12d8 <__udivmodhi4_ep>
+    12d4:	a6 1b       	sub	r26, r22
+    12d6:	b7 0b       	sbc	r27, r23
 
-00001366 <__udivmodhi4_ep>:
-    1366:	88 1f       	adc	r24, r24
-    1368:	99 1f       	adc	r25, r25
-    136a:	5a 95       	dec	r21
-    136c:	a9 f7       	brne	.-22     	; 0x1358 <__udivmodhi4_loop>
-    136e:	80 95       	com	r24
-    1370:	90 95       	com	r25
-    1372:	bc 01       	movw	r22, r24
-    1374:	cd 01       	movw	r24, r26
-    1376:	08 95       	ret
+000012d8 <__udivmodhi4_ep>:
+    12d8:	88 1f       	adc	r24, r24
+    12da:	99 1f       	adc	r25, r25
+    12dc:	5a 95       	dec	r21
+    12de:	a9 f7       	brne	.-22     	; 0x12ca <__udivmodhi4_loop>
+    12e0:	80 95       	com	r24
+    12e2:	90 95       	com	r25
+    12e4:	bc 01       	movw	r22, r24
+    12e6:	cd 01       	movw	r24, r26
+    12e8:	08 95       	ret
 
-00001378 <strcpy>:
-    1378:	fb 01       	movw	r30, r22
-    137a:	dc 01       	movw	r26, r24
-    137c:	01 90       	ld	r0, Z+
-    137e:	0d 92       	st	X+, r0
-    1380:	00 20       	and	r0, r0
-    1382:	e1 f7       	brne	.-8      	; 0x137c <strcpy+0x4>
-    1384:	08 95       	ret
+000012ea <strcpy>:
+    12ea:	fb 01       	movw	r30, r22
+    12ec:	dc 01       	movw	r26, r24
+    12ee:	01 90       	ld	r0, Z+
+    12f0:	0d 92       	st	X+, r0
+    12f2:	00 20       	and	r0, r0
+    12f4:	e1 f7       	brne	.-8      	; 0x12ee <strcpy+0x4>
+    12f6:	08 95       	ret
 
-00001386 <__itoa_ncheck>:
-    1386:	bb 27       	eor	r27, r27
-    1388:	4a 30       	cpi	r20, 0x0A	; 10
-    138a:	31 f4       	brne	.+12     	; 0x1398 <__itoa_ncheck+0x12>
-    138c:	99 23       	and	r25, r25
-    138e:	22 f4       	brpl	.+8      	; 0x1398 <__itoa_ncheck+0x12>
-    1390:	bd e2       	ldi	r27, 0x2D	; 45
-    1392:	90 95       	com	r25
-    1394:	81 95       	neg	r24
-    1396:	9f 4f       	sbci	r25, 0xFF	; 255
-    1398:	0c 94 cf 09 	jmp	0x139e	; 0x139e <__utoa_common>
+000012f8 <_exit>:
+    12f8:	f8 94       	cli
 
-0000139c <__utoa_ncheck>:
-    139c:	bb 27       	eor	r27, r27
-
-0000139e <__utoa_common>:
-    139e:	fb 01       	movw	r30, r22
-    13a0:	55 27       	eor	r21, r21
-    13a2:	aa 27       	eor	r26, r26
-    13a4:	88 0f       	add	r24, r24
-    13a6:	99 1f       	adc	r25, r25
-    13a8:	aa 1f       	adc	r26, r26
-    13aa:	a4 17       	cp	r26, r20
-    13ac:	10 f0       	brcs	.+4      	; 0x13b2 <__utoa_common+0x14>
-    13ae:	a4 1b       	sub	r26, r20
-    13b0:	83 95       	inc	r24
-    13b2:	50 51       	subi	r21, 0x10	; 16
-    13b4:	b9 f7       	brne	.-18     	; 0x13a4 <__utoa_common+0x6>
-    13b6:	a0 5d       	subi	r26, 0xD0	; 208
-    13b8:	aa 33       	cpi	r26, 0x3A	; 58
-    13ba:	08 f0       	brcs	.+2      	; 0x13be <__utoa_common+0x20>
-    13bc:	a9 5d       	subi	r26, 0xD9	; 217
-    13be:	a1 93       	st	Z+, r26
-    13c0:	00 97       	sbiw	r24, 0x00	; 0
-    13c2:	79 f7       	brne	.-34     	; 0x13a2 <__utoa_common+0x4>
-    13c4:	b1 11       	cpse	r27, r1
-    13c6:	b1 93       	st	Z+, r27
-    13c8:	11 92       	st	Z+, r1
-    13ca:	cb 01       	movw	r24, r22
-    13cc:	0c 94 e8 09 	jmp	0x13d0	; 0x13d0 <strrev>
-
-000013d0 <strrev>:
-    13d0:	dc 01       	movw	r26, r24
-    13d2:	fc 01       	movw	r30, r24
-    13d4:	67 2f       	mov	r22, r23
-    13d6:	71 91       	ld	r23, Z+
-    13d8:	77 23       	and	r23, r23
-    13da:	e1 f7       	brne	.-8      	; 0x13d4 <strrev+0x4>
-    13dc:	32 97       	sbiw	r30, 0x02	; 2
-    13de:	04 c0       	rjmp	.+8      	; 0x13e8 <strrev+0x18>
-    13e0:	7c 91       	ld	r23, X
-    13e2:	6d 93       	st	X+, r22
-    13e4:	70 83       	st	Z, r23
-    13e6:	62 91       	ld	r22, -Z
-    13e8:	ae 17       	cp	r26, r30
-    13ea:	bf 07       	cpc	r27, r31
-    13ec:	c8 f3       	brcs	.-14     	; 0x13e0 <strrev+0x10>
-    13ee:	08 95       	ret
-
-000013f0 <_exit>:
-    13f0:	f8 94       	cli
-
-000013f2 <__stop_program>:
-    13f2:	ff cf       	rjmp	.-2      	; 0x13f2 <__stop_program>
+000012fa <__stop_program>:
+    12fa:	ff cf       	rjmp	.-2      	; 0x12fa <__stop_program>
