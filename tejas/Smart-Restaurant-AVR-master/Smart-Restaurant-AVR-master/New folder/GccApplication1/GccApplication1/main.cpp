@@ -12,7 +12,32 @@ void selected_food();
 void change_food();
 void main_menu_test();
 
+void database_init_test()
+{
+	dfood[0]=foods(1,"Momo",100,0,0);
+		dfood[1]=foods(2,"Chow",200,0,0);
+	dfood[2]=foods(3,"Food",300,0,0);
+
+}
+
+void get_info_test()
+{
+	food[0]=dfood[0];
+	food[1]=dfood[1];
+	food[2]=dfood[2];
+	num_of_food=3;
+}
+
+void send_info_test()
+{
+	dfood[0]=food[0];
+	dfood[1]=food[1];
+	dfood[2]=food[2];
+		
+
+}
 int main() {
+	database_init_test();
 	sei();
 	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
 	// set up the LCD's number of columns and rows:
@@ -35,7 +60,9 @@ int main() {
 int select_food()
 {
 	wait_message();
-	get_info();
+	get_info_test();
+	//	num_of_food=3;
+
 	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
 	lcd_puts("Food");
@@ -57,11 +84,19 @@ int select_food()
 	lcd_setCursor(14,1);
 	lcd_num(food[selected_pk].num);
 
-
 	while(1)
 	{
 		int in=input();
-
+		if (in!=0)
+		{
+			_delay_ms(DELAY_BOUNCE);
+			in=input();
+			{
+				food[0]=dfood[0];
+				food[1]=dfood[1];
+				food[2]=dfood[2];
+			}
+		in=input();
 		if (in==up)
 		{
 			if (selected_pk==0)  selected_pk=num_of_food-1;
@@ -117,7 +152,7 @@ int select_food()
 		{
 			if (display_message1("Save the changes"))
 			{
-				send_info();
+				send_info_test();
 				return 1;
 			}
 
@@ -160,6 +195,7 @@ int select_food()
 
 
 		_delay_ms(DELAY_TIME_LOOP);
+		}
 	}
 
 }

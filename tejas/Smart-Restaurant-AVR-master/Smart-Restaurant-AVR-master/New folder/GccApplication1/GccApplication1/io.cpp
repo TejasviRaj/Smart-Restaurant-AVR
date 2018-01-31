@@ -15,6 +15,7 @@ extern "C"
 int up=001,down=10,right=11,left=100,del=101,ok=110,back=111;
 int num_of_food;
 int dnum_of_food;
+foods dfood[15];
 
 void lcd_setCursor(int x,int y)
 {

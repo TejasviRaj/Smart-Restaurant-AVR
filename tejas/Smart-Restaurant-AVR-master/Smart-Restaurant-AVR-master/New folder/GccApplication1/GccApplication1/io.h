@@ -9,8 +9,8 @@
 #define s_two PIND2
 #define DELAY_TIME 50
 #define DELAY_TIME_LOOP 300
-#define DELAY_TIME_STRAIGHT_START 70
-#define DELAY_TIME_GET_INFO 30
+#define DELAY_TIME_STRAIGHT_START 300
+#define DELAY_TIME_GET_INFO 300
 #define DELAY_BOUNCE 30
 
 
@@ -52,7 +52,19 @@ struct foods
   int num;
   int p;
   
-
+  foods(int id1,char name1[],int price1,int num1,int p1)
+	{
+		id=id1;
+		strcpy(name,name1);
+		price=price1;
+		num=num1;
+		p=p1;
+	}
+	
+	foods()
+	{
+		
+	}
 
 
   };
