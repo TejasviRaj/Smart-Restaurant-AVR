@@ -9,13 +9,13 @@ const char* host = "192.168.43.167";
 int id;
 int num;
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   delay(100);
   // We start by connecting to a WiFi network
- // Serial.println();
- // Serial.println();
-//  Serial.print("Connecting to ");
-//  Serial.println(ssid);
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -23,12 +23,12 @@ void setup() {
   }
  // Serial.println("");
   Serial.println("WiFi connected");
-//  Serial.println("IP address: ");
-//  Serial.println(WiFi.localIP());
-//  Serial.print("Netmask: ");
-//  Serial.println(WiFi.subnetMask());
-//  Serial.print("Gateway: ");
-//  Serial.println(WiFi.gatewayIP());
+ Serial.println("IP address: ");
+ Serial.println(WiFi.localIP());
+ Serial.print("Netmask: ");
+ Serial.println(WiFi.subnetMask());
+  Serial.print("Gateway: ");
+  Serial.println(WiFi.gatewayIP());
 }
  int value = 0;
 
@@ -37,15 +37,24 @@ void setup() {
   if(Serial.available())
     {
       char b=Serial.read();
+      Serial.print(b);
+      Serial.print(" ");
       if (b=='1')
       get_data();
       else if (b=='2')
       {
               char a=Serial.read();
+              Serial.print(a);
               id=Serial.parseInt();
+                Serial.print(id);
               a=Serial.read();
+                  Serial.print(a);
               num=Serial.parseInt();
+                        Serial.print(num);
+
               a=Serial.read();
+                        Serial.print(a);
+
               send_data();
               
       }
@@ -64,9 +73,10 @@ void get_data()
   WiFiClient client;
   const int httpPort = 80;
   if (!client.connect(host, httpPort)) {
-//    Serial.println("connection failed");
+    Serial.print("host_failed ");
     return;
   }
+    Serial.print("host_connected ");
 
   // We now create a URI for the request
  String url = "/get_data.php?id=" + String(id) + "&num="+ String(num);
@@ -150,13 +160,13 @@ void send_data()
 {
   delay(5000);
   ++value;
-  //Serial.print("connecting to ");
-  //Serial.println(host);
+  Serial.print("connecting to ");
+  Serial.println(host);
   // Use WiFiClient class to create TCP connections
   WiFiClient client;
   const int httpPort = 80;
   if (!client.connect(host, httpPort)) {
-   // Serial.println("connection failed");
+    Serial.println("connection failed");
     return;
   }
 
@@ -178,8 +188,8 @@ void send_data()
     //  Serial.println(line);
   }
 
- // Serial.println();
-  //Serial.println("closing connection");
+  Serial.println();
+  Serial.println("closing connection");
 }
 
 
