@@ -199,7 +199,7 @@ int select_food()
 void selected_food()
 {
 	wait_message();
-	get_info();
+	get_info_test();
 	_delay_ms(DELAY_TIME_GET_INFO);
 
 	lcd_clear();
@@ -223,11 +223,17 @@ void selected_food()
 		while(1)
 		{
 			int in=input();
+			if (in !=0)
+			{
+				_delay_ms(DELAY_BOUNCE);
+				in=input();
 			if (in == ok)
 			{
 				// _delay_ms(DELAY_TIME);
 				//mainmenu();
 				return ;
+			}
+			_delay_ms(DELAY_TIME_LOOP);
 			}
 		}
 
@@ -256,6 +262,10 @@ void selected_food()
 	while(1)
 	{
 		int in=input();
+		if (in !=0)
+		{
+			
+		in=input();
 
 		if (in==up)
 		{
@@ -280,6 +290,7 @@ void selected_food()
 		}
 
 		_delay_ms(DELAY_TIME_LOOP);
+		}
 	}
 }
 
