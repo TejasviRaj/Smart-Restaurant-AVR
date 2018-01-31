@@ -91,13 +91,7 @@ int select_food()
 		{
 			_delay_ms(DELAY_BOUNCE);
 			in=input();
-			{
-				food[0]=dfood[0];
-				food[1]=dfood[1];
-				food[2]=dfood[2];
-			}
-		in=input();
-		if (in==up)
+				if (in==up)
 		{
 			if (selected_pk==0)  selected_pk=num_of_food-1;
 			else selected_pk--;

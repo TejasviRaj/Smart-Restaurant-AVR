@@ -154,6 +154,10 @@ foods food[15];
               {
                     int in=input();
                   //  lcd_puts (in);
+				  if (in !=0)
+				  {
+					  _delay_ms(DELAY_BOUNCE);
+					  in =input();
                    if (state==1&& (in==left ||in==right))
                      {
                         lcd_setCursor(2,1);
@@ -173,9 +177,10 @@ foods food[15];
                   else if (in==ok)
                    return state;
 
-                   _delay_ms(DELAY_TIME_STRAIGHT_START);
+                   _delay_ms(DELAY_TIME_LOOP);
+				  }
                }
-
+				
        }
 
 
