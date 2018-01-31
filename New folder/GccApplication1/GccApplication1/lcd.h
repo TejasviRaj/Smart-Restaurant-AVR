@@ -1,5 +1,8 @@
-#ifndef LCD_H
-#define LCD_H
+
+#ifndef F_CPU 16000000UL
+#define F_CPU 16000000UL
+#endif
+
 
 #define CPORT PORTA
 #define RS 7
@@ -84,8 +87,6 @@ void lcd_puts(const char * s);
 void lcd_putc(char x);
 void lcd_num(int in);
 
-
-#endif
 
 
 

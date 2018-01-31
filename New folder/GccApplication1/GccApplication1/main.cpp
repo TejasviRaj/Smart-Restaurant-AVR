@@ -10,6 +10,7 @@ void  get_info();
 int select_food();
 void selected_food();
 void change_food();
+void test_mainmenu();
 
 int main() {
 	sei();
@@ -316,6 +317,12 @@ void mainmenu()
 
 }
 
+void  test_main()
+{
+	
+	
+}
+
 
 
 
@@ -480,5 +487,66 @@ void change_food()
 
 		_delay_ms(DELAY_TIME_LOOP);
 	}
+
+}
+
+
+void test_mainmenu()
+{
+	_delay_ms(DELAY_TIME_STRAIGHT_START);
+	lcd_clear();
+	num_of_food=0;
+	int state=0;
+	int first_visit=0;
+	main_menu_print(first_visit);
+
+	while(1)
+	{
+		int in=input();
+		//  lcd_puts (in);
+		if (state==0&& (in==up ||in==down || in== right || in ==left))
+		{
+			lcd_setCursor(0,0);
+			lcd_puts(" ");
+			lcd_setCursor(0,1);
+			lcd_puts(">");
+			state=1;
+		}
+		else if (state==1 && (in==up ||in==down || in== right || in ==left))
+		{
+			lcd_setCursor(0,1);
+			lcd_puts(" ");
+			lcd_setCursor(0,0);
+			lcd_puts(">");
+			state=0;
+		}
+		else if (in==ok || in==back || in== del)
+		{
+			//_delay_ms(DELAY_TIME);
+			if (state==0)
+			{
+				int c=0;
+				if (first_visit==0)
+				c=select_food();
+				else
+				change_food();
+				if (c==1)
+				first_visit=1;
+				state=0;
+				main_menu_print(first_visit);
+			}
+			else
+			//selected_food();
+			{
+				selected_food();
+				main_menu_print(first_visit);
+				state=0;
+			}
+
+		}
+		_delay_ms(DELAY_TIME_LOOP);
+	}
+
+
 
 }

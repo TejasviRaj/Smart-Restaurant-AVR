@@ -4,9 +4,9 @@
 #ifndef IO_H
 #define F_CPU 16000000UL
 #endif
-#define s_zero PINB0
-#define s_one PINB1
-#define s_two PINB2
+#define s_zero PINB3
+#define s_one PINB4
+#define s_two PINB5
 #define DELAY_TIME 50
 #define DELAY_TIME_LOOP 50
 #define DELAY_TIME_STRAIGHT_START 70
