@@ -54,7 +54,7 @@ foods food[15];
 	
 	int digitalRead (int s)
 	{
-		return (PINB & (1<<s));
+		return (PIND & (1<<s));
 	}
 
     void wait_message()

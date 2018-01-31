@@ -18,9 +18,9 @@ int main() {
 	// set up the LCD's number of columns and rows:
 	// pinMode(13,OUTPUT);
 	
-	DDRB&= ~(1<<s_zero);
-	DDRB&= ~(1<<s_one);
-   DDRB&= ~(1<<s_two);
+	DDRD&= ~(1<<s_zero);
+	DDRD&= ~(1<<s_one);
+   DDRD&= ~(1<<s_two);
 
 
 	lcd_init();
