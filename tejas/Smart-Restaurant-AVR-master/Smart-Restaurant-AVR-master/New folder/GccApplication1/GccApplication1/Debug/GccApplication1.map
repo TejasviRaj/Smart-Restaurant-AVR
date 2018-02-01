@@ -26,35 +26,77 @@ Discarded input sections
  .text          0x00000000        0x0 lcd.o
  .data          0x00000000        0x0 lcd.o
  .bss           0x00000000        0x0 lcd.o
+ .text._Z8lcd_gotoh
+                0x00000000        0xa lcd.o
+ .text._Z10lcd_gotoxyhh
+                0x00000000        0xe lcd.o
+ .text._Z8lcd_putsPKc
+                0x00000000       0x20 lcd.o
+ .text._Z8lcd_putcc
+                0x00000000        0x8 lcd.o
+ .text._Z7lcd_numi
+                0x00000000       0x84 lcd.o
  .text          0x00000000        0x0 io.o
  .data          0x00000000        0x0 io.o
  .bss           0x00000000        0x0 io.o
+ .text._Z13lcd_setCursorii
+                0x00000000        0xc io.o
  .text._Z10uart0_getsPc
                 0x00000000       0x88 io.o
  .text._Z12uart0_getintv
                 0x00000000       0x70 io.o
  .text._Z11digitalReadi
                 0x00000000       0x1c io.o
+ .rodata.str1.1
+                0x00000000       0x55 io.o
+ .text._Z12wait_messagev
+                0x00000000        0xe io.o
+ .text._Z15main_menu_printi
+                0x00000000       0x5e io.o
+ .text._Z17clear_second_linev
+                0x00000000       0x1e io.o
+ .text._Z17select_food_printi
+                0x00000000       0x5a io.o
+ .text._Z13cannot_cancelv
+                0x00000000       0x6c io.o
+ .text._Z16display_message1PKc
+                0x00000000      0x134 io.o
  .text._Z8get_infov
                 0x00000000       0x7c io.o
  .text._Z9send_infov
                 0x00000000       0x60 io.o
+ .bss.food      0x00000000      0x1a4 io.o
  .bss.dnum_of_food
                 0x00000000        0x2 io.o
+ .bss.num_of_food
+                0x00000000        0x2 io.o
+ .data.back     0x00000000        0x2 io.o
+ .data.ok       0x00000000        0x2 io.o
+ .data.del      0x00000000        0x2 io.o
+ .data.left     0x00000000        0x2 io.o
+ .data.right    0x00000000        0x2 io.o
+ .data.down     0x00000000        0x2 io.o
+ .data.up       0x00000000        0x2 io.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text._Z14main_menu_testv
-                0x00000000       0x3c main.o
+ .text._Z13get_info_testv
+                0x00000000       0x44 main.o
+ .text._Z14send_info_testv
+                0x00000000       0x38 main.o
+ .text._Z11select_foodv
+                0x00000000      0x2ba main.o
+ .text._Z13selected_foodv
+                0x00000000      0x254 main.o
+ .text._Z11change_foodv
+                0x00000000      0x326 main.o
+ .text._Z8mainmenuv
+                0x00000000      0x178 main.o
  .text          0x00000000        0x0 uart.o
  .data          0x00000000        0x0 uart.o
  .bss           0x00000000        0x0 uart.o
  .text._Z10uart0_getcv
                 0x00000000       0x36 uart.o
- .text._Z10uart0_putch
-                0x00000000       0x22 uart.o
- .text._Z12uart0_putinti
-                0x00000000       0x54 uart.o
  .text._Z10uart0_putsPKc
                 0x00000000       0x1e uart.o
  .text._Z12uart0_puts_pPKc
@@ -68,6 +110,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.mul
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.div
+                0x00000000       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.prologue
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
@@ -130,6 +174,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.mul
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.div
+                0x00000000       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.prologue
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
@@ -147,18 +193,12 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
- .text.avr-libc
-                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
- .text.avr-libc
-                0x00000000       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
- .text.avr-libc
-                0x00000000       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
 
 Memory Configuration
 
@@ -292,7 +332,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1134
+.text           0x00000000      0x48a
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -375,92 +415,50 @@ END GROUP
  .text._Z9lcd_clearv
                 0x000000f4       0x16 lcd.o
                 0x000000f4                _Z9lcd_clearv
- .text._Z8lcd_gotoh
-                0x0000010a        0xa lcd.o
-                0x0000010a                _Z8lcd_gotoh
- .text._Z10lcd_gotoxyhh
-                0x00000114        0xe lcd.o
-                0x00000114                _Z10lcd_gotoxyhh
  .text._Z8lcd_initv
-                0x00000122       0x78 lcd.o
-                0x00000122                _Z8lcd_initv
- .text._Z8lcd_putsPKc
-                0x0000019a       0x20 lcd.o
-                0x0000019a                _Z8lcd_putsPKc
- .text._Z8lcd_putcc
-                0x000001ba        0x8 lcd.o
-                0x000001ba                _Z8lcd_putcc
- .text._Z7lcd_numi
-                0x000001c2       0x84 lcd.o
-                0x000001c2                _Z7lcd_numi
- .text._Z13lcd_setCursorii
-                0x00000246        0xc io.o
-                0x00000246                _Z13lcd_setCursorii
- .text._Z12wait_messagev
-                0x00000252        0xe io.o
-                0x00000252                _Z12wait_messagev
+                0x0000010a       0x78 lcd.o
+                0x0000010a                _Z8lcd_initv
  .text._Z5inputv
-                0x00000260       0x18 io.o
-                0x00000260                _Z5inputv
- .text._Z15main_menu_printi
-                0x00000278       0x5e io.o
-                0x00000278                _Z15main_menu_printi
- .text._Z17clear_second_linev
-                0x000002d6       0x1e io.o
-                0x000002d6                _Z17clear_second_linev
- .text._Z17select_food_printi
-                0x000002f4       0x5a io.o
-                0x000002f4                _Z17select_food_printi
- .text._Z13cannot_cancelv
-                0x0000034e       0x6c io.o
-                0x0000034e                _Z13cannot_cancelv
- .text._Z16display_message1PKc
-                0x000003ba      0x134 io.o
-                0x000003ba                _Z16display_message1PKc
+                0x00000182       0x18 io.o
+                0x00000182                _Z5inputv
  .text._Z18database_init_testv
-                0x000004ee       0xea main.o
-                0x000004ee                _Z18database_init_testv
- .text._Z13get_info_testv
-                0x000005d8       0x44 main.o
-                0x000005d8                _Z13get_info_testv
- .text._Z14send_info_testv
-                0x0000061c       0x38 main.o
-                0x0000061c                _Z14send_info_testv
- .text._Z11select_foodv
-                0x00000654      0x2ba main.o
-                0x00000654                _Z11select_foodv
- .text._Z13selected_foodv
-                0x0000090e      0x254 main.o
-                0x0000090e                _Z13selected_foodv
- .text._Z11change_foodv
-                0x00000b62      0x326 main.o
-                0x00000b62                _Z11change_foodv
- .text._Z8mainmenuv
-                0x00000e88      0x178 main.o
-                0x00000e88                _Z8mainmenuv
- .text.main     0x00001000       0x1c main.o
-                0x00001000                main
+                0x0000019a       0xea main.o
+                0x0000019a                _Z18database_init_testv
+ .text._Z14main_menu_testv
+                0x00000284       0x42 main.o
+                0x00000284                _Z14main_menu_testv
+ .text.main     0x000002c6       0x1c main.o
+                0x000002c6                main
  .text.__vector_13
-                0x0000101c       0x52 uart.o
-                0x0000101c                __vector_13
+                0x000002e2       0x52 uart.o
+                0x000002e2                __vector_13
  .text.__vector_14
-                0x0000106e       0x4a uart.o
-                0x0000106e                __vector_14
+                0x00000334       0x4a uart.o
+                0x00000334                __vector_14
  .text._Z10uart0_initj
-                0x000010b8       0x28 uart.o
-                0x000010b8                _Z10uart0_initj
- .text.libgcc.div
-                0x000010e0       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
-                0x000010e0                _div
-                0x000010e0                __divmodhi4
- .text.libgcc.div
-                0x00001108       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001108                __udivmodhi4
-                0x00001130                . = ALIGN (0x2)
+                0x0000037e       0x28 uart.o
+                0x0000037e                _Z10uart0_initj
+ .text._Z10uart0_putch
+                0x000003a6       0x22 uart.o
+                0x000003a6                _Z10uart0_putch
+ .text._Z12uart0_putinti
+                0x000003c8       0x54 uart.o
+                0x000003c8                _Z12uart0_putinti
+ .text.avr-libc
+                0x0000041c       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x0000041c                __itoa_ncheck
+ .text.avr-libc
+                0x00000432       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x00000432                __utoa_ncheck
+                0x00000434                __utoa_common
+ .text.avr-libc
+                0x00000466       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000466                strrev
+                0x00000486                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001130        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00001130                _exit
-                0x00001130                exit
+ .fini9         0x00000486        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000486                _exit
+                0x00000486                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -479,77 +477,53 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001130        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000486        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001134                _etext = .
+                0x0000048a                _etext = .
 
-.data           0x00800060       0xb6 load address 0x00001134
+.data           0x00800060       0x64 load address 0x0000048a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.back     0x00800060        0x2 io.o
-                0x00800060                back
- .data.ok       0x00800062        0x2 io.o
-                0x00800062                ok
- .data.del      0x00800064        0x2 io.o
-                0x00800064                del
- .data.left     0x00800066        0x2 io.o
-                0x00800066                left
- .data.right    0x00800068        0x2 io.o
-                0x00800068                right
- .data.down     0x0080006a        0x2 io.o
-                0x0080006a                down
- .data.up       0x0080006c        0x2 io.o
-                0x0080006c                up
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0080006e       0x53 io.o
-                                 0x55 (size before relaxing)
- .rodata.str1.1
-                0x008000c1       0x54 main.o
-                                 0x64 (size before relaxing)
+                0x00800060       0x64 main.o
  *(.gnu.linkonce.d*)
-                0x00800116                . = ALIGN (0x2)
- *fill*         0x00800115        0x1 
-                0x00800116                _edata = .
-                0x00800116                PROVIDE (__data_end, .)
+                0x008000c4                . = ALIGN (0x2)
+                0x008000c4                _edata = .
+                0x008000c4                PROVIDE (__data_end, .)
 
-.bss            0x00800116      0x38f
-                0x00800116                PROVIDE (__bss_start, .)
+.bss            0x008000c4      0x1e9
+                0x008000c4                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.food      0x00800116      0x1a4 io.o
-                0x00800116                food
- .bss.dfood     0x008002ba      0x1a4 io.o
-                0x008002ba                dfood
- .bss.num_of_food
-                0x0080045e        0x2 io.o
-                0x0080045e                num_of_food
+ .bss.dfood     0x008000c4      0x1a4 io.o
+                0x008000c4                dfood
  .bss._ZL17UART0_LastRxError
-                0x00800460        0x1 uart.o
+                0x00800268        0x1 uart.o
  .bss._ZL12UART0_RxTail
-                0x00800461        0x1 uart.o
+                0x00800269        0x1 uart.o
  .bss._ZL12UART0_RxHead
-                0x00800462        0x1 uart.o
+                0x0080026a        0x1 uart.o
  .bss._ZL12UART0_TxTail
-                0x00800463        0x1 uart.o
+                0x0080026b        0x1 uart.o
  .bss._ZL12UART0_TxHead
-                0x00800464        0x1 uart.o
+                0x0080026c        0x1 uart.o
  .bss._ZL11UART0_RxBuf
-                0x00800465       0x20 uart.o
+                0x0080026d       0x20 uart.o
  .bss._ZL11UART0_TxBuf
-                0x00800485       0x20 uart.o
+                0x0080028d       0x20 uart.o
  *(COMMON)
-                0x008004a5                PROVIDE (__bss_end, .)
-                0x00001134                __data_load_start = LOADADDR (.data)
-                0x000011ea                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008002ad                PROVIDE (__bss_end, .)
+                0x0000048a                __data_load_start = LOADADDR (.data)
+                0x000004ee                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008004a5        0x0
+.noinit         0x008002ad        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008004a5                _end = .
+                0x008002ad                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -631,26 +605,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2ec1
+.debug_info     0x00000000     0x2edb
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4c9 lcd.o
  .debug_info    0x000004c9      0xe7a io.o
- .debug_info    0x00001343     0x16ba main.o
- .debug_info    0x000029fd      0x4c4 uart.o
+ .debug_info    0x00001343     0x16d4 main.o
+ .debug_info    0x00002a17      0x4c4 uart.o
 
-.debug_abbrev   0x00000000      0xa9d
+.debug_abbrev   0x00000000      0xabe
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1e6 lcd.o
  .debug_abbrev  0x000001e6      0x356 io.o
- .debug_abbrev  0x0000053c      0x34c main.o
- .debug_abbrev  0x00000888      0x215 uart.o
+ .debug_abbrev  0x0000053c      0x36d main.o
+ .debug_abbrev  0x000008a9      0x215 uart.o
 
-.debug_line     0x00000000     0x1441
+.debug_line     0x00000000     0x1460
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x3a3 lcd.o
  .debug_line    0x000003a3      0x531 io.o
- .debug_line    0x000008d4      0x8d6 main.o
- .debug_line    0x000011aa      0x297 uart.o
+ .debug_line    0x000008d4      0x8f5 main.o
+ .debug_line    0x000011c9      0x297 uart.o
 
 .debug_frame    0x00000000      0x494
  *(.debug_frame)
@@ -666,16 +640,16 @@ END GROUP
  .debug_str     0x000002ba      0x2c7 io.o
                                 0x556 (size before relaxing)
  .debug_str     0x00000581      0x149 main.o
-                                0x51a (size before relaxing)
+                                0x53e (size before relaxing)
  .debug_str     0x000006ca      0x11e uart.o
                                 0x3cd (size before relaxing)
 
-.debug_loc      0x00000000     0x143c
+.debug_loc      0x00000000     0x142c
  *(.debug_loc)
  .debug_loc     0x00000000      0x215 lcd.o
  .debug_loc     0x00000215      0x706 io.o
- .debug_loc     0x0000091b      0x72f main.o
- .debug_loc     0x0000104a      0x3f2 uart.o
+ .debug_loc     0x0000091b      0x71f main.o
+ .debug_loc     0x0000103a      0x3f2 uart.o
 
 .debug_macinfo
  *(.debug_macinfo)

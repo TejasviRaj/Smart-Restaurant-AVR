@@ -1,13 +1,43 @@
 #include <ESP8266WiFi.h>
+#include<string.h>
 void get_data();
 void send_data();
 
 
-const char* ssid     = "harke";
+const char* ssid     = "harkabahadur";
 const char* password = "bodhinamaskar";
-const char* host = "192.168.43.167";
+const char* host = "192.168.43.65";
 int id;
 int num;
+
+void uart0_gets(char s[])
+  {
+    char return_char[100];
+    int index=0;
+      do
+      {
+        while (!Serial.available()) {}
+        return_char[index]=Serial.read();
+        index++;
+      }
+          while(return_char[index-1] != ' ');
+      return_char[index-1]='\0';
+      strcpy(s,return_char);    
+  }
+  
+  int uart0_getint()
+  {
+    char d[5];
+    uart0_gets(d);
+    
+    int ans=0;
+    for (unsigned int i=0;i<strlen(d);i++)
+    {
+      ans=ans*10+(d[i]-'0');
+    }
+    return ans;
+  }
+  
 void setup() {
   Serial.begin(9600);
   delay(100);
@@ -36,24 +66,20 @@ void setup() {
 
   if(Serial.available())
     {
-      char b=Serial.read();
+      int b;
+      b =uart0_getint();
       Serial.print(b);
       Serial.print(" ");
-      if (b=='1')
+      if (b==1)
       get_data();
-      else if (b=='2')
+      else if (b==2)
       {
-              char a=Serial.read();
-              Serial.print(a);
-              id=Serial.parseInt();
+              id=uart0_getint();
                 Serial.print(id);
-              a=Serial.read();
-                  Serial.print(a);
-              num=Serial.parseInt();
-                        Serial.print(num);
-
-              a=Serial.read();
-                        Serial.print(a);
+                  Serial.print(" ");
+              num=uart0_getint();
+                    Serial.print(num);
+              Serial.print(' ');
 
               send_data();
               
@@ -65,7 +91,7 @@ void setup() {
 
 void get_data()
 {
-  delay(5000);
+ // delay(50);
   ++value;
 //  Serial.print("connecting to ");
 //  Serial.println(host);
@@ -92,6 +118,7 @@ void get_data()
   delay(500);
   int flag=0;
   // Read all the lines of the reply from server and print them to Serial
+  while(!client.available()) {}
   while(client.available()){
     if (flag==0)
     {
@@ -158,7 +185,7 @@ void get_data()
 
 void send_data()
 {
-  delay(5000);
+ // delay(5000);
   ++value;
   Serial.print("connecting to ");
   Serial.println(host);
@@ -191,6 +218,7 @@ void send_data()
   Serial.println();
   Serial.println("closing connection");
 }
+
 
 
 

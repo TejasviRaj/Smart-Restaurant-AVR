@@ -39,20 +39,13 @@ void send_info_test()
 int main() {
 	database_init_test();
 	sei();
-	uart0_init(UART_BAUD_SELECT(9600,F_CPU));
-	// set up the LCD's number of columns and rows:
-	// pinMode(13,OUTPUT);
-	
+	uart0_init(UART_BAUD_SELECT(9600,F_CPU));	
 	DDRD&= ~(1<<s_zero);
 	DDRD&= ~(1<<s_one);
    DDRD&= ~(1<<s_two);
-
-
 	lcd_init();
-	mainmenu();
-	//main_menu();
-	// puts a message to the lcd_
-	//  lcd_puts("hello, world!");
+	main_menu_test();
+
 }
 
 
@@ -295,20 +288,41 @@ void selected_food()
 }
 
 void main_menu_test()
+
 {
-	while(1)
-	{
+	
+	//while (!uart0_available()) {}
+		//_delay_ms(5000);
+	//while (1)
+	//{
+			//
+					//int c=uart0_getint();
+					//uart0_putint(c+2);
+					//uart0_putc(' ');
+			//
+			while (1)
+			{
+				
+			
+			int in=input();
+		if (in !=0)
+		{
+			
+			for (int i=0;i<6;i++)
+			{
+				uart0_putint(2);
+				uart0_putc(' ');
+				uart0_putint(i);
+				uart0_putc(' ');
+				uart0_putint(i+10);
+				uart0_putc(' ');
+
+
+			}
+		}
+			}
 		
-	int in=input();
-	if (in!=000)
-	{
-		_delay_ms(DELAY_BOUNCE);
-		in=input();
-		lcd_num(in);
-		lcd_putc(' ');
-		_delay_ms(DELAY_TIME_LOOP);
-	}
-}
+	
 }
 
 
