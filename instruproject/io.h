@@ -41,7 +41,7 @@ struct foods
   int price;
   int num;
   int p;
-
+  
 
 
   };

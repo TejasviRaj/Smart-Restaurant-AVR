@@ -8,6 +8,10 @@
 #ifndef UART_H
 #define UART_H
 
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif 
+
 /************************************************************************
 Title:    Interrupt UART library with receive/transmit circular buffers
 Author:   Peter Fleury <pfleury@gmx.ch>   http://jump.to/fleury

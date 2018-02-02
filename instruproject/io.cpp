@@ -185,6 +185,7 @@ void get_info()
   do
   {
     a=Serial.read();
+    lcd.print(a);
   }
     while(a!= '=');
   num_of_food=uart0_getint();
@@ -223,11 +224,6 @@ for (int i=0;i<num_of_food;i++)
 
 
     //food class declaration
-   // foods::foods()
-   // {
-   // }
-   // foods::foods(int id, String name,int price, int num,int p) : id(id),name(name),price(price),num(num),p(p)
-   //  {
-   //
-   //
-   //  }
+  
+  
+

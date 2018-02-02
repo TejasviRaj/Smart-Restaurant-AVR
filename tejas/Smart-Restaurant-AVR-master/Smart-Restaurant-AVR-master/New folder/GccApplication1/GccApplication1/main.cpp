@@ -37,23 +37,15 @@ void send_info_test()
 
 }
 int main() {
-	database_init_test();
+	//database_init_test();
 	sei();
 	uart0_init(UART_BAUD_SELECT(9600,F_CPU));	
 	DDRD&= ~(1<<s_zero);
 	DDRD&= ~(1<<s_one);
    DDRD&= ~(1<<s_two);
 	lcd_init();
-//	main_menu_test();
-		while(1)
-		{
-			lcd_putc('a');
-
-			lcd_setCursor(2,1);
-						lcd_putc('a');
-						_delay_ms(1000);
-
-		}
+	mainmenu();
+	
 
 }
 
@@ -62,7 +54,7 @@ int main() {
 int select_food()
 {
 	wait_message();
-	get_info_test();
+	get_info();
 	//	num_of_food=3;
 
 	_delay_ms(DELAY_TIME_GET_INFO);
@@ -148,7 +140,7 @@ int select_food()
 		{
 			if (display_message1("Save the changes"))
 			{
-				send_info_test();
+				send_info();
 				return 1;
 			}
 
@@ -201,7 +193,7 @@ int select_food()
 void selected_food()
 {
 	wait_message();
-	get_info_test();
+	get_info();
 	_delay_ms(DELAY_TIME_GET_INFO);
 
 	lcd_clear();
@@ -415,7 +407,7 @@ void mainmenu()
 void change_food()
 {
 	wait_message();
-	get_info_test();
+	get_info();
 	_delay_ms(DELAY_TIME_GET_INFO);
 	lcd_clear();
 	lcd_puts("Food");
@@ -527,7 +519,7 @@ void change_food()
 		{
 			if (display_message1("Save the changes"))
 			{
-				send_info_test();
+				send_info();
 				//_delay_ms(DELAY_TIME);
 				return;
 			}

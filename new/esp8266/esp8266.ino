@@ -6,7 +6,7 @@ void send_data();
 
 const char* ssid     = "harkabahadur";
 const char* password = "bodhinamaskar";
-const char* host = "192.168.43.65";
+const char* host = "192.168.137.1";
 int id;
 int num;
 

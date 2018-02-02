@@ -24,7 +24,7 @@ void setup() {
   //Serial.print(447);
   //Serial.print(" Hello");
   //Serial.print(" ");
- // mainmenu();
+  mainmenu();
   // Print a message to the LCD.
 //  lcd.print("hello, world!");
 }
@@ -239,7 +239,7 @@ void selected_food()
     {
       if (food[i].num>0)
       {
-        ar[count]=food[i].id;
+        ar[count]=i;
     //    lcd.print(ar[count]);
         count++;
       }
