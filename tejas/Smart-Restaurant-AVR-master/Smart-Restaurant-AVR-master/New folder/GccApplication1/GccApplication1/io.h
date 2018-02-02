@@ -12,6 +12,7 @@
 #define DELAY_TIME_STRAIGHT_START 300
 #define DELAY_TIME_GET_INFO 300
 #define DELAY_BOUNCE 30
+#define DELAY_FLUSH 1000
 
 
 #include<avr/io.h>

@@ -40,7 +40,7 @@ Discarded input sections
  .text._Z11digitalReadi
                 0x00000000       0x1c io.o
  .rodata.str1.1
-                0x00000000       0x55 io.o
+                0x00000000       0x58 io.o
  .text._Z12wait_messagev
                 0x00000000        0xe io.o
  .text._Z5inputv
@@ -56,7 +56,7 @@ Discarded input sections
  .text._Z16display_message1PKc
                 0x00000000      0x134 io.o
  .text._Z8get_infov
-                0x00000000       0x7c io.o
+                0x00000000       0x9e io.o
  .text._Z9send_infov
                 0x00000000       0x60 io.o
  .bss.food      0x00000000      0x1a4 io.o
@@ -601,26 +601,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2e91
+.debug_info     0x00000000     0x2f1f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4c9 lcd.o
- .debug_info    0x000004c9      0xe7a io.o
- .debug_info    0x00001343     0x168a main.o
- .debug_info    0x000029cd      0x4c4 uart.o
+ .debug_info    0x000004c9      0xf08 io.o
+ .debug_info    0x000013d1     0x168a main.o
+ .debug_info    0x00002a5b      0x4c4 uart.o
 
-.debug_abbrev   0x00000000      0xaaf
+.debug_abbrev   0x00000000      0xabc
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1e6 lcd.o
- .debug_abbrev  0x000001e6      0x356 io.o
- .debug_abbrev  0x0000053c      0x35e main.o
- .debug_abbrev  0x0000089a      0x215 uart.o
+ .debug_abbrev  0x000001e6      0x363 io.o
+ .debug_abbrev  0x00000549      0x35e main.o
+ .debug_abbrev  0x000008a7      0x215 uart.o
 
-.debug_line     0x00000000     0x1439
+.debug_line     0x00000000     0x1463
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x3a3 lcd.o
- .debug_line    0x000003a3      0x531 io.o
- .debug_line    0x000008d4      0x8ce main.o
- .debug_line    0x000011a2      0x297 uart.o
+ .debug_line    0x000003a3      0x55b io.o
+ .debug_line    0x000008fe      0x8ce main.o
+ .debug_line    0x000011cc      0x297 uart.o
 
 .debug_frame    0x00000000      0x494
  *(.debug_frame)
@@ -640,12 +640,12 @@ END GROUP
  .debug_str     0x000006ca      0x11e uart.o
                                 0x3cd (size before relaxing)
 
-.debug_loc      0x00000000     0x1414
+.debug_loc      0x00000000     0x1427
  *(.debug_loc)
  .debug_loc     0x00000000      0x215 lcd.o
- .debug_loc     0x00000215      0x706 io.o
- .debug_loc     0x0000091b      0x707 main.o
- .debug_loc     0x00001022      0x3f2 uart.o
+ .debug_loc     0x00000215      0x719 io.o
+ .debug_loc     0x0000092e      0x707 main.o
+ .debug_loc     0x00001035      0x3f2 uart.o
 
 .debug_macinfo
  *(.debug_macinfo)

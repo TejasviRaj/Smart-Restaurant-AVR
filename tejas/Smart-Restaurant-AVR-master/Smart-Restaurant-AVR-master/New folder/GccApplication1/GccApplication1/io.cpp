@@ -194,9 +194,18 @@ foods food[15];
 
 void get_info()
 {
+	_delay_ms(DELAY_FLUSH);
+   char a ;
+   char c[30];
+	int i;
+	while(uart0_available()) a=uart0_getc();
 	uart0_flush();
-  uart0_putc('1');
-  while (!(uart0_available()) ) {}
+  uart0_puts("[ ");
+  do 
+  {
+	  a=uart0_getc();
+  }
+  while (a!='=');
   num_of_food=uart0_getint();
 //  Serial.puts (num+1);
 
@@ -233,7 +242,7 @@ for (int i=0;i<num_of_food;i++)
         {
           for (int i=0;i<num_of_food;i++)
               {
-                uart0_puts("2 ");
+                uart0_puts("] ");
 				uart0_putint(food[i].id);
                 uart0_putc(' ');
                 uart0_putint(food[i].num);
