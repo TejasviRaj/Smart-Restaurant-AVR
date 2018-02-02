@@ -45,10 +45,14 @@ void loop() {
         
         if(in !=000 )
         {
-          delay(10);
+          delay(30);
           in=input();
+          if (in==ok)
+          {
+             Serial.print("HI ");
+
           get_info();
-        //  Serial.print("OK ");
+          Serial.print("OK ");
           for (int i=0;i<num_of_food;i++)
             {
                 Serial.print(food[i].id);
@@ -61,10 +65,20 @@ void loop() {
                             Serial.print(" ");
                              Serial.print(food[i].p);
                             Serial.print(" ");
+          }
+          
 
             }
 
+            if (in==back)
+            {
+              Serial.print("] 1 9 ] 2 0 ] 3 1 ");
+            }
+              delay(200);
         }
+
+//Serial.print("2 3 5 ");
+//delay(1000);
 
 
 
@@ -386,7 +400,7 @@ void change_food()
 {
   wait_message();
     get_info();
-    delay(DELAY_TIME7_GET_INFO);
+    delay(DELAY_TIME_GET_INFO);
     lcd.clear();
     lcd.print("Food");
 
@@ -547,3 +561,4 @@ void change_food()
       }
 
 }
+

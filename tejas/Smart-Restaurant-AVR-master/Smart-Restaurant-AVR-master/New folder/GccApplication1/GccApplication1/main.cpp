@@ -44,7 +44,16 @@ int main() {
 	DDRD&= ~(1<<s_one);
    DDRD&= ~(1<<s_two);
 	lcd_init();
-	main_menu_test();
+//	main_menu_test();
+		while(1)
+		{
+			lcd_putc('a');
+
+			lcd_setCursor(2,1);
+						lcd_putc('a');
+						_delay_ms(1000);
+
+		}
 
 }
 
@@ -299,29 +308,30 @@ void main_menu_test()
 					//int c=uart0_getint();
 					//uart0_putint(c+2);
 					//uart0_putc(' ');
+			////
+			//while (1)
+			//{
+				//
 			//
-			while (1)
-			{
-				
-			
-			int in=input();
-		if (in !=0)
-		{
-			
-			for (int i=0;i<6;i++)
-			{
-				uart0_putint(2);
-				uart0_putc(' ');
-				uart0_putint(i);
-				uart0_putc(' ');
-				uart0_putint(i+10);
-				uart0_putc(' ');
-
-
-			}
-		}
-			}
-		
+			//int in=input();
+		//if (in !=0)
+		//{
+			//
+			//for (int i=0;i<6;i++)
+			//{
+				//uart0_putint(2);
+				//uart0_putc(' ');
+				//uart0_putint(i);
+				//uart0_putc(' ');
+				//uart0_putint(i+10);
+				//uart0_putc(' ');
+//
+//
+			//}
+		//}
+			//}
+		//
+		lcd_puts("hello");
 	
 }
 

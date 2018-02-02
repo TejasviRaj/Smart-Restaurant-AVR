@@ -166,14 +166,17 @@ foods food[15];
 void get_info()
 {
  delay(1000);
+ int i;
  char a;
+ char c[30];
  while (Serial.available()) a=Serial.read();
  Serial.flush();
-  Serial.write("1 ");
-
-  int aaa=uart0_getint();
-  char c[12];
-  uart0_gets(c);
+  Serial.write("[ ");
+  do
+  {
+    a=Serial.read();
+  }
+    while(a!= '=');
   num_of_food=uart0_getint();
   
 for (int i=0;i<num_of_food;i++)
@@ -195,7 +198,7 @@ for (int i=0;i<num_of_food;i++)
         {
           for (int i=0;i<num_of_food;i++)
               {
-                Serial.print("2 ");
+                Serial.print("] ");
                 Serial.print(food[i].id);
                 Serial.print(' ');
                 Serial.print(food[i].num);

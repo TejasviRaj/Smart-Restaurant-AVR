@@ -66,14 +66,20 @@ void setup() {
 
   if(Serial.available())
     {
-      int b;
-      b =uart0_getint();
+      char b;
+      b =Serial.read();
       Serial.print(b);
       Serial.print(" ");
-      if (b==1)
-      get_data();
-      else if (b==2)
+      if (b=='[')
       {
+        b=Serial.read();
+                get_data();
+
+      }
+      else if (b==']')
+      {
+                b=Serial.read();
+
               id=uart0_getint();
                 Serial.print(id);
                   Serial.print(" ");
@@ -99,10 +105,10 @@ void get_data()
   WiFiClient client;
   const int httpPort = 80;
   if (!client.connect(host, httpPort)) {
-    Serial.print("host_failed ");
+    Serial.print('!');
     return;
   }
-    Serial.print("host_connected ");
+    Serial.print('=');
 
   // We now create a URI for the request
  String url = "/get_data.php?id=" + String(id) + "&num="+ String(num);
