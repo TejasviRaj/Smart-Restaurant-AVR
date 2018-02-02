@@ -3,10 +3,10 @@
 
 #include "Arduino.h"
 #include "LiquidCrystal.h"
-#define DELAY_BOUNCE 200
-#define DELAY_LOOP 300
-#define DELAY_TIME_GET_INFO 400
-#define DELAY_STRAIGHT 500
+#define DELAY_BOUNCE 30
+#define DELAY_LOOP 200
+#define DELAY_TIME_GET_INFO 200
+#define DELAY_STRAIGHT 200
 
 extern LiquidCrystal lcd;
 class foods;

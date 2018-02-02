@@ -102,7 +102,7 @@ foods food[15];
 
      void cannot_cancel()
      {
-          delay(180);
+          delay(DELAY_STRAIGHT);
           lcd.clear();
          lcd.print(" Cannot Cancel ");
          lcd.setCursor(6,1);
@@ -110,18 +110,21 @@ foods food[15];
          while(1)
            {
              int in=input();
+             if(in !=0)
+             {
+              delay(DELAY_BOUNCE);
+             in=input();
              if (in == ok)
-               {
-                 delay(180);
-                 //mainmenu();
                  return ;
-                }
+             delay(DELAY_LOOP); 
+                
            }
      }
-
+     }
      //confirmation messages
      int display_message(String s)
        {
+            delay(DELAY_STRAIGHT);
            lcd.clear();
            lcd.print(s);
            lcd.setCursor(2,1);
@@ -136,6 +139,11 @@ foods food[15];
               {
                     int in=input();
                   //  lcd.print (in);
+                  if (in !=0)
+                  {
+                    delay(DELAY_BOUNCE);
+                    in=input();
+                 
                    if (state==1&& (in==left ||in==right))
                      {
                         lcd.setCursor(2,1);
@@ -155,7 +163,8 @@ foods food[15];
                   else if (in==ok)
                    return state;
 
-                   delay(180);
+                   delay(DELAY_LOOP);
+                  }
                }
 
        }
@@ -165,6 +174,7 @@ foods food[15];
 
 void get_info()
 {
+ // wait_message();
  delay(1000);
  int i;
  char a;
@@ -196,6 +206,7 @@ for (int i=0;i<num_of_food;i++)
 
       void send_info()
         {
+         // wait_message();
           for (int i=0;i<num_of_food;i++)
               {
                 Serial.print("] ");
