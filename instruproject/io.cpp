@@ -78,7 +78,6 @@ foods food[15];
    void select_food_print(int selected_pk)
      {
                clear_second_line();
-
                 lcd.setCursor(0,1);
 
                 lcd.print(food[selected_pk].name);
@@ -184,8 +183,9 @@ void get_info()
   Serial.write("[ ");
   do
   {
+//    while(!Serial.available()) {}
     a=Serial.read();
-    lcd.print(a);
+   // lcd.print(a);
   }
     while(a!= '=');
   num_of_food=uart0_getint();

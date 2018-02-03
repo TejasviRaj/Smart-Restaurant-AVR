@@ -14,9 +14,11 @@ void main_menu_test();
 
 void database_init_test()
 {
-	dfood[0]=foods(1,"Momo",100,0,0);
-		dfood[1]=foods(2,"Chow",200,0,1);
-	dfood[2]=foods(3,"Food",300,0,0);
+	dfood[0]=foods(1,"Chow",100,0,0);
+		dfood[1]=foods(2,"Thukpa",80,0,1);
+	dfood[2]=foods(3,"Samosa",15,0,1);
+		dfood[3]=foods(4,"Soup",70,0,0);
+
 
 }
 
@@ -258,7 +260,7 @@ void selected_food()
 		int in=input();
 		if (in !=0)
 		{
-			
+			_delay_ms(DELAY_BOUNCE);
 		in=input();
 
 		if (in==up)

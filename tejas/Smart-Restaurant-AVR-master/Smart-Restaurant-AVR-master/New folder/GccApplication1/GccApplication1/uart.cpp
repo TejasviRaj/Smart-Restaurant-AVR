@@ -1,4 +1,9 @@
-
+/*
+ *  uart.cpp
+ *
+ *  Created:2017/05/06
+ *  Edited By :Bibek Shrestha
+ */
 /*************************************************************************
 Title:    Interrupt UART library with receive/transmit circular buffers
 Author:   Peter Fleury <pfleury@gmx.ch>   http://jump.to/fleury
@@ -110,7 +115,7 @@ Date        Description
 #error TX buffer size is not a power of 2
 #endif
 
-#if defined(__AVR_AT90s_two313__) \
+#if defined(__AVR_AT90S2313__) \
  || defined(__AVR_AT90S4414__) || defined(__AVR_AT90S4434__) \
  || defined(__AVR_AT90S8515__) || defined(__AVR_AT90S8535__) \
  || defined(__AVR_ATmega103__)
@@ -122,7 +127,7 @@ Date        Description
  #define UART0_CONTROL  UCR
  #define UART0_DATA     UDR
  #define UART0_UDRIE    UDRIE
-#elif defined(__AVR_AT90s_two333__) || defined(__AVR_AT90S4433__)
+#elif defined(__AVR_AT90S2333__) || defined(__AVR_AT90S4433__)
  /* old AVR classic with one UART */
  #define AT90_UART
  #define UART0_RECEIVE_INTERRUPT   UART_RX_vect
@@ -481,11 +486,11 @@ void uart0_init(unsigned int baudrate)
 
 #elif defined (ATMEGA_USART)
 	/* Set baud rate */
-	if (baudrate & 0x8000)
-	{
-		UART0_STATUS = (1 << U2X);  //Enable 2x speed
-		baudrate &= ~0x8000;
-	}
+	// if (baudrate & 0x8000)
+	// {
+	// 	UART0_STATUS = (1 << U2X0);  //Enable 2x speed
+	// 	baudrate &= ~0x8000;
+	// }
 	UBRRH = (unsigned char)(baudrate >> 8);
 	UBRRL = (unsigned char)baudrate;
 
@@ -1113,7 +1118,7 @@ void uart2_flush(void)
 
 #if defined( ATMEGA_USART3 ) && defined(USING_UART3)
 
-
+extern volatile unsigned char Rx_Buffer;
 
 ISR(UART3_RECEIVE_INTERRUPT)
 /*************************************************************************

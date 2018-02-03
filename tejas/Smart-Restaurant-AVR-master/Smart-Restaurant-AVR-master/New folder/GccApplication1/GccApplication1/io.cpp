@@ -1,4 +1,4 @@
-#ifndef IO_H
+#ifndef F_CPU
 #define F_CPU 16000000UL
 #endif
 
@@ -194,12 +194,12 @@ foods food[15];
 
 void get_info()
 {
-	//_delay_ms(DELAY_FLUSH);
+	_delay_ms(DELAY_FLUSH);
    char a ;
    char c[30];
 	int i;
 	while(uart0_available()) a=uart0_getc();
-	//uart0_flush();
+	uart0_flush();
   uart0_puts("[ ");
   do 
   {
