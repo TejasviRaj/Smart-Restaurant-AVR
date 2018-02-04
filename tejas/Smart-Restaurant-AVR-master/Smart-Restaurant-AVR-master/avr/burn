@@ -1,1 +1,0 @@
-avrdude -p m32 -c usbasp -U flash:w:program.hex:i -F -P usb
